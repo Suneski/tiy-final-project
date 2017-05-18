@@ -10,7 +10,7 @@ class SearchResultLi extends React.Component {
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
         <div className="restaurantDetails">
-          <div className="addButton"></div>
+          <div className="addButton" onClick={this.props.addRestaurant}></div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
             <p>Rating: {this.props.rating} / 5</p>

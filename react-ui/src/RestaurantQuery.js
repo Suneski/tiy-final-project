@@ -70,6 +70,20 @@ class RestaurantQuery extends React.Component {
     }, () => this.summonTheData())
   }
 
+  handleRestaurantAdd(x) {
+  // $.ajax({
+  //   method: 'POST',
+  //   url: '/api/yelp/',
+  //   data: {
+  //     name: x.name,
+  //     url: x.url
+  //   }
+  // }, () => console.log(x))
+  // .done((data) => {
+    console.log('is it gathering data?', x);
+  // });
+}
+
   render() {
 
     let names = this.state.searchResults.map((x) => <SearchResultLi
@@ -85,7 +99,9 @@ class RestaurantQuery extends React.Component {
       city={x.location.city}
       state={x.location.state}
       zipCode={x.location.zip_code}
-      country={x.location.country}/>);
+      country={x.location.country}
+      addRestaurant={() => this.handleRestaurantAdd(x)}
+    />);
 
 
     return (
