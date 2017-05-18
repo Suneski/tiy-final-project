@@ -15,8 +15,8 @@ app.get('/api/yelp/', function(req,res) {
   'use strict';
 
   var output = [];
-  var term = `${req.query.restaurantSearch}` || 'restaurant';
-  var location = `${req.query.locationSearch}` || 'tokyo';
+  var term = `${req.query.restaurantSearch}`;
+  var location = `${req.query.locationSearch}`;
   var limit = `${req.query.resultLimit}` || '20';
   var sort_by = `${req.query.sortBy}` || 'best_match';
 
