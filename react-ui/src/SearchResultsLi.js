@@ -13,7 +13,7 @@ class SearchResultLi extends React.Component {
           <div className="addButton" onClick={this.props.addRestaurant}></div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
-            <p>Rating: {this.props.rating} / 5</p>
+            <p>Rating: {this.props.rating}</p>
             <p>Price: {this.props.price}</p>
             <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
