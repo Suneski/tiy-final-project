@@ -46,3 +46,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+nav li {
+	float: left;
+	margin-right: 10px;
+}
+
+.container {
+	clear: both;
+}
