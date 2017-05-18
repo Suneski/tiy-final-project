@@ -1,0 +1,27 @@
+{
+  "name": "tiy-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd react-ui/ && npm install --only=dev && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suneski/tiy-final-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suneski/tiy-final-project/issues"
+  },
+  "homepage": "https://github.com/Suneski/tiy-final-project#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.9.10",
+    "request": "^2.81.0",
+    "yelp-fusion": "^1.0.3"
+  }
+}
