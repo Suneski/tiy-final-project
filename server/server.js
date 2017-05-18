@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // This is what establishes my connection with Mongo
 mongoose.connect(process.env.DB_PATH);
+console.log(process.env.DB_PATH)
 
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
