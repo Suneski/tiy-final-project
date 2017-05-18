@@ -10,12 +10,11 @@ require('dotenv').config();
 const Restaurant = require('./models/SavedRestaurants.js');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // This is what establishes my connection with Mongo
-mongoose.connect(process.env.DB_PATH)
+mongoose.connect(process.env.DB_PATH);
 
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
@@ -95,6 +94,9 @@ app.get('/api/savedrestaurants', function(req, res) {
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });
+
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);

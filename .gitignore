@@ -6,3 +6,5 @@ node_modules
 
 # this will be for the react stuff. I'll explain it later.
 react-ui/build
+
+.env
