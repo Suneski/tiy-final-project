@@ -73,7 +73,7 @@ class RestaurantQuery extends React.Component {
   handleRestaurantAdd(x) {
   $.ajax({
     method: 'POST',
-    url: '/api/yelp/',
+    url: '/api/restaurant/',
     data: {
       name: x.name,
       url: x.url
