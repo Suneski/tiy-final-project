@@ -73,6 +73,7 @@ app.post('/api/restaurant', function(req, res) {
   var restaurant = new Restaurant();
   restaurant.name = req.body.name;
   restaurant.url = req.body.url;
+  restaurant.id = req.body.id;
   restaurant.save(function() {
     console.log('is it saving?!');
   });

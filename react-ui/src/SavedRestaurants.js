@@ -1,12 +1,18 @@
 import React from 'react';
 import $ from 'jquery';
 
+import SavedRestaurantsLi from './SavedRestaurantsLi.js'
+
 class SavedRestaurants extends React.Component {
   constructor() {
     super();
     this.state = {
       savedRestaurants: []
     }
+  }
+
+  componentDidMount() {
+    this.summonTheData();
   }
 
   summonTheData() {
@@ -27,8 +33,20 @@ class SavedRestaurants extends React.Component {
 
 
   render() {
+    let savedPlaces = this.state.savedRestaurants.map((x) => <SavedRestaurantsLi
+      key={x.id}
+      name={x.name}
+      url={x.url}
+    />);
+
+
     return (
-      <div onClick={() => this.clickit()}>TEST TEXT FOR SAVED RESTAURANTS</div>
+      <div>
+
+        <div onClick={() => this.clickit()}>TEST TEXT FOR SAVED RESTAURANTS</div>
+        {savedPlaces}
+
+      </div>
     )
   }
 }
