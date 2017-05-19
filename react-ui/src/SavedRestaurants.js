@@ -34,7 +34,7 @@ class SavedRestaurants extends React.Component {
 
   render() {
     let savedPlaces = this.state.savedRestaurants.map((x) => <SavedRestaurantsLi
-      key={x.id}
+      key={x._id}
       name={x.name}
       url={x.url}
     />);
@@ -42,8 +42,9 @@ class SavedRestaurants extends React.Component {
 
     return (
       <div>
-
-        {savedPlaces}
+        <ol>
+          {savedPlaces}
+        </ol>
 
       </div>
     )
