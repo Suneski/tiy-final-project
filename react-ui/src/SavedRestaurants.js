@@ -36,7 +36,17 @@ class SavedRestaurants extends React.Component {
     let savedPlaces = this.state.savedRestaurants.map((x) => <SavedRestaurantsLi
       key={x._id}
       name={x.name}
+      imageUrl={x.image_url}
       url={x.url}
+      rating={x.rating}
+      price={x.price}
+      address1={x.address1}
+      address2={x.address2}
+      address3={x.address3}
+      city={x.city}
+      state={x.state}
+      zipCode={x.zip_code}
+      country={x.country}
     />);
 
 

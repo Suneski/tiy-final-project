@@ -71,9 +71,20 @@ app.post('/api/restaurant', function(req, res) {
   console.log('posting restaurant', req.body);
 
   var restaurant = new Restaurant();
+  restaurant.id = req.body.id;
   restaurant.name = req.body.name;
   restaurant.url = req.body.url;
-  restaurant.id = req.body.id;
+  restaurant.image_url = req.body.image_url;
+  restaurant.rating = req.body.rating;
+  restaurant.price = req.body.price;
+  restaurant.address1 = req.body.address1;
+  restaurant.address2 = req.body.address2;
+  restaurant.address3 = req.body.address3;
+  restaurant.city = req.body.city;
+  restaurant.state = req.body.state;
+  restaurant.zip_code = req.body.zip_code;
+  restaurant.country = req.body.country;
+
   restaurant.save(function() {
     console.log('is it saving?!');
   });

@@ -76,7 +76,17 @@ class RestaurantQuery extends React.Component {
     url: '/api/restaurant/',
     data: {
       name: x.name,
-      url: x.url
+      url: x.url,
+      image_url: x.image_url,
+      rating: x.rating,
+      price: x.price,
+      address1: x.location.address1,
+      address2: x.location.address2,
+      address3: x.location.address3,
+      city: x.location.city,
+      state: x.location.state,
+      zip_code: x.location.zip_code,
+      country: x.location.country
     }
   }, () => console.log(x))
   .done((data) => {
