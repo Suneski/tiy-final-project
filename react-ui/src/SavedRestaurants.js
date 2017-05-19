@@ -43,7 +43,6 @@ class SavedRestaurants extends React.Component {
     return (
       <div>
 
-        <div onClick={() => this.clickit()}>TEST TEXT FOR SAVED RESTAURANTS</div>
         {savedPlaces}
 
       </div>
