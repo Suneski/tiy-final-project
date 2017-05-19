@@ -21,7 +21,7 @@ class SavedRestaurants extends React.Component {
     })
     .done((data) => {
       this.setState({
-        savedRestaurants: data
+        // savedRestaurants: data
       })
       console.log('grabbing data', this.state.searchResults);
     });
