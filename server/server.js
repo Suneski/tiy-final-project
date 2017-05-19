@@ -13,7 +13,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-var MONGODB_URI = 'mongodb://heroku_53x8xz9h:j1j9br810r4q56nmi1hbe92edn@ds147551.mlab.com:47551/heroku_53x8xz9h'
+// var MONGODB_URI = 'mongodb://heroku_53x8xz9h:j1j9br810r4q56nmi1hbe92edn@ds147551.mlab.com:47551/heroku_53x8xz9h'
 
 // This is what establishes my connection with Mongo
 var mongoURL = process.env.DB_PATH || process.env.MONGODB_URI;
