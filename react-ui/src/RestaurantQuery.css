@@ -9,6 +9,7 @@
 .imageResult img {
   float: left;
 	height: 150px;
+  max-width: 250px;
   display: inline;
 }
 
@@ -45,4 +46,8 @@
 
 .resultsNotVisible {
   display: none;
+}
+
+.star-rating {
+  height: 15px;
 }

@@ -88,6 +88,7 @@ class RestaurantQuery extends React.Component {
       url: x.url,
       image_url: x.image_url,
       rating: x.rating,
+      review_count: x.review_count,
       price: x.price,
       address1: x.location.address1,
       address2: x.location.address2,
@@ -111,6 +112,7 @@ class RestaurantQuery extends React.Component {
       imageUrl={x.image_url}
       url={x.url}
       rating={x.rating}
+      reviewCount={x.review_count}
       price={x.price}
       address1={x.location.address1}
       address2={x.location.address2}
