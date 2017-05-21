@@ -4,7 +4,7 @@ import './RestaurantQuery.css';
 
 import SearchResultLi from './SearchResultsLi.js';
 
-import loaderGif from './images/pageloader.gif';
+import loaderGif from './images/animeloader.gif';
 
 class RestaurantQuery extends React.Component {
   constructor() {
