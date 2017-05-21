@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './App.css';
 
 import RestaurantQuery from './RestaurantQuery.js'
@@ -8,8 +8,8 @@ import SavedRestaurants from './SavedRestaurants.js'
 var Navigation = () => {
   return <nav>
     <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/savedrestaurants">Saved Restaurants</Link></li>
+      <li><NavLink to="/" className="navigationItems">Home</NavLink></li>
+      <li><NavLink to="/savedrestaurants" className="navigationItems">Saved Restaurants</NavLink></li>
     </ul>
   </nav>
 }
@@ -20,7 +20,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation />
+          <header>
+            <Navigation />
+          </header>
           <div className="container">
             <Route path="/" exact component={RestaurantQuery} />
             <Route path="/savedrestaurants" component={SavedRestaurants} />
