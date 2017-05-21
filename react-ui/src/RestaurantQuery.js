@@ -2,7 +2,9 @@ import React from 'react';
 import $ from 'jquery';
 import './RestaurantQuery.css';
 
-import SearchResultLi from './SearchResultsLi.js'
+import SearchResultLi from './SearchResultsLi.js';
+
+import loaderGif from './images/pageloader.gif';
 
 class RestaurantQuery extends React.Component {
   constructor() {
@@ -14,7 +16,9 @@ class RestaurantQuery extends React.Component {
       resultsPerPage: '',
       sortResults: '',
       inputValue: '',
-      searchResults: []
+      searchResults: [],
+      loaderClass: 'deactivated',
+      resultVisibility: 'resultsVisible'
     }
   }
 
@@ -34,10 +38,15 @@ class RestaurantQuery extends React.Component {
     else {
       $.ajax({
         url: url
-      })
+      }, this.setState({
+        loaderClass: 'activated',
+        resultVisibility: 'resultsNotVisible'
+      }))
       .done((data) => {
         this.setState({
-          searchResults: data.data
+          searchResults: data.data,
+          loaderClass: 'deactivated',
+          resultVisibility: 'resultsVisible'
         })
         console.log('grabbing data', this.state.searchResults);
       });
@@ -137,7 +146,8 @@ class RestaurantQuery extends React.Component {
           </select>
         </div>
         <div><button onClick={() => this.summonTheData()}>SEARCH!</button></div>
-        <ol>
+        <img src={loaderGif} alt="page loader" className={this.state.loaderClass} />
+        <ol className={this.state.resultVisibility}>
           {names}
         </ol>
       </div>
