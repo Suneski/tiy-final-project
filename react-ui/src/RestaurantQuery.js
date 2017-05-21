@@ -129,16 +129,23 @@ class RestaurantQuery extends React.Component {
     return (
       <div>
         <header>
-          <div>Restaurant Type <input placeholder="restaurant type" onKeyUp={(evt) => this.restaurantNameSubmit(evt)} /></div>
-          <div>Location
-            <input placeholder="city" onKeyUp={(evt) => this.locationSubmit(evt)} />
+          <div className="inputBars">
+            <input
+              placeholder="restaurant/food"
+              type="text"
+              className="restaurant-input"
+              onKeyUp={(evt) => this.restaurantNameSubmit(evt)} />
+            <input
+              placeholder="location"
+              type="text"
+              onKeyUp={(evt) => this.locationSubmit(evt)} />
           </div>
-          <div>
-            <button
-              onClick={() => this.summonTheData()}>
-                SEARCH!
-            </button>  
-          </div>
+          <button
+            onClick={() => this.summonTheData()}
+            className="search-button">
+              <span className="search-button-text">SEARCH</span>
+          </button>
+
         </header>
 
         <div>Results:

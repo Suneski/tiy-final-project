@@ -69,3 +69,34 @@ header {
   background-position: center;
 	height: 400px;
 }
+
+.inputBars {
+  width: 670px;
+  margin: 0 auto;
+  padding-top: 150px;
+  /*outline: 1px solid orange;*/
+}
+
+input[type="text"] {
+  font-size: 30px;
+}
+
+.restaurant-input {
+  margin-right: 30px;
+}
+
+.search-button {
+  margin: 0 auto;
+  display: block;
+  padding: 10px 20px;
+  background-color: rgb(152, 0, 0);
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-color: rgb(120, 0, 0);
+  opacity: .9;
+}
+
+.search-button-text {
+  font-size: 20px;
+}
