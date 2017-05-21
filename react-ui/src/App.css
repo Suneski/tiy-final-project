@@ -58,12 +58,6 @@ nav li {
 	clear: both;
 }
 
-header {
-	background-image: url("images/restaurant_yukihira.png");
-	background-size: cover;
-	height: 600px;
-}
-
 .navigationItems {
 	text-decoration: none;
 	color: white;
@@ -78,4 +72,10 @@ header {
 
 .navigationItems:hover {
 	border-bottom: 2px solid white;
+}
+
+nav {
+	background-color: black;
+	height: 30px;
+	padding-top: 5px;
 }

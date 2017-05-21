@@ -128,10 +128,19 @@ class RestaurantQuery extends React.Component {
 
     return (
       <div>
-        <div>Restaurant Type <input placeholder="restaurant type" onKeyUp={(evt) => this.restaurantNameSubmit(evt)} /></div>
-        <div>Location
-          <input placeholder="city" onKeyUp={(evt) => this.locationSubmit(evt)} />
-        </div>
+        <header>
+          <div>Restaurant Type <input placeholder="restaurant type" onKeyUp={(evt) => this.restaurantNameSubmit(evt)} /></div>
+          <div>Location
+            <input placeholder="city" onKeyUp={(evt) => this.locationSubmit(evt)} />
+          </div>
+          <div>
+            <button
+              onClick={() => this.summonTheData()}>
+                SEARCH!
+            </button>  
+          </div>
+        </header>
+
         <div>Results:
           <select onChange={(evt) => this.limitTotal(evt)}>
             <option value='20'>20</option>
@@ -148,7 +157,6 @@ class RestaurantQuery extends React.Component {
             <option value='distance'>Distance</option>
           </select>
         </div>
-        <div><button onClick={() => this.summonTheData()}>SEARCH!</button></div>
         <img src={loaderGif} alt="page loader" className={this.state.loaderClass} />
         <ol className={this.state.resultVisibility}>
           {names}

@@ -20,9 +20,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <header>
-            <Navigation />
-          </header>
+          <Navigation />
           <div className="container">
             <Route path="/" exact component={RestaurantQuery} />
             <Route path="/savedrestaurants" component={SavedRestaurants} />

@@ -62,3 +62,10 @@
 .textResults {
   height: 150px;
 }
+
+header {
+	background-image: url("images/restaurant_yukihira.png");
+	background-size: cover;
+  background-position: center;
+	height: 400px;
+}
