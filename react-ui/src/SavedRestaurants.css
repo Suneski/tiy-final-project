@@ -1,3 +1,11 @@
+.savedRestaurantsLi {
+  border: 1px solid black;
+  margin-top: 10px;
+  width: 800px;
+  padding: 5px;
+  overflow: auto;
+}
+
 .removeButton {
   background-image: url('images/remove-button.png');
   background-size: contain;

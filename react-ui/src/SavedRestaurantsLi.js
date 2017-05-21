@@ -1,15 +1,18 @@
 import React from 'react';
 
+import './SavedRestaurants.css'
+
 
 class SavedRestaurantsLi extends React.Component {
   render() {
 
     return(
-      <li className="searchResultItem">
+      <li className="savedRestaurantsLi">
         <div className="imageResult">
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
         <div className="restaurantDetails">
+          <div className="removeButton"></div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
             <p>Rating: {this.props.rating}</p>
