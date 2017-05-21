@@ -11,6 +11,7 @@ import threefive from './images/yelp/stars-3.5.png'
 import four from './images/yelp/stars-4.0.png'
 import fourfive from './images/yelp/stars-4.5.png'
 import five from './images/yelp/stars-5.0.png'
+import logo from './images/yelp/yelp.png'
 
 class SearchResultLi extends React.Component {
   render() {
@@ -55,7 +56,12 @@ class SearchResultLi extends React.Component {
           <div className="addButton" onClick={this.props.addRestaurant}></div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
-            <p><img src={rating} alt="star rating" className="star-rating"/> {this.props.reviewCount} reviews</p>
+            <p>
+              <img src={rating} alt="star rating" className="star-rating"/> <a href={this.props.url}>
+                <img src={logo} alt="yelp logo" className="yelp-logo"/>
+              </a>
+            </p>
+            <p>(based on {this.props.reviewCount} reviews)</p>
             <p>Price: {this.props.price}</p>
             <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>

@@ -9,12 +9,12 @@
 .imageResult img {
   float: left;
 	height: 150px;
-  max-width: 250px;
+  width: 150px;
   display: inline;
 }
 
 .restaurantDetails {
-  margin-left: 300px;
+  margin-left: 160px;
   overflow: auto;
 }
 
@@ -49,5 +49,13 @@
 }
 
 .star-rating {
-  height: 15px;
+  height: 25px;
+}
+
+.yelp-logo {
+  height: 25px;
+}
+
+.textResults {
+  height: 150px;
 }
