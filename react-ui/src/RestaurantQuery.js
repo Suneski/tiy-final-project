@@ -98,10 +98,11 @@ class RestaurantQuery extends React.Component {
       zip_code: x.location.zip_code,
       country: x.location.country
     }
-  }, () => console.log(x))
+  })
   .done((data) => {
     console.log('is it gathering data?', data);
-  });
+
+  }, alert(x.name + ' added to saved restaurants'));
 }
 
   render() {
