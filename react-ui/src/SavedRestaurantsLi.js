@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 import './SavedRestaurants.css'
 
@@ -15,6 +16,17 @@ import five from './images/yelp/stars-5.0.png'
 import logo from './images/yelp/yelp.png'
 
 class SavedRestaurantsLi extends React.Component {
+  removeFavorite(evt) {
+    console.log(this.props._id);
+    // $.ajax({
+    //   url: `/api/restaurants`,
+    //   method: 'DELETE'
+    // })
+    // .done((data) => {
+    //
+    // });
+  }
+
   render() {
     let rating;
     if (this.props.rating === "0") {
@@ -55,7 +67,10 @@ class SavedRestaurantsLi extends React.Component {
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
         <div className="restaurantDetails">
-          <div className="removeButton"></div>
+          <div
+            className="removeButton"
+            onClick={(evt) => this.removeFavorite(evt)}>
+          </div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
               <p>
