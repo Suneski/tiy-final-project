@@ -41,6 +41,7 @@
   display: block;
   margin: 0 auto;
   width: 500px;
+  clear: both;
 }
 
 .deactivated {
@@ -99,4 +100,31 @@ input[type="text"] {
 
 .search-button-text {
   font-size: 20px;
+}
+
+.body-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.filters {
+  margin: 0 auto;
+  display: block;
+  width: 302px;
+  padding-top: 20px;
+  color: white;
+  text-shadow:
+		-0.5px -0.5px 0 #000,
+		0.5px -0.5px 0 #000,
+		-0.5px 0.5px 0 #000,
+		0.5px 0.5px 0 #000;
+}
+
+.filter {
+  float: left;
+  margin-right: 20px;
+}
+
+#search-results {
+  clear: both;
 }

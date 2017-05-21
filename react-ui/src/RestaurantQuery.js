@@ -127,7 +127,7 @@ class RestaurantQuery extends React.Component {
 
 
     return (
-      <div>
+      <div className="app-container">
         <header>
           <div className="inputBars">
             <input
@@ -146,28 +146,37 @@ class RestaurantQuery extends React.Component {
               <span className="search-button-text">SEARCH</span>
           </button>
 
+          <div className="filters">
+            <div className="filter">Results:
+              <select onChange={(evt) => this.limitTotal(evt)}>
+                <option value='20'>20</option>
+                <option value='30'>30</option>
+                <option value='40'>40</option>
+                <option value='50'>50</option>
+              </select>
+            </div>
+            <div className="filter">Sort by:
+              <select onChange={(evt) => this.sortResults(evt)}>
+                <option value='best_match'>Best Match</option>
+                <option value='rating'>Rating</option>
+                <option value='review_count'>Review Count</option>
+                <option value='distance'>Distance</option>
+              </select>
+            </div>
+          </div>
+
         </header>
 
-        <div>Results:
-          <select onChange={(evt) => this.limitTotal(evt)}>
-            <option value='20'>20</option>
-            <option value='30'>30</option>
-            <option value='40'>40</option>
-            <option value='50'>50</option>
-          </select>
+        <div className="body-container">
+
+
+          <ol className={this.state.resultVisibility} id="search-results">
+            {names}
+          </ol>
         </div>
-        <div>Sort by:
-          <select onChange={(evt) => this.sortResults(evt)}>
-            <option value='best_match'>Best Match</option>
-            <option value='rating'>Rating</option>
-            <option value='review_count'>Review Count</option>
-            <option value='distance'>Distance</option>
-          </select>
-        </div>
+
         <img src={loaderGif} alt="page loader" className={this.state.loaderClass} />
-        <ol className={this.state.resultVisibility}>
-          {names}
-        </ol>
+
       </div>
     )
 
