@@ -49,7 +49,7 @@ class SavedRestaurantsLi extends React.Component {
     }
 
     return(
-      <li className="savedRestaurantsLi">
+      <li className="searchResultItem">
 
         <div className="imageResult">
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>

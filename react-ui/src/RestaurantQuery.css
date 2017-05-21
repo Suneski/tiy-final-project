@@ -1,7 +1,7 @@
 .searchResultItem {
   border: 1px solid black;
   margin-top: 10px;
-  width: 800px;
+  width: 550px;
   padding: 5px;
   overflow: auto;
 }
@@ -11,6 +11,8 @@
 	height: 150px;
   width: 150px;
   display: inline;
+  border-radius: 5%;
+  border: 1px solid grey;
 }
 
 .restaurantDetails {
@@ -24,6 +26,7 @@
   width: 50px;
   height: 50px;
   margin-top: 50px;
+  margin-right: 10px;
   float: right;
 }
 
