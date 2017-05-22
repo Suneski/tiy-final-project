@@ -5,6 +5,7 @@ import './App.css';
 import RestaurantQuery from './RestaurantQuery.js'
 import SavedRestaurants from './SavedRestaurants.js'
 
+
 var Navigation = () => {
   return <nav>
     <ul>
@@ -13,7 +14,6 @@ var Navigation = () => {
     </ul>
   </nav>
 }
-
 
 class App extends Component {
   render() {

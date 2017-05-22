@@ -52,6 +52,9 @@ class SavedRestaurants extends React.Component {
 
     return (
       <div>
+        <div className="saved-restaurant-header">
+
+        </div>
         <ol>
           {savedPlaces}
         </ol>

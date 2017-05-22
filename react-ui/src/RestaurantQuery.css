@@ -65,16 +65,15 @@
 }
 
 header {
-	background-image: url("images/restaurant_yukihira.png");
+	background-image: url("images/omni-restaurant.jpg");
 	background-size: cover;
   background-position: center;
-	height: 400px;
+	height: 450px;
 }
 
 .inputBars {
   width: 670px;
   margin: 0 auto;
-  padding-top: 150px;
   /*outline: 1px solid orange;*/
 }
 
@@ -112,12 +111,12 @@ input[type="text"] {
   display: block;
   width: 302px;
   padding-top: 20px;
-  color: white;
+  /*color: white;
   text-shadow:
 		-0.5px -0.5px 0 #000,
 		0.5px -0.5px 0 #000,
 		-0.5px 0.5px 0 #000,
-		0.5px 0.5px 0 #000;
+		0.5px 0.5px 0 #000;*/
 }
 
 .filter {
@@ -127,4 +126,16 @@ input[type="text"] {
 
 #search-results {
   clear: both;
+}
+
+.header-items {
+  margin: 0 auto;
+  padding: 30px;
+  width: 700px;
+  background-color: white;
+  opacity: .97;
+  border-radius: 5px;
+  top: 100px;
+  position: relative;
+  overflow: auto;
 }

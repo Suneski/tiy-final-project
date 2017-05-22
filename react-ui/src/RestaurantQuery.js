@@ -129,41 +129,44 @@ class RestaurantQuery extends React.Component {
     return (
       <div className="app-container">
         <header>
-          <div className="inputBars">
-            <input
-              placeholder="restaurant/food"
-              type="text"
-              className="restaurant-input"
-              onKeyUp={(evt) => this.restaurantNameSubmit(evt)} />
-            <input
-              placeholder="location"
-              type="text"
-              onKeyUp={(evt) => this.locationSubmit(evt)} />
-          </div>
-          <button
-            onClick={() => this.summonTheData()}
-            className="search-button">
-              <span className="search-button-text">SEARCH</span>
-          </button>
 
-          <div className="filters">
-            <div className="filter">Results:
-              <select onChange={(evt) => this.limitTotal(evt)}>
-                <option value='20'>20</option>
-                <option value='30'>30</option>
-                <option value='40'>40</option>
-                <option value='50'>50</option>
-              </select>
+          <div className="header-items">
+            <div className="inputBars">
+              <input
+                placeholder="restaurant/food"
+                type="text"
+                className="restaurant-input"
+                onKeyUp={(evt) => this.restaurantNameSubmit(evt)} />
+              <input
+                placeholder="location"
+                type="text"
+                onKeyUp={(evt) => this.locationSubmit(evt)} />
             </div>
-            <div className="filter">Sort by:
-              <select onChange={(evt) => this.sortResults(evt)}>
-                <option value='best_match'>Best Match</option>
-                <option value='rating'>Rating</option>
-                <option value='review_count'>Review Count</option>
-                <option value='distance'>Distance</option>
-              </select>
+            <button
+              onClick={() => this.summonTheData()}
+              className="search-button">
+                <span className="search-button-text">SEARCH</span>
+            </button>
+            <div className="filters">
+              <div className="filter">Results:
+                <select onChange={(evt) => this.limitTotal(evt)}>
+                  <option value='20'>20</option>
+                  <option value='30'>30</option>
+                  <option value='40'>40</option>
+                  <option value='50'>50</option>
+                </select>
+              </div>
+              <div className="filter">Sort by:
+                <select onChange={(evt) => this.sortResults(evt)}>
+                  <option value='best_match'>Best Match</option>
+                  <option value='rating'>Rating</option>
+                  <option value='review_count'>Review Count</option>
+                  <option value='distance'>Distance</option>
+                </select>
+              </div>
             </div>
           </div>
+
 
         </header>
 
