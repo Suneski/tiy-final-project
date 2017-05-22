@@ -3,6 +3,8 @@ import $ from 'jquery';
 
 import SavedRestaurantsLi from './SavedRestaurantsLi.js'
 
+import Api from './Api.js';
+
 class SavedRestaurants extends React.Component {
   constructor() {
     super();
@@ -21,15 +23,14 @@ class SavedRestaurants extends React.Component {
   }
 
   summonSavedRestarants() {
-    $.ajax({
-      url: '/api/savedrestaurants'
-    })
-    .done((data) => {
+
+    const cb = (data) => {
       this.setState({
         savedRestaurants: data
       })
-      console.log('grabbing data');
-    });
+    }
+
+    Api.summonSavedRestarants(cb);
   }
 
   render() {
