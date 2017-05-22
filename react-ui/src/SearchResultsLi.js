@@ -15,7 +15,41 @@ import logo from './images/yelp/yelp-burst-positive.png'
 
 class SearchResultLi extends React.Component {
   render() {
-    let rating;
+
+    var rating = this.props.rating;
+
+    // switch(rating){
+    //   case this.props.rating === 1:
+    //     rating = one;
+    //     break;
+    //   case this.props.rating === 1.5:
+    //     rating = onefive;
+    //     break;
+    //   case this.props.rating === 2:
+    //     rating = two;
+    //     break;
+    //   case this.props.rating === 2.5:
+    //     rating = twofive;
+    //     break;
+    //   case this.props.rating === 3:
+    //     rating = three;
+    //     break;
+    //   case this.props.rating === 3.5:
+    //     rating = threefive;
+    //     break;
+    //   case this.props.rating === 4:
+    //     rating = four;
+    //     break;
+    //   case this.props.rating === 4.5:
+    //     rating = fourfive;
+    //     break;
+    //   case this.props.rating === 5:
+    //     rating = five;
+    //     break;
+    //   default:
+    //     rating = zero;
+    // }
+
     if (this.props.rating === 0) {
       rating = zero;
     }
