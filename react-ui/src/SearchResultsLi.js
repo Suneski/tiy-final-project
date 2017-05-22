@@ -18,68 +18,68 @@ class SearchResultLi extends React.Component {
 
     var rating = this.props.rating;
 
-    // switch(rating){
-    //   case this.props.rating === 1:
-    //     rating = one;
-    //     break;
-    //   case this.props.rating === 1.5:
-    //     rating = onefive;
-    //     break;
-    //   case this.props.rating === 2:
-    //     rating = two;
-    //     break;
-    //   case this.props.rating === 2.5:
-    //     rating = twofive;
-    //     break;
-    //   case this.props.rating === 3:
-    //     rating = three;
-    //     break;
-    //   case this.props.rating === 3.5:
-    //     rating = threefive;
-    //     break;
-    //   case this.props.rating === 4:
-    //     rating = four;
-    //     break;
-    //   case this.props.rating === 4.5:
-    //     rating = fourfive;
-    //     break;
-    //   case this.props.rating === 5:
-    //     rating = five;
-    //     break;
-    //   default:
-    //     rating = zero;
-    // }
+    switch(rating){
+      case 1:
+        rating = one;
+        break;
+      case 1.5:
+        rating = onefive;
+        break;
+      case 2:
+        rating = two;
+        break;
+      case 2.5:
+        rating = twofive;
+        break;
+      case 3:
+        rating = three;
+        break;
+      case 3.5:
+        rating = threefive;
+        break;
+      case 4:
+        rating = four;
+        break;
+      case 4.5:
+        rating = fourfive;
+        break;
+      case 5:
+        rating = five;
+        break;
+      default:
+        rating = zero;
+    }
 
-    if (this.props.rating === 0) {
-      rating = zero;
-    }
-    if (this.props.rating === 1) {
-      rating = one;
-    }
-    if (this.props.rating === 1.5) {
-      rating = onefive;
-    }
-    if (this.props.rating === 2) {
-      rating = two;
-    }
-    if (this.props.rating === 2.5) {
-      rating = twofive;
-    }
-    if (this.props.rating === 3) {
-      rating = three;
-    }
-    if (this.props.rating === 3.5) {
-      rating = threefive;
-    }
-    if (this.props.rating === 4) {
-      rating = four;
-    }
-    if (this.props.rating === 4.5) {
-      rating = fourfive;
-    }
-    if (this.props.rating === 5) {
-      rating = five;
-    }
+    // if (this.props.rating === 0) {
+    //   rating = zero;
+    // }
+    // if (this.props.rating === 1) {
+    //   rating = one;
+    // }
+    // if (this.props.rating === 1.5) {
+    //   rating = onefive;
+    // }
+    // if (this.props.rating === 2) {
+    //   rating = two;
+    // }
+    // if (this.props.rating === 2.5) {
+    //   rating = twofive;
+    // }
+    // if (this.props.rating === 3) {
+    //   rating = three;
+    // }
+    // if (this.props.rating === 3.5) {
+    //   rating = threefive;
+    // }
+    // if (this.props.rating === 4) {
+    //   rating = four;
+    // }
+    // if (this.props.rating === 4.5) {
+    //   rating = fourfive;
+    // }
+    // if (this.props.rating === 5) {
+    //   rating = five;
+    // }
 
     return(
       <li className="searchResultItem">

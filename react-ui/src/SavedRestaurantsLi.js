@@ -1,5 +1,5 @@
 import React from 'react';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 import './SavedRestaurants.css'
 
@@ -18,13 +18,13 @@ import logo from './images/yelp/yelp-burst-positive.png'
 class SavedRestaurantsLi extends React.Component {
   removeFavorite(evt) {
     console.log(this.props._id);
-    // $.ajax({
-    //   url: `/api/restaurants`,
-    //   method: 'DELETE'
-    // })
-    // .done((data) => {
-    //
-    // });
+    $.ajax({
+      url: `/api/savedrestaurants/${this.props._id}`,
+      method: 'DELETE'
+    })
+    .done((data) => {
+
+    });
   }
 
   render() {

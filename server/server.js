@@ -92,6 +92,9 @@ app.post('/api/restaurant', function(req, res) {
   res.send('it saved!!!!');
 });
 
+app.delete('/api/savedrestaurants'. function(req, res) {
+  
+});
 
 app.get('/api/savedrestaurants', function(req, res) {
 
