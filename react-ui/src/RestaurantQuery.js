@@ -4,7 +4,7 @@ import './RestaurantQuery.css';
 
 import SearchResultLi from './SearchResultsLi.js';
 
-import loaderGif from './images/animeloader.gif';
+import animeLoader from './images/animeloader.gif';
 
 import yelpLogo from './images/yelp/yelp.png';
 
@@ -181,7 +181,10 @@ class RestaurantQuery extends React.Component {
           </ol>
         </div>
 
-        <img src={loaderGif} alt="page loader" className={this.state.loaderClass} />
+        <img
+          src={animeLoader}
+          alt="page loader"
+          className={this.state.loaderClass} />
 
       </div>
     )
