@@ -13,7 +13,7 @@ import threefive from './images/yelp/stars-3.5.png'
 import four from './images/yelp/stars-4.0.png'
 import fourfive from './images/yelp/stars-4.5.png'
 import five from './images/yelp/stars-5.0.png'
-import logo from './images/yelp/yelp.png'
+import logo from './images/yelp/yelp-burst-positive.png'
 
 class SavedRestaurantsLi extends React.Component {
   removeFavorite(evt) {

@@ -6,6 +6,8 @@ import SearchResultLi from './SearchResultsLi.js';
 
 import loaderGif from './images/animeloader.gif';
 
+import yelpLogo from './images/yelp/yelp.png';
+
 class RestaurantQuery extends React.Component {
   constructor() {
     super();
@@ -165,6 +167,7 @@ class RestaurantQuery extends React.Component {
                 </select>
               </div>
             </div>
+            <img src={yelpLogo} alt="powered by yelp" className="header-logo"/>
           </div>
 
 
