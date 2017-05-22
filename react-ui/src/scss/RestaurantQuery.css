@@ -1,0 +1,125 @@
+.searchResultItem {
+  border: 1px solid black;
+  margin-top: 10px;
+  width: 550px;
+  padding: 5px;
+  overflow: auto; }
+
+.imageResult img {
+  float: left;
+  height: 150px;
+  width: 150px;
+  display: inline;
+  border-radius: 5%;
+  border: 1px solid grey; }
+
+.restaurantDetails {
+  margin-left: 160px;
+  overflow: auto; }
+
+.addButton {
+  background-image: url("images/add-button.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  margin-right: 10px;
+  float: right; }
+
+.addButton:hover {
+  background-image: url("images/add-button-hover.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px; }
+
+.activated {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  clear: both; }
+
+.deactivated {
+  display: none; }
+
+.resultsNotVisible {
+  display: none; }
+
+.star-rating {
+  height: 25px; }
+
+.yelp-logo {
+  height: 25px; }
+
+.textResults {
+  height: 150px; }
+
+header {
+  background-image: url("images/omni-restaurant.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px; }
+
+.inputBars {
+  width: 670px;
+  margin: 0 auto;
+  /*outline: 1px solid orange;*/ }
+
+input[type="text"] {
+  font-size: 30px; }
+
+.restaurant-input {
+  margin-right: 30px; }
+
+.search-button {
+  margin: 0 auto;
+  display: block;
+  padding: 10px 20px;
+  background-color: #980000;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-color: #780000;
+  opacity: .9; }
+
+.search-button-text {
+  font-size: 20px; }
+
+.body-container {
+  width: 60%;
+  margin: 0 auto; }
+
+.filters {
+  margin: 0 auto;
+  display: block;
+  width: 302px;
+  padding-top: 20px;
+  /*color: white;
+  text-shadow:
+		-0.5px -0.5px 0 #000,
+		0.5px -0.5px 0 #000,
+		-0.5px 0.5px 0 #000,
+		0.5px 0.5px 0 #000;*/ }
+
+.filter {
+  float: left;
+  margin-right: 20px; }
+
+#search-results {
+  clear: both; }
+
+.header-items {
+  margin: 0 auto;
+  padding: 30px;
+  width: 700px;
+  background-color: white;
+  opacity: .97;
+  border-radius: 5px;
+  top: 100px;
+  position: relative;
+  overflow: auto; }
+
+.header-logo {
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0; }
