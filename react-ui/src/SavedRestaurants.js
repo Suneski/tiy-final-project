@@ -6,16 +6,21 @@ import SavedRestaurantsLi from './SavedRestaurantsLi.js'
 class SavedRestaurants extends React.Component {
   constructor() {
     super();
+
     this.state = {
       savedRestaurants: []
     }
   }
 
-  componentDidMount() {
-    this.summonTheData();
+  clickit() {
+    console.log(this.state)
   }
 
-  summonTheData() {
+  componentDidMount() {
+    this.summonSavedRestarants();
+  }
+
+  summonSavedRestarants() {
     $.ajax({
       url: '/api/savedrestaurants'
     })
@@ -23,18 +28,14 @@ class SavedRestaurants extends React.Component {
       this.setState({
         savedRestaurants: data
       })
-      console.log('grabbing data', this.state.searchResults);
+      console.log('grabbing data');
     });
   }
-
-  clickit() {
-    console.log(this.state.savedRestaurants);
-  }
-
 
   render() {
     let savedPlaces = this.state.savedRestaurants.map((x) => <SavedRestaurantsLi
       key={x._id}
+      id={x._id}
       name={x.name}
       imageUrl={x.image_url}
       url={x.url}
@@ -55,6 +56,7 @@ class SavedRestaurants extends React.Component {
         <div className="saved-restaurant-header">
 
         </div>
+        <button onClick={() => this.clickit()}>state status!!</button>
         <ol>
           {savedPlaces}
         </ol>

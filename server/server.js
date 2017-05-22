@@ -92,6 +92,8 @@ app.post('/api/restaurant', function(req, res) {
   res.send('it saved!!!!');
 });
 
+
+
 app.get('/api/savedrestaurants', function(req, res) {
 
   Restaurant.find({})
@@ -99,12 +101,15 @@ app.get('/api/savedrestaurants', function(req, res) {
 //      console.log(arguments);
       res.send(data);
     });
-
 });
 
+app.delete('/api/savedrestaurants/:id', function(req, res) {
+  console.log(req.params.id);
+  Restaurant.findByIdAndRemove(req.params.id, function() {
+    console.log(arguments);
+  });
+});
 
-
-// All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });

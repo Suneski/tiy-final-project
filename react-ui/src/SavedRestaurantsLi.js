@@ -3,6 +3,8 @@ import $ from 'jquery';
 
 import './SavedRestaurants.css'
 
+import SavedRestaurants from './SavedRestaurants.js'
+
 import zero from './images/yelp/stars-0.png'
 import one from './images/yelp/stars-1.0.png'
 import onefive from './images/yelp/stars-1.5.png'
@@ -16,14 +18,13 @@ import five from './images/yelp/stars-5.0.png'
 import logo from './images/yelp/yelp-burst-positive.png'
 
 class SavedRestaurantsLi extends React.Component {
-  removeFavorite(evt) {
-    console.log(this.props._id);
+  removeFavorite() {
     $.ajax({
-      url: `/api/savedrestaurants/${this.props._id}`,
+      url: `/api/savedrestaurants/${this.props.id}`,
       method: 'DELETE'
     })
     .done((data) => {
-
+      SavedRestaurants.summonSavedRestarants();
     });
   }
 
@@ -69,13 +70,21 @@ class SavedRestaurantsLi extends React.Component {
         <div className="restaurantDetails">
           <div
             className="removeButton"
-            onClick={(evt) => this.removeFavorite(evt)}>
+            onClick={() => this.removeFavorite()}>
           </div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
               <p>
-                <img src={rating} alt="star rating" className="star-rating"/> <a href={this.props.url}>
-                  <img src={logo} alt="yelp logo" className="yelp-logo"/>
+                <img
+                  src={rating}
+                  alt="star rating"
+                  className="star-rating"/>
+                <a href={this.props.url}>
+                  <img
+                    src={logo}
+                    alt="yelp logo"
+                    className="yelp-logo"
+                  />
                 </a>
               </p>
             <p>Price: {this.props.price}</p>

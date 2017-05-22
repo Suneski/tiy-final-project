@@ -19,6 +19,7 @@ class RestaurantQuery extends React.Component {
       sortResults: '',
       inputValue: '',
       searchResults: [],
+      addButton: 'addButton',
       loaderClass: 'deactivated',
       resultVisibility: 'resultsVisible'
     }
@@ -82,30 +83,43 @@ class RestaurantQuery extends React.Component {
   }
 
   handleRestaurantAdd(x) {
-  $.ajax({
-    method: 'POST',
-    url: '/api/restaurant/',
-    data: {
-      name: x.name,
-      url: x.url,
-      image_url: x.image_url,
-      rating: x.rating,
-      review_count: x.review_count,
-      price: x.price,
-      address1: x.location.address1,
-      address2: x.location.address2,
-      address3: x.location.address3,
-      city: x.location.city,
-      state: x.location.state,
-      zip_code: x.location.zip_code,
-      country: x.location.country
-    }
-  })
-  .done((data) => {
-    console.log('is it gathering data?', data);
+    $.ajax({
+      method: 'POST',
+      url: '/api/restaurant/',
+      data: {
+        name: x.name,
+        url: x.url,
+        image_url: x.image_url,
+        rating: x.rating,
+        review_count: x.review_count,
+        price: x.price,
+        address1: x.location.address1,
+        address2: x.location.address2,
+        address3: x.location.address3,
+        city: x.location.city,
+        state: x.location.state,
+        zip_code: x.location.zip_code,
+        country: x.location.country
+      }
+    })
+    .done((data) => {
+      console.log('is it gathering data?', data);
+    },
+      // alert(x.name + ' added to saved restaurants'),
+      this.setState({
+        addButton: 'addButtonSelected',
+        favorited: 'favorited'
+      })
+    );
+  }
 
-  }, alert(x.name + ' added to saved restaurants'));
-}
+  removeCheckMark() {
+    alert('removing from faves, but not yet, that still needs to get figured out');
+    this.setState({
+      addButton: 'addButton',
+      favorited: 'favoritedSelected'
+    })
+  }
 
   render() {
 
@@ -124,7 +138,10 @@ class RestaurantQuery extends React.Component {
       state={x.location.state}
       zipCode={x.location.zip_code}
       country={x.location.country}
+      addButton={this.state.addButton}
+      favorited={x.favorited}
       addRestaurant={() => this.handleRestaurantAdd(x)}
+      removeCheckMark={() => this.removeCheckMark()}
     />);
 
 
