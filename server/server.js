@@ -92,8 +92,6 @@ app.post('/api/restaurant', function(req, res) {
   res.send('it saved!!!!');
 });
 
-
-
 app.get('/api/savedrestaurants', function(req, res) {
 
   Restaurant.find({})

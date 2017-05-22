@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Restaurant = mongoose.model('Restaurant', {
+  id: String,
   name: String,
   url: String,
   image_url: String,
