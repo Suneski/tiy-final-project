@@ -22,6 +22,10 @@ class RestaurantQuery extends React.Component {
     this.state = store.getState();
   }
 
+  componentDidMount() {
+    store.subscribe(() => this.setState(store.getState()));
+  }
+
   summonTheData() {
     const url = `/api/yelp?restaurantSearch=${this.state.restaurantNameQuery}&locationSearch=${this.state.locationQuery}&resultLimit=${this.state.resultsPerPage}&sortBy=${this.state.sortResults}`
 
@@ -54,15 +58,13 @@ class RestaurantQuery extends React.Component {
   }
 
   restaurantNameSubmit(evt) {
-    this.setState({
-      restaurantNameQuery: evt.target.value
-    });
+    console.log("restaurant: ", evt.target.value);
+    store.dispatch({ type: 'RESTAURANT_SEARCH', value: evt.target.value });
   }
 
   locationSubmit(evt) {
-    this.setState({
-      locationQuery: evt.target.value
-    });
+    console.log("location: ", evt.target.value);
+    store.dispatch({ type: 'LOCATION_SEARCH', value: evt.target.value });
   }
 
   limitTotal(evt) {
