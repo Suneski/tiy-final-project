@@ -27,58 +27,51 @@ class RestaurantQuery extends React.Component {
   }
 
   summonTheData() {
-    const url = `/api/yelp?restaurantSearch=${this.state.restaurantNameQuery}&locationSearch=${this.state.locationQuery}&resultLimit=${this.state.resultsPerPage}&sortBy=${this.state.sortResults}`
+    console.log("do we state?", this.state)
+    const url = `/api/yelp?restaurantSearch=${this.state.queries.restaurantNameQuery}&locationSearch=${this.state.queries.locationQuery}&resultLimit=${this.state.queries.resultsPerPage}&sortBy=${this.state.queries.sortResults}`
 
-    if (this.state.restaurantNameQuery === '' && this.state.locationQuery === '') {
+    if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
       alert('Add a restaurant and a location!');
       return;
     }
-    if (this.state.restaurantNameQuery === '' && this.state.locationQuery !== '') {
+    if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery !== '') {
       alert('Add a restaurant!');
     }
-    if (this.state.restaurantNameQuery !== '' && this.state.locationQuery === '') {
+    if (this.state.queries.restaurantNameQuery !== '' && this.state.queries.locationQuery === '') {
       alert('Add a location!');
     }
     else {
       $.ajax({
         url: url
-      }, this.setState({
-        loaderClass: 'activated',
-        resultVisibility: 'resultsNotVisible'
-      }))
+      })
       .done((data) => {
-        this.setState({
-          searchResults: data.data,
-          loaderClass: 'deactivated',
-          resultVisibility: 'resultsVisible'
-        })
-        console.log('grabbing data', this.state.searchResults);
-      });
+        // console.log("ajax call console log", data);
+        store.dispatch({ type: 'DONE_LOADING', value: data.data });
+      })
+      store.dispatch({ type: 'LOADING' })
     }
   }
 
   restaurantNameSubmit(evt) {
-    console.log("restaurant: ", evt.target.value);
+    // console.log("restaurant: ", evt.target.value);
     store.dispatch({ type: 'RESTAURANT_SEARCH', value: evt.target.value });
   }
 
   locationSubmit(evt) {
-    console.log("location: ", evt.target.value);
+    // console.log("location: ", evt.target.value);
     store.dispatch({ type: 'LOCATION_SEARCH', value: evt.target.value });
   }
 
   limitTotal(evt) {
-    console.log(evt.target.value)
-    this.setState({
-      resultsPerPage: evt.target.value
-    }, () => this.summonTheData())
+    // console.log(evt.target.value)
+    store.dispatch({ type: 'RESULTS_TOTAL', value: evt.target.value });
+    this.summonTheData();
   }
 
   sortResults(evt) {
-    console.log(evt.target.value)
-    this.setState({
-      sortResults: evt.target.value
-    }, () => this.summonTheData())
+    // console.log(evt.target.value)
+    store.dispatch({ type: 'SORT_TOTAL', value: evt.target.value });
+    this.summonTheData()
   }
 
   handleRestaurantAdd(x) {
@@ -122,7 +115,10 @@ class RestaurantQuery extends React.Component {
 
   render() {
 
-    let names = this.state.searchResults.map((x) => <SearchResultLi
+    console.log("search results?", this.state.queries.searchResults);
+    console.log("state?", this.state);
+
+    let names = this.state.queries.searchResults.map((x) => <SearchResultLi
       key={x.id}
       name={x.name}
       imageUrl={x.image_url}
@@ -192,7 +188,7 @@ class RestaurantQuery extends React.Component {
         <div className="body-container">
 
 
-          <ol className={this.state.resultVisibility} id="search-results">
+          <ol className={this.state.queries.resultVisibility} id="search-results">
             {names}
           </ol>
         </div>
@@ -200,7 +196,7 @@ class RestaurantQuery extends React.Component {
         <img
           src={animeLoader}
           alt="page loader"
-          className={this.state.loaderClass} />
+          className={this.state.queries.loaderClass} />
 
       </div>
     )
