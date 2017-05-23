@@ -139,7 +139,7 @@ class RestaurantQuery extends React.Component {
       zipCode={x.location.zip_code}
       country={x.location.country}
       addButton={this.state.addButton}
-      favorited={x.favorited}
+      favorited={this.state.favorited}
       addRestaurant={() => this.handleRestaurantAdd(x)}
       removeCheckMark={() => this.removeCheckMark()}
     />);
