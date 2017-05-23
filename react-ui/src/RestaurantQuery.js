@@ -1,28 +1,25 @@
+// import technologies
 import React from 'react';
 import $ from 'jquery';
+
+// import components and other files
+import SearchResultLi from './SearchResultsLi.js';
+import { store } from './Store.js';
+
+// import css
 import './RestaurantQuery.css';
 
-import SearchResultLi from './SearchResultsLi.js';
-
+// import images
 import animeLoader from './images/animeloader.gif';
-
 import yelpLogo from './images/yelp/yelp.png';
+
+
 
 class RestaurantQuery extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      restaurantNameQuery: '',
-      locationQuery: '',
-      resultsPerPage: '',
-      sortResults: '',
-      inputValue: '',
-      searchResults: [],
-      addButton: 'addButton',
-      loaderClass: 'deactivated',
-      resultVisibility: 'resultsVisible'
-    }
+    this.state = store.getState();
   }
 
   summonTheData() {
