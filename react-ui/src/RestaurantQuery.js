@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 // import components and other files
 import SearchResultLi from './SearchResultsLi.js';
+import Api from './Api.js';
 import { store } from './Store.js';
 
 // import css
@@ -27,7 +28,6 @@ class RestaurantQuery extends React.Component {
   }
 
   summonTheData() {
-    // console.log("do we state?", this.state)
     const url = `/api/yelp?restaurantSearch=${this.state.queries.restaurantNameQuery}&locationSearch=${this.state.queries.locationQuery}&resultLimit=${this.state.queries.resultsPerPage}&sortBy=${this.state.queries.sortResults}`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
@@ -41,76 +41,35 @@ class RestaurantQuery extends React.Component {
       alert('Add a location!');
     }
     else {
-      $.ajax({
-        url: url
-      })
-      .done((data) => {
-        // console.log("ajax call console log", data);
-        store.dispatch({ type: 'DONE_LOADING', value: data.data });
-      })
-      store.dispatch({ type: 'LOADING' })
+      Api.summonTheData(url);
+      store.dispatch({ type: 'LOADING' });
     }
   }
 
   restaurantNameSubmit(evt) {
-    // console.log("restaurant: ", evt.target.value);
     store.dispatch({ type: 'RESTAURANT_SEARCH', value: evt.target.value });
   }
 
   locationSubmit(evt) {
-    // console.log("location: ", evt.target.value);
     store.dispatch({ type: 'LOCATION_SEARCH', value: evt.target.value });
   }
 
   limitTotal(evt) {
-    // console.log(evt.target.value)
     store.dispatch({ type: 'RESULTS_TOTAL', value: evt.target.value });
     this.summonTheData();
   }
 
   sortResults(evt) {
-    // console.log(evt.target.value)
     store.dispatch({ type: 'SORT_TOTAL', value: evt.target.value });
     this.summonTheData()
   }
 
   handleRestaurantAdd(x) {
-    $.ajax({
-      method: 'POST',
-      url: '/api/restaurant/',
-      data: {
-        name: x.name,
-        url: x.url,
-        image_url: x.image_url,
-        rating: x.rating,
-        review_count: x.review_count,
-        price: x.price,
-        address1: x.location.address1,
-        address2: x.location.address2,
-        address3: x.location.address3,
-        city: x.location.city,
-        state: x.location.state,
-        zip_code: x.location.zip_code,
-        country: x.location.country
-      }
-    })
-    .done((data) => {
-      console.log('is it gathering data?', data);
-    },
-      // alert(x.name + ' added to saved restaurants'),
-      this.setState({
-        addButton: 'addButtonSelected',
-        favorited: 'favorited'
-      })
-    );
+    Api.handleRestaurantAdd(x);
   }
 
   removeCheckMark() {
-    alert('removing from faves, but not yet, that still needs to get figured out');
-    this.setState({
-      addButton: 'addButton',
-      favorited: 'favoritedSelected'
-    })
+    Api.removeCheckMark();
   }
 
   render() {
@@ -133,8 +92,8 @@ class RestaurantQuery extends React.Component {
       state={x.location.state}
       zipCode={x.location.zip_code}
       country={x.location.country}
-      addButton={this.state.addButton}
-      favorited={this.state.favorited}
+      addButton={this.state.queries.addButton}
+      favorited={this.state.queries.favorited}
       addRestaurant={() => this.handleRestaurantAdd(x)}
       removeCheckMark={() => this.removeCheckMark()}
     />);
