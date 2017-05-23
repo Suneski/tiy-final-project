@@ -74,7 +74,7 @@ class RestaurantQuery extends React.Component {
   render() {
 
     // console.log("search results?", this.state.queries.searchResults);
-    // console.log("state?", this.state);
+    console.log("state?", this.state);
 
     let names = this.state.queries.searchResults.map((x) => <SearchResultLi
       key={x.id}
@@ -91,6 +91,8 @@ class RestaurantQuery extends React.Component {
       state={x.location.state}
       zipCode={x.location.zip_code}
       country={x.location.country}
+      latitude={x.coordinates.latitude}
+      longitude={x.coordinates.longitude}
       addButton={this.state.queries.addButton}
       favorited={this.state.queries.favorited}
       addRestaurant={() => this.handleRestaurantAdd(x)}
