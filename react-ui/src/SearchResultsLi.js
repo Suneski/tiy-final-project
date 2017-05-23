@@ -50,37 +50,6 @@ class SearchResultLi extends React.Component {
         rating = zero;
     }
 
-    // if (this.props.rating === 0) {
-    //   rating = zero;
-    // }
-    // if (this.props.rating === 1) {
-    //   rating = one;
-    // }
-    // if (this.props.rating === 1.5) {
-    //   rating = onefive;
-    // }
-    // if (this.props.rating === 2) {
-    //   rating = two;
-    // }
-    // if (this.props.rating === 2.5) {
-    //   rating = twofive;
-    // }
-    // if (this.props.rating === 3) {
-    //   rating = three;
-    // }
-    // if (this.props.rating === 3.5) {
-    //   rating = threefive;
-    // }
-    // if (this.props.rating === 4) {
-    //   rating = four;
-    // }
-    // if (this.props.rating === 4.5) {
-    //   rating = fourfive;
-    // }
-    // if (this.props.rating === 5) {
-    //   rating = five;
-    // }
-
     return(
       <li className="searchResultItem">
         <div className="imageResult">
