@@ -1,9 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
 
 import './SavedRestaurants.css'
-
-import SavedRestaurants from './SavedRestaurants.js'
 
 import zero from './images/yelp/stars-0.png'
 import one from './images/yelp/stars-1.0.png'
