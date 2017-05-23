@@ -103,12 +103,15 @@ app.get('/api/savedrestaurants', function(req, res) {
     });
 });
 
-app.delete('/api/savedrestaurants/:id', function(req, res) {
-  console.log(req.params.id);
-  Restaurant.findByIdAndRemove(req.params.id, function() {
-    console.log(arguments);
-  });
+app.delete('/api/savedrestaurants/:id', (req, res) => {
+  var cb = (err, data) => {
+    res.sendStatus(204);
+  };
+
+  console.log(req.params.id, cb);
+  Restaurant.findByIdAndRemove(req.params.id, cb);
 });
+
 
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
