@@ -59,7 +59,8 @@ class RestaurantQuery extends React.Component {
   }
 
   sortResults(evt) {
-    console.log(evt.target.value);
+    console.log(this.state.queries.sortResults);
+
     store.dispatch({ type: 'SORT_RESULTS', value: evt.target.value });
     this.summonTheData();
 
