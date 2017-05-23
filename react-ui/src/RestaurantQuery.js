@@ -1,6 +1,5 @@
 // import technologies
 import React from 'react';
-import $ from 'jquery';
 
 // import components and other files
 import SearchResultLi from './SearchResultsLi.js';
