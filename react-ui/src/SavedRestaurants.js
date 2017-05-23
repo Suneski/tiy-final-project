@@ -33,6 +33,17 @@ class SavedRestaurants extends React.Component {
     Api.summonSavedRestarants(cb);
   }
 
+  removeFavorite(id) {
+    console.log(id);
+    $.ajax({
+      url: `/api/savedrestaurants/${id}`,
+      method: 'DELETE'
+    })
+    .done((data) => {
+      this.summonSavedRestarants();
+    });
+  }
+
   render() {
     let savedPlaces = this.state.savedRestaurants.map((x) => <SavedRestaurantsLi
       key={x._id}
@@ -49,6 +60,7 @@ class SavedRestaurants extends React.Component {
       state={x.state}
       zipCode={x.zip_code}
       country={x.country}
+      removeFavorite={() => this.removeFavorite(x._id)}
     />);
 
 

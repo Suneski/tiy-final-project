@@ -105,7 +105,9 @@ app.get('/api/savedrestaurants', function(req, res) {
 
 app.delete('/api/savedrestaurants/:id', (req, res) => {
   var cb = (err, data) => {
-    res.sendStatus(204);
+    if (err === null) {
+      res.sendStatus(204);
+    }
   };
 
   console.log(req.params.id, cb);

@@ -18,15 +18,6 @@ import five from './images/yelp/stars-5.0.png'
 import logo from './images/yelp/yelp-burst-positive.png'
 
 class SavedRestaurantsLi extends React.Component {
-  removeFavorite() {
-    $.ajax({
-      url: `/api/savedrestaurants/${this.props.id}`,
-      method: 'DELETE'
-    })
-    .done((data) => {
-      SavedRestaurants.summonSavedRestarants();
-    });
-  }
 
   render() {
     let rating;
@@ -70,7 +61,7 @@ class SavedRestaurantsLi extends React.Component {
         <div className="restaurantDetails">
           <div
             className="removeButton"
-            onClick={() => this.removeFavorite()}>
+            onClick={this.props.removeFavorite}>
           </div>
           <div className="textResults">
             <a href={this.props.url}>{this.props.name}</a>
