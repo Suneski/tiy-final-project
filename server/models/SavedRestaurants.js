@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Restaurant = mongoose.model('Restaurant', {
+const schema = mongoose.Schema({
   id: String,
   name: String,
   url: String,
@@ -16,5 +16,4 @@ const Restaurant = mongoose.model('Restaurant', {
   country: String
 })
 
-
-module.exports = Restaurant;
+module.exports = mongoose.model('Restaurant', schema);
