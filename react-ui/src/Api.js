@@ -43,14 +43,17 @@ const Api = {
         country: x.location.country
       }
     })
-    .done(
-      store.dispatch({ type: 'ADD_RESTAURANT' })
+    .done((data) => {
+      alert(x.name + " added to saved restaurants")
+    }
+
+      // store.dispatch({ type: 'ADD_RESTAURANT' })
     );
   },
 
   removeCheckMark() {
     alert('removing from faves, but not yet, that still needs to get figured out');
-    store.dispatch({ type: 'REMOVE_CHECKMARK' });
+    // store.dispatch({ type: 'REMOVE_CHECKMARK' });
   }
 
 }

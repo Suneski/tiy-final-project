@@ -1,12 +1,16 @@
 .searchResultItem {
-  border: 1px solid 461613;
+  border: 1px solid #461613;
   border-radius: 10px;
   margin: 1%;
-  width: 46%;
+  width: 45%;
   padding: 5px;
   overflow: auto;
   float: left;
   background-color: rgba(255, 255, 255, 0.5); }
+
+.searchResultItem:hover {
+  border: 1px solid #2a0b09;
+  background-color: rgba(255, 255, 255, 0.8); }
 
 .imageResult img {
   float: left;
