@@ -30,7 +30,7 @@ class RestaurantQuery extends React.Component {
 
     let state = store.getState();
 
-    const url = `/api/yelp?restaurantSearch=${this.state.queries.restaurantNameQuery}&locationSearch=${this.state.queries.locationQuery}&resultLimit=${this.state.queries.resultsPerPage}&sortBy=${this.state.queries.sortResults}`
+    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
       alert('Add a restaurant and a location!');
