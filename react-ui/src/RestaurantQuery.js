@@ -27,6 +27,9 @@ class RestaurantQuery extends React.Component {
   }
 
   summonTheData() {
+
+    let state = store.getState();
+
     const url = `/api/yelp?restaurantSearch=${this.state.queries.restaurantNameQuery}&locationSearch=${this.state.queries.locationQuery}&resultLimit=${this.state.queries.resultsPerPage}&sortBy=${this.state.queries.sortResults}`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
@@ -59,7 +62,7 @@ class RestaurantQuery extends React.Component {
   }
 
   sortResults(evt) {
-    console.log(this.state.queries.sortResults);
+    // console.log(this.state.queries.sortResults);
 
     store.dispatch({ type: 'SORT_RESULTS', value: evt.target.value });
     this.summonTheData();
@@ -77,7 +80,7 @@ class RestaurantQuery extends React.Component {
   render() {
 
     // console.log("search results?", this.state.queries.searchResults);
-    console.log("state?", this.state);
+    // console.log("state?", this.state);
 
     let names = this.state.queries.searchResults.map((x) => <SearchResultLi
       key={x.id}
