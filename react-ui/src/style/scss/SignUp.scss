@@ -1,0 +1,26 @@
+.sign-up {
+  margin: 0 auto;
+  width: 600px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 50px;
+}
+
+.sign-up-title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+input, button {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  font-size: 30px;
+}
+
+button {
+  font-size: 20px;
+}
