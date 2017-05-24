@@ -14,10 +14,6 @@ class SavedRestaurants extends React.Component {
     }
   }
 
-  clickit() {
-    console.log(this.state)
-  }
-
   componentDidMount() {
     this.summonSavedRestarants();
   }
@@ -69,7 +65,7 @@ class SavedRestaurants extends React.Component {
         <div className="saved-restaurant-header">
 
         </div>
-        <button onClick={() => this.clickit()}>state status!!</button>
+        
         <ol>
           {savedPlaces}
         </ol>

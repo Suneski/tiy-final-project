@@ -28,11 +28,15 @@ nav li {
 
 nav {
 	height: 30px;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 .not-found {
 	margin: 10px auto;
 	display: block;
 	width: 1000px;
+}
+
+body {
+	background-color: #791A15;
 }
