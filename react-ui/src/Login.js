@@ -28,7 +28,6 @@ class Login extends Component {
   }
 
   handleLoginClick() {
-    console.log("homie", this.state)
     $.ajax({
       url: '/api/login',
       method: 'POST',
@@ -40,7 +39,7 @@ class Login extends Component {
     .done((data) => {
       store.dispatch({ type: 'LOGIN' });
       //Success! Move them to the book list.
-      this.props.history.push('/savedrestaurants');
+      this.props.history.push('/');
     })
     .fail((xhr) => {
       store.dispatch({ type: 'LOGIN_FAILURE', message: 'I am sorry, but I do not know who you are.' });
