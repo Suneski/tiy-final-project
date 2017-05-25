@@ -71,7 +71,7 @@ class Login extends Component {
 
         <div>
           <input
-            type="text"
+            type="password"
             placeholder="password"
             className="login-password-input"
             onChange={(evt) => this.handlePasswordChange(evt)}

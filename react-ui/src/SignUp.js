@@ -60,7 +60,7 @@ class SignUp extends Component {
 
         <div>
           <input
-            type="text"
+            type="password"
             placeholder="password"
             className="signup-password-input"
             onChange={(evt) => this.handlePasswordChange(evt)}

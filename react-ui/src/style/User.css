@@ -14,7 +14,7 @@
 input, button {
   margin-top: 20px; }
 
-input[type="text"] {
+input[type="text"], input[type='password'] {
   font-size: 30px; }
 
 button {
