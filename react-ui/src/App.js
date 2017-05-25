@@ -6,6 +6,7 @@ import RestaurantQuery from './RestaurantQuery.js';
 import SavedRestaurants from './SavedRestaurants.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
+import Navigation from './Navigation.js';
 
 import notfound from './images/404.gif';
 
@@ -14,19 +15,6 @@ var NotFound = () => (
     <img src={notfound} alt="not found" className="not-found"/>
   </div>
 )
-
-var Navigation = () => {
-  return <nav>
-    <ul>
-      <li><NavLink to="/" className="navigationItems">Home</NavLink></li>
-      <li><NavLink to="/savedrestaurants" className="navigationItems">Saved Restaurants</NavLink></li>
-    </ul>
-    <ul className='loginArea'>
-      <li><NavLink to="/login" className="navigationItems">Login</NavLink></li>
-      <li><NavLink to="/signup" className="navigationItems">Sign Up</NavLink></li>
-    </ul>
-  </nav>
-}
 
 class App extends Component {
   render() {
