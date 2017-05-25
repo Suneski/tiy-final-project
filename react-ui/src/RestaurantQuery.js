@@ -23,8 +23,20 @@ class RestaurantQuery extends React.Component {
   }
 
   componentDidMount() {
-    store.subscribe(() => this.setState(store.getState()));
+    this.unsub = store.subscribe(() => this.setState(store.getState()));
   }
+
+  componentWillUnmount() {
+    this.unsub();
+  }
+
+
+
+
+
+
+
+
 
   summonTheData() {
 
