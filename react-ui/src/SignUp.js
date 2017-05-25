@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import { store } from './Store.js';
 import './style/User.css';
 
@@ -16,22 +17,22 @@ class SignUp extends Component {
 
   handleSignUpClick() {
     console.log('test');
-    // $.ajax({
-    //   url: '/api/signup',
-    //   method: 'POST',
-    //   data: {
-    //     username: this.props.signupUsernameValue,
-    //     password: this.props.signupPasswordValue
-    //   }
-    // })
-    // .done((data) => {
-    //   store.dispatch({ type: actions.SIGNUP });
-    //   //Success! Move them to the book list.
-    //   this.props.history.push('/booklist');
-    // })
-    // .fail((xhr, error, responseText) => {
-    //   store.dispatch({ type: actions.SIGNUP_FAILURE, message: xhr.responseText });
-    // });
+    $.ajax({
+      url: '/api/signup',
+      method: 'POST',
+      data: {
+        username: this.props.signupUsernameValue,
+        password: this.props.signupPasswordValue
+      }
+    })
+    .done((data) => {
+      store.dispatch({ type: 'SIGNUP' });
+      //Success! Move them to the book list.
+      this.props.history.push('/booklist');
+    })
+    .fail((xhr, error, responseText) => {
+      store.dispatch({ type: 'SIGNUP_FAILURE', message: xhr.responseText });
+    });
   }
 
 

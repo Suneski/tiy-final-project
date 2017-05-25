@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './style/App.css';
 
+import Navigation from './Navigation.js';
 import RestaurantQuery from './RestaurantQuery.js';
 import SavedRestaurants from './SavedRestaurants.js';
-import Login from './Login.js';
 import SignUp from './SignUp.js';
-import Navigation from './Navigation.js';
-
-import notfound from './images/404.gif';
-
-var NotFound = () => (
-  <div>
-    <img src={notfound} alt="not found" className="not-found"/>
-  </div>
-)
+import Login from './Login.js';
+import Logout from './Logout.js';
+import NotFound from './NotFound.js';
 
 class App extends Component {
   render() {
