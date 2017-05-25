@@ -48,11 +48,11 @@ class Login extends Component {
 
   render() {
 
-    // console.log('SignUp rerender', this.props);
+    console.log('Login rerender', this.state);
 
     let message;
-    if (this.props.signupErrorMessage !== '') {
-      message = <div className="message bad-message">{this.props.signupErrorMessage}</div>
+    if (this.state.user.loginErrorMessage !== '') {
+      message = <div className="message bad-message">{this.state.user.loginErrorMessage}</div>
     }
 
     return (
