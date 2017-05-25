@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { store } from './Store.js';
 import './style/User.css';
 
-class SignUp extends Component {
+class Login extends Component {
 
   handleUsernameChange(evt) {
     console.log(evt.target.value);
@@ -45,14 +45,14 @@ class SignUp extends Component {
     }
 
     return (
-      <div className="sign-up">
-        <h2 className="sign-up-title">Sign Up</h2>
+      <div className="login">
+        <h2 className="login-title">Login</h2>
 
         <div>
           <input
             type="text"
             placeholder="username"
-            className="signup-username-input"
+            className="login-username-input"
             onChange={(evt) => this.handleUsernameChange(evt)}
           />
         </div>
@@ -61,7 +61,7 @@ class SignUp extends Component {
           <input
             type="text"
             placeholder="password"
-            className="signup-password-input"
+            className="login-password-input"
             onChange={(evt) => this.handlePasswordChange(evt)}
           />
         </div>
@@ -75,4 +75,4 @@ class SignUp extends Component {
   }
 }
 
-module.exports = SignUp;
+module.exports = Login;

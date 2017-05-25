@@ -4,6 +4,7 @@ import './style/App.css';
 
 import RestaurantQuery from './RestaurantQuery.js';
 import SavedRestaurants from './SavedRestaurants.js';
+import Login from './Login.js';
 import SignUp from './SignUp.js';
 
 import notfound from './images/404.gif';
@@ -21,7 +22,7 @@ var Navigation = () => {
       <li><NavLink to="/savedrestaurants" className="navigationItems">Saved Restaurants</NavLink></li>
     </ul>
     <ul className='loginArea'>
-      <li><NavLink to="/" className="navigationItems">Login</NavLink></li>
+      <li><NavLink to="/login" className="navigationItems">Login</NavLink></li>
       <li><NavLink to="/signup" className="navigationItems">Sign Up</NavLink></li>
     </ul>
   </nav>
@@ -37,6 +38,7 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={RestaurantQuery} />
               <Route path="/savedrestaurants" component={SavedRestaurants} />
+              <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
               <Route component={NotFound} />
             </Switch>
