@@ -78,7 +78,7 @@ class Login extends Component {
           />
         </div>
 
-        <button onClick={() => this.handleLoginClick()}>SIGN UP</button>
+        <button onClick={() => this.handleLoginClick()}>LOG IN</button>
 
         {message}
 
