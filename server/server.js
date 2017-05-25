@@ -10,6 +10,7 @@ require('dotenv').config();
 
 var MONGODB_URI = 'mongodb://heroku_53x8xz9h:j1j9br810r4q56nmi1hbe92edn@ds147551.mlab.com:47551/heroku_53x8xz9h'
 
+mongoose.Promise = global.Promise;
 var mongoURL = process.env.DB_PATH || process.env.MONGODB_URI;
 mongoose.connect(mongoURL);
 
