@@ -6,29 +6,29 @@ import './style/User.css';
 class SignUp extends Component {
 
   handleUsernameChange(evt) {
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
     store.dispatch({ type: 'SIGNUP_USERNAME_CHANGE', value: evt.target.value });
   }
 
   handlePasswordChange(evt) {
-    console.log(evt.target.value);
+    // console.log("this is what SHOULD be sent", evt.target.value);
     store.dispatch({ type: 'SIGNUP_PASSWORD_CHANGE', value: evt.target.value });
+    // console.log(this.props)
   }
 
   handleSignUpClick() {
-    console.log('test');
+    console.log(this.props)
     $.ajax({
       url: '/api/signup',
       method: 'POST',
       data: {
-        username: this.props.signupUsernameValue,
-        password: this.props.signupPasswordValue
+        username: this.props.user.signupUsernameValue,
+        password: this.props.user.signupPasswordValue
       }
     })
     .done((data) => {
       store.dispatch({ type: 'SIGNUP' });
-      //Success! Move them to the book list.
-      this.props.history.push('/booklist');
+      this.props.history.push('/savedrestaurants');
     })
     .fail((xhr, error, responseText) => {
       store.dispatch({ type: 'SIGNUP_FAILURE', message: xhr.responseText });
@@ -37,7 +37,6 @@ class SignUp extends Component {
 
 
   render() {
-
     // console.log('SignUp rerender', this.props);
 
     let message;
@@ -52,6 +51,7 @@ class SignUp extends Component {
         <div>
           <input
             type="text"
+            value={this.props.signupUsernameValue}
             placeholder="username"
             className="signup-username-input"
             onChange={(evt) => this.handleUsernameChange(evt)}
@@ -61,6 +61,7 @@ class SignUp extends Component {
         <div>
           <input
             type="password"
+            value={this.props.signupPasswordValue}
             placeholder="password"
             className="signup-password-input"
             onChange={(evt) => this.handlePasswordChange(evt)}

@@ -1,6 +1,11 @@
 const initialState = {
+  isLoggedIn: false,
+  loginUsernameValue: '',
+  loginPasswordValue: '',
+  loginErrorMessage: '',
   signupUsernameValue: '',
-  signupPasswordValue: ''
+  signupPasswordValue: '',
+  signupErrorMessage: '',
 }
 
 export default function userReducer(state = initialState, action) {
