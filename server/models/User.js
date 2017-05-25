@@ -1,19 +1,14 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt-nodejs");
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt-nodejs');
 const SALT_FACTOR = 10;
 
 const noop = () => {};
 
 const userSchema = mongoose.Schema({
-  username: { type: String, required: true, unique: true},
-  passwrod: { type: String, required: true},
-  createdAt: { type: Date, default: Date.now },
-  displayName: String
-})
-
-userSchema.methods.name = function() {
-  return this.displayName || this.username;
-};
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
+});
 
 userSchema.pre('save', function(done) {
   const user = this;
