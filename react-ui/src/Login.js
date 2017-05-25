@@ -28,19 +28,19 @@ class Login extends Component {
   }
 
   handleLoginClick() {
-    console.log('pending')
+    console.log("homie", this.state)
     $.ajax({
       url: '/api/login',
       method: 'POST',
       data: {
-        username: this.props.user.loginUsernameValue,
-        password: this.props.user.loginPasswordValue
+        username: this.state.user.loginUsernameValue,
+        password: this.state.user.loginPasswordValue
       }
     })
     .done((data) => {
       store.dispatch({ type: 'LOGIN' });
       //Success! Move them to the book list.
-      this.props.history.push('/booklist');
+      this.props.history.push('/savedrestaurants');
     })
     .fail((xhr) => {
       store.dispatch({ type: 'LOGIN_FAILURE', message: 'I am sorry, but I do not know who you are.' });
