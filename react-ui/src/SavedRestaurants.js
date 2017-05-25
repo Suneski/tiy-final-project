@@ -65,10 +65,12 @@ class SavedRestaurants extends React.Component {
         <div className="saved-restaurant-header">
 
         </div>
-        
-        <ol>
-          {savedPlaces}
-        </ol>
+
+        <div className="body-container">
+          <ol>
+            {savedPlaces}
+          </ol>
+        </div>
 
       </div>
     )
