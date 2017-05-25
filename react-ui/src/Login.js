@@ -62,7 +62,7 @@ class Login extends Component {
 
   render() {
 
-    console.log('Login rerender', this.state);
+    // console.log('Login rerender', this.state);
 
     let message;
     if (this.state.user.loginErrorMessage !== '') {
