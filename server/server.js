@@ -19,8 +19,6 @@ app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-require('./auth.js')(app);
-
 app.use(require('./restaurant-apis.js'));
 
 app.get('*', function(request, response) {
