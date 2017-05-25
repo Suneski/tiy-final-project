@@ -21,7 +21,7 @@ class Navigation extends React.Component {
     let loginStateComponent;
     if (this.props.isLoggedIn) {
       loginStateComponent = <ul className='loginArea'>
-        <li onClick={() => this.handleLogout()}><a href="">Logout</a></li>
+        <li onClick={() => this.handleLogout()}><a className="navigationItems" href="">Logout</a></li>
       </ul>
     }
     else {

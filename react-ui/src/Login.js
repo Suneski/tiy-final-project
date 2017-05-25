@@ -24,7 +24,7 @@ class Login extends Component {
   }
 
   handlePasswordChange(evt) {
-    store.dispatch({ type: 'LOGIN_PASSWORD_CHANGE', value: evt.target.value })
+    store.dispatch({ type: 'LOGIN_PASSWORD_CHANGE', value: evt.target.value });
   }
 
   handleLoginClick() {
@@ -33,8 +33,8 @@ class Login extends Component {
       url: '/api/login',
       method: 'POST',
       data: {
-        username: this.state.loginUsernameValue,
-        password: this.state.loginPasswordValue
+        username: this.props.user.loginUsernameValue,
+        password: this.props.user.loginPasswordValue
       }
     })
     .done((data) => {
@@ -63,6 +63,7 @@ class Login extends Component {
         <div>
           <input
             type="text"
+            value={this.state.user.loginUsernameValue}
             placeholder="username"
             className="login-username-input"
             onChange={(evt) => this.handleUsernameChange(evt)}
@@ -72,6 +73,7 @@ class Login extends Component {
         <div>
           <input
             type="password"
+            value={this.state.user.loginPasswordValue}
             placeholder="password"
             className="login-password-input"
             onChange={(evt) => this.handlePasswordChange(evt)}

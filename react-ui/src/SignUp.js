@@ -40,8 +40,8 @@ class SignUp extends Component {
     // console.log('SignUp rerender', this.props);
 
     let message;
-    if (this.props.signupErrorMessage !== '') {
-      message = <div className="message bad-message">{this.props.signupErrorMessage}</div>
+    if (this.props.user.signupErrorMessage !== '') {
+      message = <div className="message bad-message">{this.props.user.signupErrorMessage}</div>
     }
 
     return (
@@ -51,7 +51,7 @@ class SignUp extends Component {
         <div>
           <input
             type="text"
-            value={this.props.signupUsernameValue}
+            value={this.props.user.signupUsernameValue}
             placeholder="username"
             className="signup-username-input"
             onChange={(evt) => this.handleUsernameChange(evt)}
@@ -61,7 +61,7 @@ class SignUp extends Component {
         <div>
           <input
             type="password"
-            value={this.props.signupPasswordValue}
+            value={this.props.user.signupPasswordValue}
             placeholder="password"
             className="signup-password-input"
             onChange={(evt) => this.handlePasswordChange(evt)}

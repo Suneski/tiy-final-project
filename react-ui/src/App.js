@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation isLoggedIn={this.state.isLoggedIn}/>
+          <Navigation isLoggedIn={this.state.user.isLoggedIn}/>
           <div className="container">
             <Switch>
               <Route

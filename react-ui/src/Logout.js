@@ -1,6 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 
+
+import './style/App.css';
+
 class Logout extends React.Component {
 
   handleLogout() {
@@ -15,7 +18,7 @@ class Logout extends React.Component {
 
   render() {
     return (
-      <div className="logout">
+      <div className="logout navigationItems">
         <button onClick={() => this.handleLogout()}>LOG OUT</button>
       </div>
     );
