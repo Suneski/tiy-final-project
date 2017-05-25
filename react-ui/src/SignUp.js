@@ -18,6 +18,20 @@ class SignUp extends Component {
 
   handleSignUpClick() {
     console.log(this.props)
+
+    if (this.props.user.signupUsernameValue === '' && this.props.user.signupPasswordValue === '') {
+      alert("Please include a username and a password");
+      return;
+    }
+    if (this.props.user.signupUsernameValue === '' && this.props.user.signupPasswordValue !== '') {
+      alert("Please include a username");
+      return;
+    }
+    if (this.props.user.signupUsernameValue !== '' && this.props.user.signupPasswordValue === '') {
+      alert("Please include a password");
+      return;
+    }
+
     $.ajax({
       url: '/api/signup',
       method: 'POST',
@@ -41,7 +55,7 @@ class SignUp extends Component {
 
     let message;
     if (this.props.user.signupErrorMessage !== '') {
-      message = <div className="message bad-message">{this.props.user.signupErrorMessage}</div>
+      message = <div className="error-message">{this.props.user.signupErrorMessage}</div>
     }
 
     return (

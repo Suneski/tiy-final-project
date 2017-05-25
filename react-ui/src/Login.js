@@ -28,6 +28,20 @@ class Login extends Component {
   }
 
   handleLoginClick() {
+
+    if (this.state.user.loginUsernameValue === '' && this.state.user.loginPasswordValue === '') {
+      alert("Please include a username and a password");
+      return;
+    }
+    if (this.state.user.loginUsernameValue === '' && this.state.user.loginPasswordValue !== '') {
+      alert("Please include a username");
+      return;
+    }
+    if (this.state.user.loginUsernameValue !== '' && this.state.user.loginPasswordValue === '') {
+      alert("Please include a password");
+      return;
+    }
+
     $.ajax({
       url: '/api/login',
       method: 'POST',
@@ -42,7 +56,7 @@ class Login extends Component {
       this.props.history.push('/');
     })
     .fail((xhr) => {
-      store.dispatch({ type: 'LOGIN_FAILURE', message: 'I am sorry, but I do not know who you are.' });
+      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
     });
   }
 
@@ -52,7 +66,7 @@ class Login extends Component {
 
     let message;
     if (this.state.user.loginErrorMessage !== '') {
-      message = <div className="message bad-message">{this.state.user.loginErrorMessage}</div>
+      message = <div className="error-message">{this.state.user.loginErrorMessage}</div>
     }
 
     return (
