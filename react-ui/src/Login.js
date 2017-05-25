@@ -1,39 +1,51 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import { store } from './Store.js';
 import './style/User.css';
 
 class Login extends Component {
 
+  constructor() {
+    super();
+
+    this.state = store.getState();
+  }
+
+  componentDidMount() {
+    this.unsub = store.subscribe(() => this.setState(store.getState()));
+  }
+
+  componentWillUnmount() {
+    this.unsub();
+  }
+
   handleUsernameChange(evt) {
-    console.log(evt.target.value);
-    store.dispatch({ type: 'NEW_USERNAME', value: evt.target.value });
+    store.dispatch({ type: 'LOGIN_USERNAME_CHANGE', value: evt.target.value })
   }
 
   handlePasswordChange(evt) {
-    console.log(evt.target.value);
-    store.dispatch({ type: 'NEW_PASSWORD', value: evt.target.value });
+    store.dispatch({ type: 'LOGIN_PASSWORD_CHANGE', value: evt.target.value })
   }
 
-  handleSignUpClick() {
-    console.log('test');
+  handleLoginClick() {
+    console.log('pending')
     // $.ajax({
-    //   url: '/api/signup',
+    //   url: '/api/login',
     //   method: 'POST',
     //   data: {
-    //     username: this.props.signupUsernameValue,
-    //     password: this.props.signupPasswordValue
+    //     username: this.state.loginUsernameValue,
+    //     password: this.state.loginPasswordValue
     //   }
     // })
     // .done((data) => {
-    //   store.dispatch({ type: actions.SIGNUP });
+    //   store.dispatch({ type: actions.LOGIN });
     //   //Success! Move them to the book list.
     //   this.props.history.push('/booklist');
     // })
-    // .fail((xhr, error, responseText) => {
-    //   store.dispatch({ type: actions.SIGNUP_FAILURE, message: xhr.responseText });
+    // .fail((xhr) => {
+    //   store.dispatch({ type: actions.LOGIN_FAILURE, message: 'I am sorry, but I do not know who you are.' });
     // });
   }
-
 
   render() {
 
@@ -66,7 +78,7 @@ class Login extends Component {
           />
         </div>
 
-        <button onClick={() => this.handleSignUpClick()}>SIGN UP</button>
+        <button onClick={() => this.handleLoginClick()}>SIGN UP</button>
 
         {message}
 

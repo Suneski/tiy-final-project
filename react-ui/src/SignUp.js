@@ -6,12 +6,12 @@ class SignUp extends Component {
 
   handleUsernameChange(evt) {
     console.log(evt.target.value);
-    store.dispatch({ type: 'NEW_USERNAME', value: evt.target.value });
+    store.dispatch({ type: 'SIGNUP_USERNAME_CHANGE', value: evt.target.value });
   }
 
   handlePasswordChange(evt) {
     console.log(evt.target.value);
-    store.dispatch({ type: 'NEW_PASSWORD', value: evt.target.value });
+    store.dispatch({ type: 'SIGNUP_PASSWORD_CHANGE', value: evt.target.value });
   }
 
   handleSignUpClick() {
