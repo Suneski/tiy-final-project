@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "heroku-postbuild": "cd react-ui/ && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
@@ -29,5 +29,8 @@
     "passport-local": "^1.0.0",
     "request": "^2.81.0",
     "yelp-fusion": "^1.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
