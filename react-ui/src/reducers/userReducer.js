@@ -1,3 +1,5 @@
+import actions from './actions.js';
+
 const initialState = {
   isLoggedIn: false,
   loginUsernameValue: '',
@@ -6,18 +8,6 @@ const initialState = {
   signupUsernameValue: '',
   signupPasswordValue: '',
   signupErrorMessage: '',
-}
-
-const actions = {
-  SIGNUP_USERNAME_CHANGE: 'SIGNUP_USERNAME_CHANGE',
-  SIGNUP_PASSWORD_CHANGE: 'SIGNUP_PASSWORD_CHANGE',
-  SIGNUP: 'SIGNUP',
-  SIGNUP_FAILURE: 'SIGNUP_FAILURE',
-  LOGIN_USERNAME_CHANGE: 'LOGIN_USERNAME_CHANGE',
-  LOGIN_PASSWORD_CHANGE: 'LOGIN_PASSWORD_CHANGE',
-  LOGIN: 'LOGIN',
-  LOGIN_FAILURE: 'LOGIN_FAILURE',
-  LOGOUT: 'LOGOUT',
 }
 
 const userReducer = (state = initialState, action) => {

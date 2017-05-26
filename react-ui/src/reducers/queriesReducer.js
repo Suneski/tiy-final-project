@@ -1,3 +1,5 @@
+import actions from './actions.js';
+
 const initialState = {
   restaurantNameQuery: '',
   locationQuery: '',
@@ -9,15 +11,6 @@ const initialState = {
   loaderClass: 'deactivated',
   resultVisibility: 'resultsVisible'
 };
-
-const actions = {
-  RESTAURANT_SEARCH: 'RESTAURANT_SEARCH',
-  LOCATION_SEARCH: 'LOCATION_SEARCH',
-  RESULTS_TOTAL: 'RESULTS_TOTAL',
-  SORT_RESULTS: 'SORT_RESULTS',
-  LOADING: 'LOADING',
-  DONE_LOADING: 'DONE_LOADING'
-}
 
 const queriesReducer = (state = initialState, action) => {
   switch (action.type) {
