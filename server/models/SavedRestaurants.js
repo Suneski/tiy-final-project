@@ -13,7 +13,8 @@ const schema = mongoose.Schema({
   city: String,
   state: String,
   zip_code: String,
-  country: String
+  country: String,
+  userId: mongoose.Schema.Types.ObjectId,
 })
 
 module.exports = mongoose.model('Restaurant', schema);
