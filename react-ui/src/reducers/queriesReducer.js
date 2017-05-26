@@ -1,3 +1,5 @@
+import actions from './actions.js';
+
 const initialState = {
   restaurantNameQuery: '',
   locationQuery: '',
@@ -10,21 +12,21 @@ const initialState = {
   resultVisibility: 'resultsVisible'
 };
 
-export default function queriesReducer(state = initialState, action) {
+const queriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'RESTAURANT_SEARCH':
+    case actions.RESTAURANT_SEARCH:
       return Object.assign({}, state, { restaurantNameQuery: action.value });
-    case 'LOCATION_SEARCH':
+    case actions.LOCATION_SEARCH:
       return Object.assign({}, state, { locationQuery: action.value });
-    case 'RESULTS_TOTAL':
+    case actions.RESULTS_TOTAL:
       return Object.assign({}, state, { resultsPerPage: action.value });
-    case 'SORT_RESULTS':
+    case actions.SORT_RESULTS:
       return Object.assign({}, state, { sortResults: action.value });
-    case 'LOADING':
+    case actions.LOADING:
       return Object.assign({}, state, {
         loaderClass: 'activated',
         resultVisibility: 'resultsNotVisible'} )
-    case 'DONE_LOADING':
+    case actions.DONE_LOADING:
       return Object.assign({}, state, {
         searchResults: action.value,
         loaderClass: 'deactivated',
@@ -43,3 +45,5 @@ export default function queriesReducer(state = initialState, action) {
       return state;
   }
 }
+
+module.exports = queriesReducer;

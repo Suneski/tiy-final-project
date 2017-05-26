@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import { store } from './Store.js';
 import './style/User.css';
+import { store } from './Store.js';
 
 class Login extends Component {
 

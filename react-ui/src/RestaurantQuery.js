@@ -4,7 +4,7 @@ import React from 'react';
 // import components and other files
 import SearchResultLi from './SearchResultsLi.js';
 import Api from './Api.js';
-import { store } from './Store.js';
+import { store, actions } from './Store.js';
 
 // import css
 import './style/RestaurantQuery.css';
@@ -61,22 +61,22 @@ class RestaurantQuery extends React.Component {
   }
 
   restaurantNameSubmit(evt) {
-    store.dispatch({ type: 'RESTAURANT_SEARCH', value: evt.target.value });
+    store.dispatch({ type: actions.RESTAURANT_SEARCH, value: evt.target.value });
   }
 
   locationSubmit(evt) {
-    store.dispatch({ type: 'LOCATION_SEARCH', value: evt.target.value });
+    store.dispatch({ type: actions.LOCATION_SEARCH, value: evt.target.value });
   }
 
   limitTotal(evt) {
-    store.dispatch({ type: 'RESULTS_TOTAL', value: evt.target.value });
+    store.dispatch({ type: actions.RESULTS_TOTAL, value: evt.target.value });
     this.summonTheData();
   }
 
   sortResults(evt) {
     // console.log(this.state.queries.sortResults);
 
-    store.dispatch({ type: 'SORT_RESULTS', value: evt.target.value });
+    store.dispatch({ type: actions.SORT_RESULTS, value: evt.target.value });
     this.summonTheData();
 
   }
