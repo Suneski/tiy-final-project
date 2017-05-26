@@ -3,49 +3,43 @@ const Restaurant = require('./models/SavedRestaurants.js');
 
 const app = express.Router();
 
-// Answer API requests.
-app.get('/api/yelp/', function(req,res) {
+function formatRestaurant(restaurant) {
+  return {
+    id: restaurant.id,
+    name: restaurant.name,
+    url: restaurant.url,
+    image_url: restaurant.image_url,
+    rating: restaurant.rating,
+    price: restaurant.price,
+    address1: restaurant.address1,
+    address2: restaurant.address2,
+    address3: restaurant.address3,
+    city: restaurant.city,
+    state: restaurant.state,
+    zip_code: restaurant.zip_code,
+    country: restaurant.country,
+  }
+}
 
-  console.log('is the data being summoned?');
-
-  'use strict';
-
-  var output = [];
-  var term = `${req.query.restaurantSearch}`;
-  var location = `${req.query.locationSearch}`;
-  var limit = `${req.query.resultLimit}` || '20';
-  var sort_by = `${req.query.sortBy}` || 'best_match';
-
-  const yelp = require('yelp-fusion');
-
-  // Place holders for Yelp Fusion's OAuth 2.0 credentials. Grab them
-  // from https://www.yelp.com/developers/v3/manage_app
-  const clientId = 'S0HZe9JeSX10-qMRUtM_4Q';
-  const clientSecret = 'ergT0KVaFxSVznE3xZ6kKz9lJwp7SOWe0tlPBheuCL66avlespWmv8zdm68Y5LN4';
-
-  const searchRequest = {
-    term: term,
-    location: location,
-    limit: limit,
-    sort_by: sort_by,
-  };
-
-  yelp.accessToken(clientId, clientSecret).then(response => {
-    const client = yelp.client(response.jsonBody.access_token);
-
-    client.search(searchRequest).then(response => {
-      for (var i = 0; i < response.jsonBody.businesses.length; i++) {
-        const result = response.jsonBody.businesses[i];
-        const prettyJson = JSON.stringify(result, null, 4);
-        output.push(result);
-      }
+app.get('/api/savedrestaurants', (req, res) => {
+  Restaurant.find({ userId: req.user._id })
+    .exec((err, data) => {
+//      console.log(arguments);
       res.send({
-        data: output
-      })
-      console.log(output);
+        restaurants: data.map((restaurant) => formatRestaurant(restaurant))
+      });
     });
-  });
 });
+
+// app.get('/api/savedrestaurants', function(req, res) {
+//
+//   Restaurant.find({})
+//     .exec(function(err, data) {
+// //      console.log(arguments);
+//       res.send(data);
+//     });
+// });
+
 
 
 app.post('/api/restaurant', function(req, res) {
@@ -65,24 +59,14 @@ app.post('/api/restaurant', function(req, res) {
   restaurant.state = req.body.state;
   restaurant.zip_code = req.body.zip_code;
   restaurant.country = req.body.country;
+  restaurant.userId = req.user._id;
 
-  restaurant.save(function() {
+  restaurant.save((err, data) => {
     console.log('is it saving?!');
+    res.send(formatRestaurant(data));
   });
-
-  res.send('it saved!!!!');
 });
 
-
-
-app.get('/api/savedrestaurants', function(req, res) {
-
-  Restaurant.find({})
-    .exec(function(err, data) {
-//      console.log(arguments);
-      res.send(data);
-    });
-});
 
 app.delete('/api/savedrestaurants/:id', (req, res) => {
   var cb = (err, data) => {

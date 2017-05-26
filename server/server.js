@@ -18,9 +18,11 @@ app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(require('./restaurant-apis.js'));
+app.use(require('./yelp-api.js'));
 
 require('./auth.js')(app);
+
+app.use(require('./restaurant-apis.js'));
 
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
