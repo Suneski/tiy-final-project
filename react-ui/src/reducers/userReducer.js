@@ -8,26 +8,38 @@ const initialState = {
   signupErrorMessage: '',
 }
 
-export default function userReducer(state = initialState, action) {
+const actions = {
+  SIGNUP_USERNAME_CHANGE: 'SIGNUP_USERNAME_CHANGE',
+  SIGNUP_PASSWORD_CHANGE: 'SIGNUP_PASSWORD_CHANGE',
+  SIGNUP: 'SIGNUP',
+  SIGNUP_FAILURE: 'SIGNUP_FAILURE',
+  LOGIN_USERNAME_CHANGE: 'LOGIN_USERNAME_CHANGE',
+  LOGIN_PASSWORD_CHANGE: 'LOGIN_PASSWORD_CHANGE',
+  LOGIN: 'LOGIN',
+  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  LOGOUT: 'LOGOUT',
+}
+
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SIGNUP_USERNAME_CHANGE':
+    case actions.SIGNUP_USERNAME_CHANGE:
       return Object.assign({}, state, { signupUsernameValue: action.value });
-    case 'SIGNUP_PASSWORD_CHANGE':
+    case actions.SIGNUP_PASSWORD_CHANGE:
       return Object.assign({}, state, { signupPasswordValue: action.value });
-    case 'SIGNUP':
+    case actions.SIGNUP:
       return Object.assign({}, state, {
         signupPasswordValue: '',
         signupUsernameValue: '',
         signupErrorMessage: '',
         isLoggedIn: true
       });
-    case 'SIGNUP_FAILURE':
+    case actions.SIGNUP_FAILURE:
       return Object.assign({}, state, { signupErrorMessage: action.message });
-    case 'LOGIN_USERNAME_CHANGE':
+    case actions.LOGIN_USERNAME_CHANGE:
       return Object.assign({}, state, { loginUsernameValue: action.value });
-    case 'LOGIN_PASSWORD_CHANGE':
+    case actions.LOGIN_PASSWORD_CHANGE:
       return Object.assign({}, state, { loginPasswordValue: action.value });
-    case 'LOGIN': {
+    case actions.LOGIN: {
       return Object.assign({}, state, {
         loginUsernameValue: '',
         loginPasswordValue: '',
@@ -44,3 +56,5 @@ export default function userReducer(state = initialState, action) {
       return state;
   }
 }
+
+module.exports = userReducer;

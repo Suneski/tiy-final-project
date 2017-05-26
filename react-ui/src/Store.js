@@ -1,8 +1,27 @@
 import { createStore } from 'redux';
 import combineReducers from './reducers/combineReducers.js';
 
+const actions = {
+  LOGIN_USERNAME_CHANGE: 'LOGIN_USERNAME_CHANGE',
+  LOGIN_PASSWORD_CHANGE: 'LOGIN_PASSWORD_CHANGE',
+  LOGIN: 'LOGIN',
+  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  LOGOUT: 'LOGOUT',
+  SIGNUP_USERNAME_CHANGE: 'SIGNUP_USERNAME_CHANGE',
+  SIGNUP_PASSWORD_CHANGE: 'SIGNUP_PASSWORD_CHANGE',
+  SIGNUP: 'SIGNUP',
+  SIGNUP_FAILURE: 'SIGNUP_FAILURE',
+  RESTAURANT_SEARCH: 'RESTAURANT_SEARCH',
+  LOCATION_SEARCH: 'LOCATION_SEARCH',
+  RESULTS_TOTAL: 'RESULTS_TOTAL',
+  SORT_RESULTS: 'SORT_RESULTS',
+  LOADING: 'LOADING',
+  DONE_LOADING: 'DONE_LOADING'
+}
+
 const store = createStore(combineReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 module.exports = {
-  store: store
+  store: store,
+  actions: actions
 }
