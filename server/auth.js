@@ -12,7 +12,7 @@ function setup(app) {
   app.use(session({
     secret: 'himitsu',
     resave: true,
-    saveUnitialized: true,
+    saveUninitialized: true,
     cookie: { httpOnly: false }
   }));
   app.use(passport.initialize());
