@@ -32,17 +32,6 @@ app.get('/api/savedrestaurants', (req, res) => {
     });
 });
 
-// app.get('/api/savedrestaurants', function(req, res) {
-//
-//   Restaurant.find({})
-//     .exec(function(err, data) {
-// //      console.log(arguments);
-//       res.send(data);
-//     });
-// });
-
-
-
 app.post('/api/restaurant', function(req, res) {
   console.log('posting restaurant', req.body);
 
@@ -68,7 +57,6 @@ app.post('/api/restaurant', function(req, res) {
   });
 });
 
-
 app.delete('/api/savedrestaurants/:id', (req, res) => {
   var cb = (err, data) => {
     if (err === null) {
@@ -79,7 +67,5 @@ app.delete('/api/savedrestaurants/:id', (req, res) => {
   console.log(req.params.id, cb);
   Restaurant.findByIdAndRemove(req.params.id, cb);
 });
-
-
 
 module.exports = app
