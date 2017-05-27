@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import './style/User.css';
 import { store } from './Store.js';
+import Api from './Api.js';
 
 class Login extends Component {
 
@@ -42,27 +42,10 @@ class Login extends Component {
       return;
     }
 
-    $.ajax({
-      url: '/api/login',
-      method: 'POST',
-      data: {
-        username: this.state.user.loginUsernameValue,
-        password: this.state.user.loginPasswordValue
-      }
-    })
-    .done((data) => {
-      store.dispatch({ type: 'LOGIN' });
-      //Success! Move them to the book list.
-      this.props.history.push('/');
-    })
-    .fail((xhr) => {
-      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
-    });
+    Api.handleLoginClick(this.state.user.loginUsernameValue, this.state.user.loginPasswordValue, this.props.history.push('/'));
   }
 
   render() {
-
-    // console.log('Login rerender', this.state);
 
     let message;
     if (this.state.user.loginErrorMessage !== '') {

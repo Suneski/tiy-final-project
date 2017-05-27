@@ -13,8 +13,6 @@ import './style/RestaurantQuery.css';
 import animeLoader from './images/animeloader.gif';
 import yelpLogo from './images/yelp/yelp.png';
 
-
-
 class RestaurantQuery extends React.Component {
   constructor() {
     super();
@@ -29,14 +27,6 @@ class RestaurantQuery extends React.Component {
   componentWillUnmount() {
     this.unsub();
   }
-
-
-
-
-
-
-
-
 
   summonTheData() {
 
@@ -90,10 +80,6 @@ class RestaurantQuery extends React.Component {
   }
 
   render() {
-
-
-    // console.log("search results?", this.state.queries.searchResults);
-    // console.log("state?", this.state);
 
     let names = this.state.queries.searchResults.map((x) => <SearchResultLi
       key={x.id}
