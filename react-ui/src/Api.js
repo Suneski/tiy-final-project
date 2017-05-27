@@ -13,24 +13,23 @@ const Api = {
   },
 
 
-  handleLoginClick(username, password, push) {
-    $.ajax({
-      url: '/api/login',
-      method: 'POST',
-      data: {
-        username: username,
-        password: password
-      }
-    })
-    .done((data) => {
-      store.dispatch({ type: 'LOGIN' });
-      //Success! Move them to the book list.
-      push;
-    })
-    .fail((xhr) => {
-      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
-    });
-  },
+  // handleLoginClick(username, password, push) {
+  //   $.ajax({
+  //     url: '/api/login',
+  //     method: 'POST',
+  //     data: {
+  //       username: username,
+  //       password: password
+  //     }
+  //   })
+  //   .done((data) => {
+  //     store.dispatch({ type: 'LOGIN' });
+  //     push;
+  //   })
+  //   .fail((xhr) => {
+  //     store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
+  //   });
+  // },
 
   summonSavedRestarants() {
     $.ajax({

@@ -3,6 +3,8 @@ import './style/User.css';
 import { store } from './Store.js';
 import Api from './Api.js';
 
+import $ from 'jquery';
+
 class Login extends Component {
 
   constructor() {
@@ -42,7 +44,23 @@ class Login extends Component {
       return;
     }
 
-    Api.handleLoginClick(this.state.user.loginUsernameValue, this.state.user.loginPasswordValue, this.props.history.push('/'));
+    // Api.handleLoginClick(this.state.user.loginUsernameValue, this.state.user.loginPasswordValue, this.props.history.push('/'));
+    $.ajax({
+      url: '/api/login',
+      method: 'POST',
+      data: {
+        username: this.state.user.loginUsernameValue,
+        password: this.state.user.loginPasswordValue
+      }
+    })
+    .done((data) => {
+      store.dispatch({ type: 'LOGIN' });
+      this.props.history.push('/')
+      // push;
+    })
+    .fail((xhr) => {
+      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
+    });
   }
 
   render() {
