@@ -37,8 +37,6 @@ class SavedRestaurants extends React.Component {
   }
 
   render() {
-    let state = store.getState();
-
     let noSavedRestaurants;
 
     let savedPlaces;

@@ -1,8 +1,5 @@
 import React from 'react';
 import './style/RestaurantQuery.css';
-import $ from 'jquery';
-
-import { store, actions } from './Store.js';
 
 import zero from './images/yelp/stars-0.png'
 import one from './images/yelp/stars-1.0.png'
