@@ -24,6 +24,9 @@
   margin-left: 160px;
   overflow: auto; }
 
+.noAddButto {
+  display: none; }
+
 .addButton {
   background-image: url("../images/add-button.png");
   background-size: contain;

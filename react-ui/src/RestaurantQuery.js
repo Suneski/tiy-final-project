@@ -91,6 +91,7 @@ class RestaurantQuery extends React.Component {
 
   render() {
 
+
     // console.log("search results?", this.state.queries.searchResults);
     // console.log("state?", this.state);
 
@@ -111,8 +112,7 @@ class RestaurantQuery extends React.Component {
       country={x.location.country}
       latitude={x.coordinates.latitude}
       longitude={x.coordinates.longitude}
-      addButton={this.state.queries.addButton}
-      favorited={this.state.queries.favorited}
+      addButton={this.state.user.addButton}
       addRestaurant={() => this.handleRestaurantAdd(x)}
       removeCheckMark={() => this.removeCheckMark()}
     />);

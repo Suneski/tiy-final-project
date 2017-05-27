@@ -1,6 +1,8 @@
 import React from 'react';
 import './style/RestaurantQuery.css';
 
+import { store, actions } from './Store.js';
+
 import zero from './images/yelp/stars-0.png'
 import one from './images/yelp/stars-1.0.png'
 import onefive from './images/yelp/stars-1.5.png'
@@ -14,6 +16,7 @@ import five from './images/yelp/stars-5.0.png'
 import logo from './images/yelp/yelp-burst-positive.png'
 
 class SearchResultLi extends React.Component {
+
   render() {
 
     var rating = this.props.rating;
