@@ -5,6 +5,7 @@ const app = express.Router();
 
 function formatRestaurant(restaurant) {
   return {
+    _id: restaurant._id,
     id: restaurant.id,
     name: restaurant.name,
     url: restaurant.url,

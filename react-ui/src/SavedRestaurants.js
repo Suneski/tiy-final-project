@@ -16,7 +16,6 @@ class SavedRestaurants extends React.Component {
   componentDidMount() {
     this.unsub = store.subscribe(() => this.setState(store.getState()));
     this.summonSavedRestarants();
-    console.log('are there restaurants?', this.state)
   }
 
   componentWillUnmount() {
@@ -28,7 +27,6 @@ class SavedRestaurants extends React.Component {
   }
 
   removeFavorite(id) {
-    console.log(id);
     $.ajax({
       url: `/api/savedrestaurants/${id}`,
       method: 'DELETE'
@@ -46,9 +44,9 @@ class SavedRestaurants extends React.Component {
     let savedPlaces;
 
     if (this.state.queries.savedRestaurants.length === 0) {
-      console.log('empty, sad trombone');
       noSavedRestaurants = <h1>You have no saved restaurants</h1>;
     }
+
     else {
       savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi
         key={x.id}
@@ -69,10 +67,6 @@ class SavedRestaurants extends React.Component {
       />);
     }
 
-
-
-
-
     return (
       <div>
         <div className="saved-restaurant-header">
@@ -81,7 +75,6 @@ class SavedRestaurants extends React.Component {
 
         <div className="body-container">
           <ol>
-
             {savedPlaces}
           </ol>
         </div>
