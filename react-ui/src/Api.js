@@ -65,6 +65,16 @@ const Api = {
       alert(x.name + " added to saved restaurants")}
     );
   },
+
+  handleLogout() {
+    $.ajax({
+      url: '/api/logout',
+      method: 'POST'
+    })
+    .done(() => {
+      store.dispatch({ type: 'LOGOUT' });
+    });
+  }
 }
 
 module.exports = Api;
