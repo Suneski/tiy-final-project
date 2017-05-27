@@ -41,7 +41,10 @@ class SavedRestaurants extends React.Component {
 
     let savedPlaces;
 
-    if (this.state.queries.savedRestaurants.length === 0) {
+    if (this.state.user.isLoggedIn === false) {
+      noSavedRestaurants = <h1>Log in to view saved restaurants</h1>;
+    }
+    else if (this.state.queries.savedRestaurants.length === 0) {
       noSavedRestaurants = <h1>You have no saved restaurants</h1>;
     }
 
