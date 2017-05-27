@@ -20,4 +20,16 @@
 	background-size: cover;
   background-position: center;
 	height: 450px;
+  text-align: center;
+  color: white;
+}
+
+.saved-restaurant-header h1 {
+  font-size: 50px;
+  padding-top: 200px;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }

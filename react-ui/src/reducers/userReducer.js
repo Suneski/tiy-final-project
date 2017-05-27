@@ -2,8 +2,8 @@ import actions from './actions.js';
 
 const initialState = {
   isLoggedIn: false,
-  loginUsernameValue: '',
-  loginPasswordValue: '',
+  loginUsernameValue: 'david',
+  loginPasswordValue: 'test',
   loginErrorMessage: '',
   signupUsernameValue: '',
   signupPasswordValue: '',

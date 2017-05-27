@@ -12,12 +12,12 @@ const Api = {
     })
   },
 
-  summonSavedRestarants(cb) {
+  summonSavedRestarants() {
     $.ajax({
       url: '/api/savedrestaurants'
     })
     .done((data) => {
-      cb(data);
+      store.dispatch({ type: 'SAVED_RESTAURANTS_CB', value: data.restaurants });
     });
   },
 
@@ -28,6 +28,7 @@ const Api = {
       method: 'POST',
       url: '/api/restaurant/',
       data: {
+        id: x.id,
         name: x.name,
         url: x.url,
         image_url: x.image_url,
@@ -40,7 +41,7 @@ const Api = {
         city: x.location.city,
         state: x.location.state,
         zip_code: x.location.zip_code,
-        country: x.location.country
+        country: x.location.country,
       }
     })
     .done((data) => {

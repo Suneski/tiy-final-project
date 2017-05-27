@@ -7,6 +7,7 @@ const initialState = {
   sortResults: '',
   inputValue: '',
   searchResults: [],
+  savedRestaurants: [],
   addButton: 'addButton',
   loaderClass: 'deactivated',
   resultVisibility: 'resultsVisible'
@@ -22,6 +23,8 @@ const queriesReducer = (state = initialState, action) => {
       return Object.assign({}, state, { resultsPerPage: action.value });
     case actions.SORT_RESULTS:
       return Object.assign({}, state, { sortResults: action.value });
+    case actions.SAVED_RESTAURANTS_CB:
+      return Object.assign({}, state, { savedRestaurants: action.value });
     case actions.LOADING:
       return Object.assign({}, state, {
         loaderClass: 'activated',

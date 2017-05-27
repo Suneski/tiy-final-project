@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import { store } from './Store.js';
 
 import SavedRestaurantsLi from './SavedRestaurantsLi.js'
 
@@ -9,24 +10,21 @@ class SavedRestaurants extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      savedRestaurants: []
-    }
+    this.state = store.getState();
   }
 
   componentDidMount() {
+    this.unsub = store.subscribe(() => this.setState(store.getState()));
     this.summonSavedRestarants();
+    console.log('are there restaurants?', this.state)
+  }
+
+  componentWillUnmount() {
+    this.unsub();
   }
 
   summonSavedRestarants() {
-
-    const cb = (data) => {
-      this.setState({
-        savedRestaurants: data
-      })
-    }
-
-    Api.summonSavedRestarants(cb);
+    Api.summonSavedRestarants();
   }
 
   removeFavorite(id) {
@@ -41,33 +39,49 @@ class SavedRestaurants extends React.Component {
   }
 
   render() {
-    let savedPlaces = this.state.savedRestaurants.map((x) => <SavedRestaurantsLi
-      key={x._id}
-      id={x._id}
-      name={x.name}
-      imageUrl={x.image_url}
-      url={x.url}
-      rating={x.rating}
-      price={x.price}
-      address1={x.address1}
-      address2={x.address2}
-      address3={x.address3}
-      city={x.city}
-      state={x.state}
-      zipCode={x.zip_code}
-      country={x.country}
-      removeFavorite={() => this.removeFavorite(x._id)}
-    />);
+    let state = store.getState();
+
+    let noSavedRestaurants;
+
+    let savedPlaces;
+
+    if (this.state.queries.savedRestaurants.length === 0) {
+      console.log('empty, sad trombone');
+      noSavedRestaurants = <h1>You have no saved restaurants</h1>;
+    }
+    else {
+      savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi
+        key={x.id}
+        id={x._id}
+        name={x.name}
+        imageUrl={x.image_url}
+        url={x.url}
+        rating={x.rating}
+        price={x.price}
+        address1={x.address1}
+        address2={x.address2}
+        address3={x.address3}
+        city={x.city}
+        state={x.state}
+        zipCode={x.zip_code}
+        country={x.country}
+        removeFavorite={() => this.removeFavorite(x._id)}
+      />);
+    }
+
+
+
 
 
     return (
       <div>
         <div className="saved-restaurant-header">
-
+          {noSavedRestaurants}
         </div>
 
         <div className="body-container">
           <ol>
+
             {savedPlaces}
           </ol>
         </div>
