@@ -53,23 +53,32 @@ const Api = {
       url: '/api/savedrestaurants/'
     })
     .done((data) => {
+      console.log(data.restaurants);
+      console.log("length", data.restaurants.length);
+
+
       if (data.restaurants.length === 0) {
         this.handleRestaurantAdd(x);
       }
       else {
         for(var i = 0; i < data.restaurants.length; i++) {
           if (x.id === data.restaurants[i].id) {
+            console.log("i", i);
             console.log('match!');
             alert(x.name + " is already in saved restaurants");
             break;
           }
 
-          else {
+          else if (i === data.restaurants.length - 1) {
+            console.log("i", i);
+            console.log('x.id', x.id, 'data.restaurants[i].id', data.restaurants[i].id)
             this.handleRestaurantAdd(x);
             break;
           }
         }
       }
+
+      console.log('conditionals done');
     })
   },
 
