@@ -32,7 +32,7 @@ class RestaurantQuery extends React.Component {
 
     let state = store.getState();
 
-    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}`
+    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
       alert('Add a restaurant and a location!');
@@ -64,19 +64,17 @@ class RestaurantQuery extends React.Component {
   }
 
   sortResults(evt) {
-    // console.log(this.state.queries.sortResults);
-
     store.dispatch({ type: actions.SORT_RESULTS, value: evt.target.value });
     this.summonTheData();
+  }
 
+  sortPrice(evt) {
+    store.dispatch({ type: actions.SORT_PRICE, value: evt.target.value });
+    this.summonTheData();
   }
 
   handleRestaurantAddFilter(x) {
     Api.handleRestaurantAddFilter(x);
-  }
-
-  removeCheckMark() {
-    Api.removeCheckMark();
   }
 
   render() {
@@ -140,6 +138,15 @@ class RestaurantQuery extends React.Component {
                   <option value='rating'>Rating</option>
                   <option value='review_count'>Review Count</option>
                   <option value='distance'>Distance</option>
+                </select>
+              </div>
+              <div className="price">Price:
+                <select onChange={(evt) => this.sortPrice(evt)}>
+                  <option value='1,2,3,4'>All</option>
+                  <option value='1'>$</option>
+                  <option value='2'>$$</option>
+                  <option value='3'>$$$</option>
+                  <option value='4'>$$$$</option>
                 </select>
               </div>
             </div>

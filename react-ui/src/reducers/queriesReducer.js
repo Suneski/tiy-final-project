@@ -5,6 +5,7 @@ const initialState = {
   locationQuery: '',
   resultsPerPage: '',
   sortResults: '',
+  sortPrice: '',
   inputValue: '',
   searchResults: [],
   savedRestaurants: [],
@@ -22,6 +23,8 @@ const queriesReducer = (state = initialState, action) => {
       return Object.assign({}, state, { resultsPerPage: action.value });
     case actions.SORT_RESULTS:
       return Object.assign({}, state, { sortResults: action.value });
+    case actions.SORT_PRICE:
+      return Object.assign({}, state, { sortPrice: action.value });
     case actions.SAVED_RESTAURANTS_CB:
       return Object.assign({}, state, { savedRestaurants: action.value });
     case actions.LOADING:

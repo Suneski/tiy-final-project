@@ -16,6 +16,7 @@ app.get('/api/yelp/', function(req,res) {
   var location = `${req.query.locationSearch}`;
   var limit = `${req.query.resultLimit}` || '20';
   var sort_by = `${req.query.sortBy}` || 'best_match';
+  var price = `${req.query.price}` || '';
 
   const yelp = require('yelp-fusion');
 
@@ -29,6 +30,7 @@ app.get('/api/yelp/', function(req,res) {
     location: location,
     limit: limit,
     sort_by: sort_by,
+    price: price,
   };
 
   yelp.accessToken(clientId, clientSecret).then(response => {
