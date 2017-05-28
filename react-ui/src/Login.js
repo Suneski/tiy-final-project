@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './style/User.css';
 import { store } from './Store.js';
-import Api from './Api.js';
 
 import $ from 'jquery';
 
@@ -44,7 +43,6 @@ class Login extends Component {
       return;
     }
 
-    // Api.handleLoginClick(this.state.user.loginUsernameValue, this.state.user.loginPasswordValue, this.props.history.push('/'));
     $.ajax({
       url: '/api/login',
       method: 'POST',

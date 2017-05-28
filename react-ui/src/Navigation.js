@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import { store } from './Store.js';
-import $ from 'jquery';
 import Api from './Api.js'
 
 class Navigation extends React.Component {
