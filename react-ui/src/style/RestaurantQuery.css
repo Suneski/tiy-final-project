@@ -118,7 +118,7 @@ input[type="text"] {
 .filters {
   margin: 0 auto;
   display: block;
-  width: 302px;
+  width: 440px;
   padding-top: 20px;
   /*color: white;
   text-shadow:
@@ -130,6 +130,9 @@ input[type="text"] {
 .filter {
   float: left;
   margin-right: 20px; }
+
+.filter-name {
+  margin-right: 5px; }
 
 #search-results {
   clear: both; }

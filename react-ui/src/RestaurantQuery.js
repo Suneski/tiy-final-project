@@ -124,7 +124,7 @@ class RestaurantQuery extends React.Component {
                 <span className="search-button-text">SEARCH</span>
             </button>
             <div className="filters">
-              <div className="filter">Results:
+              <div className="filter"><span className="filter-name">Results:</span>
                 <select onChange={(evt) => this.limitTotal(evt)}>
                   <option value='20'>20</option>
                   <option value='30'>30</option>
@@ -132,7 +132,7 @@ class RestaurantQuery extends React.Component {
                   <option value='50'>50</option>
                 </select>
               </div>
-              <div className="filter">Sort by:
+              <div className="filter"><span className="filter-name">Sort by:</span>
                 <select onChange={(evt) => this.sortResults(evt)}>
                   <option value='best_match'>Best Match</option>
                   <option value='rating'>Rating</option>
@@ -140,7 +140,7 @@ class RestaurantQuery extends React.Component {
                   <option value='distance'>Distance</option>
                 </select>
               </div>
-              <div className="price">Price:
+              <div className="filter"><span className="filter-name">Price:</span>
                 <select onChange={(evt) => this.sortPrice(evt)}>
                   <option value='1,2,3,4'>All</option>
                   <option value='1'>$</option>
