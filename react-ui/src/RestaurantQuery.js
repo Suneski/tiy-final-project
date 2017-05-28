@@ -143,7 +143,7 @@ class RestaurantQuery extends React.Component {
                 </select>
               </div>
             </div>
-            <img src={yelpLogo} alt="powered by yelp" className="header-logo"/>
+            <a href="http://www.yelp.com" target="_blank"><img src={yelpLogo} alt="powered by yelp" className="header-logo"/></a>
           </div>
 
 
