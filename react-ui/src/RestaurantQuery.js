@@ -71,8 +71,8 @@ class RestaurantQuery extends React.Component {
 
   }
 
-  handleRestaurantAdd(x) {
-    Api.handleRestaurantAdd(x);
+  handleRestaurantAddFilter(x) {
+    Api.handleRestaurantAddFilter(x);
   }
 
   removeCheckMark() {
@@ -99,7 +99,7 @@ class RestaurantQuery extends React.Component {
       latitude={x.coordinates.latitude}
       longitude={x.coordinates.longitude}
       addButton={this.state.user.addButton}
-      addRestaurant={() => this.handleRestaurantAdd(x)}
+      addRestaurant={() => this.handleRestaurantAddFilter(x)}
       removeCheckMark={() => this.removeCheckMark()}
     />);
 

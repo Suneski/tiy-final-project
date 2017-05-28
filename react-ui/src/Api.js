@@ -12,25 +12,6 @@ const Api = {
     })
   },
 
-
-  // handleLoginClick(username, password, push) {
-  //   $.ajax({
-  //     url: '/api/login',
-  //     method: 'POST',
-  //     data: {
-  //       username: username,
-  //       password: password
-  //     }
-  //   })
-  //   .done((data) => {
-  //     store.dispatch({ type: 'LOGIN' });
-  //     push;
-  //   })
-  //   .fail((xhr) => {
-  //     store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
-  //   });
-  // },
-
   summonSavedRestarants() {
     $.ajax({
       url: '/api/savedrestaurants'
@@ -63,7 +44,33 @@ const Api = {
     })
     .done((data) => {
       alert(x.name + " added to saved restaurants")}
-    );
+    )
+  },
+
+  handleRestaurantAddFilter(x) {
+    $.ajax({
+      method: 'GET',
+      url: '/api/savedrestaurants/'
+    })
+    .done((data) => {
+      if (data.restaurants.length === 0) {
+        this.handleRestaurantAdd(x);
+      }
+      else {
+        for(var i = 0; i < data.restaurants.length; i++) {
+          if (x.id === data.restaurants[i].id) {
+            console.log('match!');
+            alert(x.name + " is already in saved restaurants");
+            break;
+          }
+
+          else {
+            this.handleRestaurantAdd(x);
+            break;
+          }
+        }
+      }
+    })
   },
 
   handleLogout() {
