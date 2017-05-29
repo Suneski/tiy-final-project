@@ -4,7 +4,7 @@ import React from 'react';
 // import components and other files
 import SearchResultLi from './SearchResultsLi.js';
 import Api from './Api.js';
-import { store, actions } from './Store.js';
+import { store, actions } from './reducers/Store.js';
 
 // import css
 import './index.css';

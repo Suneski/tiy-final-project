@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from './Api.js';
 import './index.css';
-import { store } from './Store.js';
+import { store } from './reducers/Store.js';
 
 
 class Login extends Component {

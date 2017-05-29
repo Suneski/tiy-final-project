@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Api from './Api';
-import { store } from './Store.js';
+import { store } from './reducers/Store.js';
 import './index.css';
 
 class SignUp extends Component {

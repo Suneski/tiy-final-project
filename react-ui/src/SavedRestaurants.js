@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from './Store.js';
+import { store } from './reducers/Store.js';
 
 import SavedRestaurantsLi from './SavedRestaurantsLi.js'
 

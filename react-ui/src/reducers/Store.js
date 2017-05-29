@@ -1,8 +1,7 @@
 import { createStore } from 'redux';
-import combineReducers from './reducers/combineReducers.js';
+import combineReducers from './combineReducers.js';
 
-import actions from './reducers/actions.js';
-
+import actions from './actions.js';
 
 const store = createStore(combineReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

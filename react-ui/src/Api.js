@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { store } from './Store.js';
+import { store } from './reducers/Store.js';
 
 const Api = {
 
