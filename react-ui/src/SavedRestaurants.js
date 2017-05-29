@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import { store } from './Store.js';
 
 import SavedRestaurantsLi from './SavedRestaurantsLi.js'
@@ -27,13 +26,7 @@ class SavedRestaurants extends React.Component {
   }
 
   removeFavorite(id) {
-    $.ajax({
-      url: `/api/savedrestaurants/${id}`,
-      method: 'DELETE'
-    })
-    .done((data) => {
-      this.summonSavedRestarants();
-    });
+    Api.removeFavorite(id);
   }
 
   render() {

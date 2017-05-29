@@ -108,6 +108,16 @@ const Api = {
     .done(() => {
       store.dispatch({ type: 'LOGOUT' });
     });
+  },
+
+  removeFavorite(id) {
+    $.ajax({
+      url: `/api/savedrestaurants/${id}`,
+      method: 'DELETE'
+    })
+    .done((data) => {
+      this.summonSavedRestarants();
+    });
   }
 }
 
