@@ -82,6 +82,24 @@ const Api = {
     })
   },
 
+  handleLoginClick(username, password, history) {
+    $.ajax({
+      url: '/api/login',
+      method: 'POST',
+      data: {
+        username: username,
+        password: password
+      }
+    })
+    .done((data) => {
+      store.dispatch({ type: 'LOGIN' });
+      history.push('/');
+    })
+    .fail((xhr) => {
+      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
+    });
+  },
+
   handleLogout() {
     $.ajax({
       url: '/api/logout',

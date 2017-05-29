@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import Api from './Api.js';
 import './index.css';
 import { store } from './Store.js';
 
-import $ from 'jquery';
 
 class Login extends Component {
 
   constructor() {
     super();
-
     this.state = store.getState();
   }
 
@@ -43,22 +42,7 @@ class Login extends Component {
       return;
     }
 
-    $.ajax({
-      url: '/api/login',
-      method: 'POST',
-      data: {
-        username: this.state.user.loginUsernameValue,
-        password: this.state.user.loginPasswordValue
-      }
-    })
-    .done((data) => {
-      store.dispatch({ type: 'LOGIN' });
-      this.props.history.push('/')
-      // push;
-    })
-    .fail((xhr) => {
-      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
-    });
+    Api.handleLoginClick(this.state.user.loginUsernameValue, this.state.user.loginPasswordValue, this.props.history);
   }
 
   render() {

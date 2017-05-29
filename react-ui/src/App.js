@@ -11,7 +11,6 @@ import Login from './Login.js';
 import Logout from './Logout.js';
 import NotFound from './NotFound.js';
 
-//Following the RR example here: https://reacttraining.com/react-router/web/example/auth-workflow
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
     store.getState().isLoggedIn ? (
@@ -28,7 +27,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 class App extends Component {
   constructor() {
     super();
-
     this.state = store.getState();
   }
 
