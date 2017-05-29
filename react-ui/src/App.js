@@ -8,7 +8,6 @@ import RestaurantQuery from './RestaurantQuery.js';
 import SavedRestaurants from './SavedRestaurants.js';
 import SignUp from './SignUp.js';
 import Login from './Login.js';
-import Logout from './Logout.js';
 import NotFound from './NotFound.js';
 
 class App extends Component {
@@ -41,9 +40,6 @@ class App extends Component {
               <Route
                 path="/signup"
                 render={(props) => <SignUp {...this.state} history={props.history} /> } />
-              <Route
-                path="/logout"
-                component={Logout} />
               <Route component={NotFound} />
             </Switch>
           </div>
