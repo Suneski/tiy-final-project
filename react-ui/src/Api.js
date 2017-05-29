@@ -93,7 +93,7 @@ const Api = {
     })
     .done((data) => {
       store.dispatch({ type: 'LOGIN' });
-      history.push('/');
+      history.push('/savedrestaurants');
     })
     .fail((xhr) => {
       store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });

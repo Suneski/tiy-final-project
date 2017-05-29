@@ -15,7 +15,9 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.SIGNUP_USERNAME_CHANGE:
-      return Object.assign({}, state, { signupUsernameValue: action.value });
+      return Object.assign({}, state, {
+        signupUsernameValue: action.value,
+        name: action.value });
     case actions.SIGNUP_PASSWORD_CHANGE:
       return Object.assign({}, state, { signupPasswordValue: action.value });
     case actions.SIGNUP:
@@ -24,8 +26,7 @@ const userReducer = (state = initialState, action) => {
         signupUsernameValue: '',
         signupErrorMessage: '',
         isLoggedIn: true,
-        addButton: 'addButton',
-        name: action.value });
+        addButton: 'addButton' });
     case actions.SIGNUP_FAILURE:
       return Object.assign({}, state, { signupErrorMessage: action.message });
     case actions.LOGIN_USERNAME_CHANGE:
