@@ -59,6 +59,11 @@ body {
 
 .activated {
   display: block;
+  position: absolute;
+  top: 65px;
+  left: 35%;
+  border-radius: 10px;
+  border: 10px solid white;
   margin: 0 auto;
   width: 500px;
   clear: both; }
@@ -101,7 +106,7 @@ header {
   background-position: center;
   height: 450px; }
 
-.header-items {
+.search-box {
   margin: 0 auto;
   padding: 30px;
   width: 700px;
@@ -111,6 +116,9 @@ header {
   top: 100px;
   position: relative;
   overflow: auto; }
+
+.search-box-hidden {
+  display: none; }
 
 .input-bars {
   width: 670px;

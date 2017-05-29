@@ -1,5 +1,10 @@
 .activated {
   display: block;
+  position: absolute;
+  top: 65px;
+  left: 35%;
+  border-radius: 10px;
+  border: 10px solid white;
   margin: 0 auto;
   width: 500px;
   clear: both;

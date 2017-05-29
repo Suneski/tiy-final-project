@@ -105,7 +105,7 @@ class RestaurantQuery extends React.Component {
       <div className="app-container">
         <header>
 
-          <div className="header-items">
+          <div className={this.state.queries.searchBox}>
             <div className="input-bars">
               <input
                 placeholder="restaurant/food"
@@ -152,22 +152,20 @@ class RestaurantQuery extends React.Component {
             <a href="http://www.yelp.com" target="_blank"><img src={yelpLogo} alt="powered by yelp" className="header-logo"/></a>
           </div>
 
+          <img
+            src={animeLoader}
+            alt="page loader"
+            className={this.state.queries.loaderClass} />
 
         </header>
 
         <div className="body-container">
 
 
-          <ol className={this.state.queries.resultVisibility}>
+          <ol className='resultsVisible'>
             {names}
           </ol>
         </div>
-
-        <img
-          src={animeLoader}
-          alt="page loader"
-          className={this.state.queries.loaderClass} />
-
       </div>
     )
 

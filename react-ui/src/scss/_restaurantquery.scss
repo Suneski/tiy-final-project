@@ -5,7 +5,7 @@ header {
 	height: 450px;
 }
 
-.header-items {
+.search-box {
   margin: 0 auto;
   padding: 30px;
   width: 700px;
@@ -15,6 +15,10 @@ header {
   top: 100px;
   position: relative;
   overflow: auto;
+}
+
+.search-box-hidden {
+	display: none;
 }
 
 .input-bars {
