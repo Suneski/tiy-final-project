@@ -8,6 +8,7 @@ const initialState = {
   signupUsernameValue: '',
   signupPasswordValue: '',
   signupErrorMessage: '',
+  name: '',
   addButton: 'noAddButton',
 }
 
@@ -24,11 +25,13 @@ const userReducer = (state = initialState, action) => {
         signupErrorMessage: '',
         isLoggedIn: true,
         addButton: 'addButton',
-      });
+        name: action.value });
     case actions.SIGNUP_FAILURE:
       return Object.assign({}, state, { signupErrorMessage: action.message });
     case actions.LOGIN_USERNAME_CHANGE:
-      return Object.assign({}, state, { loginUsernameValue: action.value });
+      return Object.assign({}, state, {
+        loginUsernameValue: action.value,
+        name: action.value });
     case actions.LOGIN_PASSWORD_CHANGE:
       return Object.assign({}, state, { loginPasswordValue: action.value });
     case actions.LOGIN: {

@@ -30,18 +30,28 @@ class SavedRestaurants extends React.Component {
   }
 
   render() {
-    let noSavedRestaurants;
+    let savedRestaurantsHeader;
 
     let savedPlaces;
 
+    let name = this.state.user.name;
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+
     if (this.state.user.isLoggedIn === false) {
-      noSavedRestaurants = <h1>Log in to view saved restaurants</h1>;
+      savedRestaurantsHeader = <h1 className='logInViewSaves'>Log in to view saved restaurants</h1>;
     }
     else if (this.state.queries.savedRestaurants.length === 0) {
-      noSavedRestaurants = <h1>You have no saved restaurants</h1>;
+      savedRestaurantsHeader = <div>
+        <h1>Welcome back, {name}!</h1>
+        <h1>You have no saved restaurants.</h1>
+      </div>
     }
-
     else {
+      savedRestaurantsHeader = <div>
+        <h1>Welcome back, {name}!</h1>
+        <h1>Here are your saved restaurants.</h1>
+      </div>
+
       savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi
         key={x.id}
         id={x._id}
@@ -64,7 +74,7 @@ class SavedRestaurants extends React.Component {
     return (
       <div>
         <div className="saved-restaurant-header">
-          {noSavedRestaurants}
+          {savedRestaurantsHeader}
         </div>
 
         <div className="body-container">

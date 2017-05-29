@@ -22,6 +22,18 @@ nav {
 		1px 1px 0 #000;
 }
 
+.loggedInAs {
+	text-decoration: none;
+	color: white;
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
 .navigationItems:hover {
 	border-bottom: 2px solid white;
 }

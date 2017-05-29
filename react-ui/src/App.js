@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation isLoggedIn={this.state.user.isLoggedIn}/>
+          <Navigation isLoggedIn={this.state.user.isLoggedIn} name={this.state.user.name}/>
           <div className="container">
             <Switch>
               <Route
