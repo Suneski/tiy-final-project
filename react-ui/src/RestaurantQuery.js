@@ -165,6 +165,7 @@ class RestaurantQuery extends React.Component {
           <ol className='resultsVisible'>
             {names}
           </ol>
+
         </div>
       </div>
     )
