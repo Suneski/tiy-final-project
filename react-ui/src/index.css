@@ -193,9 +193,6 @@ input[type="text"] {
   width: 80%;
   margin: 0 auto; }
 
-.search-results {
-  clear: both; }
-
 .searchResultItem {
   border: 1px solid #461613;
   border-radius: 10px;

@@ -158,7 +158,7 @@ class RestaurantQuery extends React.Component {
         <div className="body-container">
 
 
-          <ol className={this.state.queries.resultVisibility} className="search-results">
+          <ol className={this.state.queries.resultVisibility}>
             {names}
           </ol>
         </div>
