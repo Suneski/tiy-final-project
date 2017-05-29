@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { store } from './reducers/Store.js';
 import './index.css';
 
@@ -10,19 +10,6 @@ import SignUp from './SignUp.js';
 import Login from './Login.js';
 import Logout from './Logout.js';
 import NotFound from './NotFound.js';
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    store.getState().isLoggedIn ? (
-      <Component {...props}/>
-    ) : (
-      <Redirect to={{
-        pathname: '/login',
-        state: { from: props.location }
-      }}/>
-    )
-  )}/>
-)
 
 class App extends Component {
   constructor() {
