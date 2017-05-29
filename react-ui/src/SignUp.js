@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
+import Api from './Api';
 import { store } from './Store.js';
 import './index.css';
 
@@ -17,8 +17,6 @@ class SignUp extends Component {
   }
 
   handleSignUpClick() {
-    console.log(this.props)
-
     if (this.props.user.signupUsernameValue === '' && this.props.user.signupPasswordValue === '') {
       alert("Please include a username and a password");
       return;
@@ -31,22 +29,7 @@ class SignUp extends Component {
       alert("Please include a password");
       return;
     }
-
-    $.ajax({
-      url: '/api/signup',
-      method: 'POST',
-      data: {
-        username: this.props.user.signupUsernameValue,
-        password: this.props.user.signupPasswordValue
-      }
-    })
-    .done((data) => {
-      store.dispatch({ type: 'SIGNUP' });
-      this.props.history.push('/savedrestaurants');
-    })
-    .fail((xhr, error, responseText) => {
-      store.dispatch({ type: 'SIGNUP_FAILURE', message: xhr.responseText });
-    });
+    Api.handleSignUpClick(this.props.user.signupUsernameValue, this.props.user.signupPasswordValue, this.props.history);
   }
 
 

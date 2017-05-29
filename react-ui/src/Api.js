@@ -118,7 +118,26 @@ const Api = {
     .done((data) => {
       this.summonSavedRestarants();
     });
+  },
+
+  handleSignUpClick(username, password, history) {
+    $.ajax({
+      url: '/api/signup',
+      method: 'POST',
+      data: {
+        username: username,
+        password: password
+      }
+    })
+    .done((data) => {
+      store.dispatch({ type: 'SIGNUP' });
+      history.push('/savedrestaurants');
+    })
+    .fail((xhr, error, responseText) => {
+      store.dispatch({ type: 'SIGNUP_FAILURE', message: xhr.responseText });
+    });
   }
+
 }
 
 module.exports = Api;
