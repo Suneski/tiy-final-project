@@ -101,13 +101,12 @@ class RestaurantQuery extends React.Component {
       removeCheckMark={() => this.removeCheckMark()}
     />);
 
-
     return (
       <div className="app-container">
         <header>
 
           <div className="header-items">
-            <div className="inputBars">
+            <div className="input-bars">
               <input
                 placeholder="restaurant/food"
                 type="text"
@@ -159,7 +158,7 @@ class RestaurantQuery extends React.Component {
         <div className="body-container">
 
 
-          <ol className={this.state.queries.resultVisibility} id="search-results">
+          <ol className={this.state.queries.resultVisibility} className="search-results">
             {names}
           </ol>
         </div>

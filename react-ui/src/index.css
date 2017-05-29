@@ -51,99 +51,11 @@ body {
   padding: 0;
   font-family: sans-serif; }
 
-nav li {
-  float: left;
-  margin: 0 30px 0 10px;
-  padding-top: 3px; }
-
-.container {
-  clear: both; }
-
-.navigationItems {
-  text-decoration: none;
-  color: white;
-  font-family: 'Roboto Slab', serif;
-  font-size: 20px;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
-
-.navigationItems:hover {
-  border-bottom: 2px solid white; }
-
-nav {
-  height: 30px;
-  background-color: rgba(0, 0, 0, 0.6); }
-
-.not-found {
-  margin: 10px auto;
-  display: block;
-  width: 1000px; }
-
 body {
   background-color: #791A15; }
 
-.loginArea {
-  float: right; }
-
-.searchResultItem {
-  border: 1px solid #461613;
-  border-radius: 10px;
-  margin: 1%;
-  width: 45%;
-  padding: 5px;
-  overflow: auto;
-  float: left;
-  background-color: rgba(255, 255, 255, 0.5); }
-
-.searchResultItem:hover {
-  border: 1px solid #2a0b09;
-  background-color: rgba(255, 255, 255, 0.8); }
-
-.imageResult img {
-  float: left;
-  height: 180px;
-  width: 180px;
-  display: inline;
-  border-radius: 5%;
-  border: 1px solid grey; }
-
-.restaurantDetails {
-  margin-left: 190px;
-  overflow: auto;
-  height: 180px; }
-
-.noAddButto {
-  display: none; }
-
-.addButton {
-  background-image: url("./images/add-button.png");
-  background-size: contain;
-  width: 50px;
-  height: 50px;
-  margin-top: 65px;
-  margin-right: 10px;
-  float: right; }
-
-.addButtonSelected {
-  display: none; }
-
-.addButton:hover {
-  background-image: url("./images/add-button-hover.png");
-  background-size: contain;
-  width: 50px;
-  height: 50px;
-  opacity: .7; }
-
-.favorited {
-  background-image: url("./images/selected.png");
-  background-size: contain;
-  width: 50px;
-  height: 50px;
-  margin-top: 50px;
-  margin-right: 10px;
-  float: right; }
-
-.favoritedSelected {
-  display: none; }
+.container {
+  clear: both; }
 
 .activated {
   display: block;
@@ -157,14 +69,31 @@ body {
 .resultsNotVisible {
   display: none; }
 
-.star-rating {
-  height: 25px; }
+nav {
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.6); }
+  nav li {
+    float: left;
+    margin: 0 30px 0 10px;
+    padding-top: 3px; }
 
-.yelp-logo {
-  height: 25px; }
+.navigationItems {
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
 
-.textResults {
-  height: 150px; }
+.navigationItems:hover {
+  border-bottom: 2px solid white; }
+
+.loginArea {
+  float: right; }
+
+.not-found {
+  margin: 10px auto;
+  display: block;
+  width: 1000px; }
 
 header {
   background-image: url("./images/omni-restaurant.jpg");
@@ -172,16 +101,27 @@ header {
   background-position: center;
   height: 450px; }
 
-.inputBars {
+.header-items {
+  margin: 0 auto;
+  padding: 30px;
+  width: 700px;
+  background-color: white;
+  opacity: .97;
+  border-radius: 5px;
+  top: 100px;
+  position: relative;
+  overflow: auto; }
+
+.input-bars {
   width: 670px;
   margin: 0 auto;
   /*outline: 1px solid orange;*/ }
 
-input[type="text"] {
-  font-size: 30px; }
-
 .restaurant-input {
   margin-right: 30px; }
+
+input[type="text"] {
+  font-size: 30px; }
 
 .search-button {
   margin: 0 auto;
@@ -197,21 +137,11 @@ input[type="text"] {
 .search-button-text {
   font-size: 20px; }
 
-.body-container {
-  width: 80%;
-  margin: 0 auto; }
-
 .filters {
   margin: 0 auto;
   display: block;
   width: 440px;
-  padding-top: 20px;
-  /*color: white;
-  text-shadow:
-		-0.5px -0.5px 0 #000,
-		0.5px -0.5px 0 #000,
-		-0.5px 0.5px 0 #000,
-		0.5px 0.5px 0 #000;*/ }
+  padding-top: 20px; }
 
 .filter {
   float: left;
@@ -219,20 +149,6 @@ input[type="text"] {
 
 .filter-name {
   margin-right: 5px; }
-
-#search-results {
-  clear: both; }
-
-.header-items {
-  margin: 0 auto;
-  padding: 30px;
-  width: 700px;
-  background-color: white;
-  opacity: .97;
-  border-radius: 5px;
-  top: 100px;
-  position: relative;
-  overflow: auto; }
 
 .header-logo {
   height: 50px;
@@ -273,6 +189,68 @@ input[type="text"] {
   padding-top: 200px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
 
+.body-container {
+  width: 80%;
+  margin: 0 auto; }
+
+.search-results {
+  clear: both; }
+
+.searchResultItem {
+  border: 1px solid #461613;
+  border-radius: 10px;
+  margin: 1%;
+  width: 45%;
+  padding: 5px;
+  overflow: auto;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.searchResultItem:hover {
+  border: 1px solid #2a0b09;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.image-result img {
+  float: left;
+  height: 180px;
+  width: 180px;
+  display: inline;
+  border-radius: 5%;
+  border: 1px solid grey; }
+
+.restaurantDetails {
+  margin-left: 190px;
+  overflow: auto;
+  height: 180px; }
+
+.noAddButton {
+  display: none; }
+
+.addButton {
+  background-image: url("./images/add-button.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-top: 65px;
+  margin-right: 10px;
+  float: right; }
+
+.addButton:hover {
+  background-image: url("./images/add-button-hover.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  opacity: .7; }
+
+.textResults {
+  height: 150px; }
+
+.star-rating {
+  height: 25px; }
+
+.yelp-logo {
+  height: 25px; }
+
 .sign-up, .login {
   margin: 0 auto;
   width: 600px;
@@ -281,19 +259,16 @@ input[type="text"] {
   border-radius: 5px;
   text-align: center;
   padding: 50px; }
+  .sign-up input, .sign-up button, .login input, .login button {
+    margin-top: 20px; }
+  .sign-up input[type="text"], .sign-up input[type='password'], .login input[type="text"], .login input[type='password'] {
+    font-size: 30px; }
+  .sign-up button, .login button {
+    font-size: 20px; }
 
 .sign-up-title, .login-title {
   font-size: 50px;
   font-weight: bold; }
-
-input, button {
-  margin-top: 20px; }
-
-input[type="text"], input[type='password'] {
-  font-size: 30px; }
-
-button {
-  font-size: 20px; }
 
 .error-message {
   color: red;

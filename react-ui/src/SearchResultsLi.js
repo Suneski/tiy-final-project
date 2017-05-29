@@ -57,7 +57,7 @@ class SearchResultLi extends React.Component {
 
     return(
       <li className="searchResultItem">
-        <div className="imageResult">
+        <div className="image-result">
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
         <div className="restaurantDetails">

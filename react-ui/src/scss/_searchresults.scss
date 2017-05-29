@@ -1,0 +1,75 @@
+.body-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.search-results {
+  clear: both;
+}
+
+.searchResultItem {
+  border: 1px solid #461613;
+  border-radius: 10px;
+  margin: 1%;
+  width: 45%;
+  padding: 5px;
+  overflow: auto;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.searchResultItem:hover {
+  border: 1px solid #2a0b09;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.image-result {
+  img {
+    float: left;
+  	height: 180px;
+    width: 180px;
+    display: inline;
+    border-radius: 5%;
+    border: 1px solid grey;
+  }
+}
+
+.restaurantDetails {
+  margin-left: 190px;
+  overflow: auto;
+  height: 180px;
+}
+
+.noAddButton {
+  display: none;
+}
+
+.addButton {
+  background-image: url('./images/add-button.png');
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-top: 65px;
+  margin-right: 10px;
+  float: right;
+}
+
+.addButton:hover {
+  background-image: url('./images/add-button-hover.png');
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  opacity: .7;
+}
+
+.textResults {
+  height: 150px;
+}
+
+.star-rating {
+  height: 25px;
+}
+
+.yelp-logo {
+  height: 25px;
+}
