@@ -1,7 +1,6 @@
 import React from 'react';
 
-import './style/SavedRestaurants.css'
-import './style/RestaurantQuery.css'
+import './index.css';
 
 import zero from './images/yelp/stars-0.png'
 import one from './images/yelp/stars-1.0.png'

@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 
 
-import './style/App.css';
+import './index.css';
 
 class Logout extends React.Component {
 

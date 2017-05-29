@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style/User.css';
+import './index.css';
 import { store } from './Store.js';
 
 import $ from 'jquery';

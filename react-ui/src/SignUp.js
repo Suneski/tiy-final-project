@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { store } from './Store.js';
-import './style/User.css';
+import './index.css';
 
 class SignUp extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { store } from './Store.js';
-import './style/App.css';
+import './index.css';
 
 import Navigation from './Navigation.js';
 import RestaurantQuery from './RestaurantQuery.js';

@@ -34,7 +34,7 @@
 }
 
 .addButton {
-  background-image: url('../images/add-button.png');
+  background-image: url('./images/add-button.png');
   background-size: contain;
   width: 50px;
   height: 50px;
@@ -48,7 +48,7 @@
 }
 
 .addButton:hover {
-  background-image: url('../images/add-button-hover.png');
+  background-image: url('./images/add-button-hover.png');
   background-size: contain;
   width: 50px;
   height: 50px;
@@ -56,7 +56,7 @@
 }
 
 .favorited {
-  background-image: url("../images/selected.png");
+  background-image: url("./images/selected.png");
   background-size: contain;
   width: 50px;
   height: 50px;
@@ -97,7 +97,7 @@
 }
 
 header {
-	background-image: url("../images/omni-restaurant.jpg");
+	background-image: url("./images/omni-restaurant.jpg");
 	background-size: cover;
   background-position: center;
 	height: 450px;

@@ -7,7 +7,7 @@ import Api from './Api.js';
 import { store, actions } from './Store.js';
 
 // import css
-import './style/RestaurantQuery.css';
+import './index.css';
 
 // import images
 import animeLoader from './images/animeloader.gif';

@@ -1,0 +1,301 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+nav li {
+  float: left;
+  margin: 0 30px 0 10px;
+  padding-top: 3px; }
+
+.container {
+  clear: both; }
+
+.navigationItems {
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+
+.navigationItems:hover {
+  border-bottom: 2px solid white; }
+
+nav {
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.not-found {
+  margin: 10px auto;
+  display: block;
+  width: 1000px; }
+
+body {
+  background-color: #791A15; }
+
+.loginArea {
+  float: right; }
+
+.searchResultItem {
+  border: 1px solid #461613;
+  border-radius: 10px;
+  margin: 1%;
+  width: 45%;
+  padding: 5px;
+  overflow: auto;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.searchResultItem:hover {
+  border: 1px solid #2a0b09;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.imageResult img {
+  float: left;
+  height: 180px;
+  width: 180px;
+  display: inline;
+  border-radius: 5%;
+  border: 1px solid grey; }
+
+.restaurantDetails {
+  margin-left: 190px;
+  overflow: auto;
+  height: 180px; }
+
+.noAddButto {
+  display: none; }
+
+.addButton {
+  background-image: url("./images/add-button.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-top: 65px;
+  margin-right: 10px;
+  float: right; }
+
+.addButtonSelected {
+  display: none; }
+
+.addButton:hover {
+  background-image: url("./images/add-button-hover.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  opacity: .7; }
+
+.favorited {
+  background-image: url("./images/selected.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  margin-right: 10px;
+  float: right; }
+
+.favoritedSelected {
+  display: none; }
+
+.activated {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  clear: both; }
+
+.deactivated {
+  display: none; }
+
+.resultsNotVisible {
+  display: none; }
+
+.star-rating {
+  height: 25px; }
+
+.yelp-logo {
+  height: 25px; }
+
+.textResults {
+  height: 150px; }
+
+header {
+  background-image: url("./images/omni-restaurant.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px; }
+
+.inputBars {
+  width: 670px;
+  margin: 0 auto;
+  /*outline: 1px solid orange;*/ }
+
+input[type="text"] {
+  font-size: 30px; }
+
+.restaurant-input {
+  margin-right: 30px; }
+
+.search-button {
+  margin: 0 auto;
+  display: block;
+  padding: 10px 20px;
+  background-color: #C63D36;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-color: #C63D36;
+  opacity: .9; }
+
+.search-button-text {
+  font-size: 20px; }
+
+.body-container {
+  width: 80%;
+  margin: 0 auto; }
+
+.filters {
+  margin: 0 auto;
+  display: block;
+  width: 440px;
+  padding-top: 20px;
+  /*color: white;
+  text-shadow:
+		-0.5px -0.5px 0 #000,
+		0.5px -0.5px 0 #000,
+		-0.5px 0.5px 0 #000,
+		0.5px 0.5px 0 #000;*/ }
+
+.filter {
+  float: left;
+  margin-right: 20px; }
+
+.filter-name {
+  margin-right: 5px; }
+
+#search-results {
+  clear: both; }
+
+.header-items {
+  margin: 0 auto;
+  padding: 30px;
+  width: 700px;
+  background-color: white;
+  opacity: .97;
+  border-radius: 5px;
+  top: 100px;
+  position: relative;
+  overflow: auto; }
+
+.header-logo {
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+@media (max-width: 1100px) {
+  .searchResultItem {
+    margin: 1%;
+    width: 98%; } }
+
+.removeButton {
+  background-image: url("./images/remove-button.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-top: 65px;
+  margin-right: 10px;
+  float: right; }
+
+.removeButton:hover {
+  background-image: url("./images/remove-button-hover.png");
+  background-size: contain;
+  width: 50px;
+  height: 50px; }
+
+.saved-restaurant-header {
+  background-image: url("./images/cmu-dining-the-beach.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  text-align: center;
+  color: white; }
+
+.saved-restaurant-header h1 {
+  font-size: 50px;
+  padding-top: 200px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+
+.sign-up, .login {
+  margin: 0 auto;
+  width: 600px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 50px; }
+
+.sign-up-title, .login-title {
+  font-size: 50px;
+  font-weight: bold; }
+
+input, button {
+  margin-top: 20px; }
+
+input[type="text"], input[type='password'] {
+  font-size: 30px; }
+
+button {
+  font-size: 20px; }
+
+.error-message {
+  color: red;
+  font-size: 30px;
+  margin-top: 20px; }
