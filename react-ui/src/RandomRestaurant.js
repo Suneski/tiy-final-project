@@ -49,12 +49,10 @@ class RandomRestaurant extends React.Component {
       rating = five;
     }
 
-    // var locationArray = [this.props.address1.split(' ').join('+'), this.props.city.split(' ').join('+'), this.props.state.split(' ').join('+')];
-    // var location = locationArray.join('+');
-    // var googleMapsLink = `https://www.google.com/maps/dir//${location}`
+    let googleMapsLink = `https://www.google.com/maps/dir//${this.props.location}`
 
     return(
-      <div>
+      <div className="searchResultItem">
         <div className="image-result">
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
@@ -78,7 +76,9 @@ class RandomRestaurant extends React.Component {
             <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
           </div>
+          <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
         </div>
+
       </div>
     )
   }

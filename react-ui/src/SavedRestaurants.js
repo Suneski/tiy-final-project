@@ -37,9 +37,10 @@ class SavedRestaurants extends React.Component {
     let randomNum = Math.floor(Math.random() * this.state.queries.savedRestaurants.length);
     let randomRestaurant = savedRestaurants[randomNum];
 
+    let locationArray = [randomRestaurant.address1.split(' ').join('+'), randomRestaurant.city.split(' ').join('+'), randomRestaurant.state.split(' ').join('+')];
+    let location = locationArray.join('+');
 
-
-    store.dispatch({ type: actions.SHOW_RANDOM, value: randomRestaurant });
+    store.dispatch({ type: actions.SHOW_RANDOM, value: randomRestaurant, value2: location });
   }
 
   backToSaved() {
@@ -66,6 +67,7 @@ class SavedRestaurants extends React.Component {
       state={randSavedRest.state}
       zipCode={randSavedRest.zip_code}
       country={randSavedRest.country}
+      location={randSaved.randomRestaurantLocation}
     />;
 
     let savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi

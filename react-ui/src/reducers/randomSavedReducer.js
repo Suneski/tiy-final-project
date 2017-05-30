@@ -4,6 +4,7 @@ const initialState = {
   savedRestVisible: 'saved-visible',
   savedRandVisible: 'saved-rand-invisible',
   randomRestaurant: '',
+  randomRestaurantLocation: ''
 };
 
 const randomSavedReducer = (state = initialState, action) => {
@@ -12,12 +13,15 @@ const randomSavedReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         savedRestVisible: 'saved-invisible',
         savedRandVisible: 'saved-rand-visible',
-        randomRestaurant: action.value });
+        randomRestaurant: action.value,
+        randomRestaurantLocation: action.value2,
+      });
     case actions.SHOW_SAVED:
       return Object.assign({}, state, {
         savedRestVisible: 'saved-visible',
         savedRandVisible: 'saved-rand-invisible',
-        });
+        randomRestaurantLocation: ''
+      });
     default:
       return state;
   }
