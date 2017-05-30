@@ -2,6 +2,7 @@ import actions from './actions.js';
 
 const initialState = {
   restaurantNameQuery: '',
+  searchErrorMessage: '',
   locationQuery: '',
   resultsPerPage: '',
   sortResults: '',
@@ -9,14 +10,20 @@ const initialState = {
   inputValue: '',
   searchResults: [],
   savedRestaurants: [],
-  searchBox: 'search-box',
+  resultsList: 'search-results',
   loaderClass: 'deactivated',
 };
 
 const queriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.RESTAURANT_SEARCH:
-      return Object.assign({}, state, { restaurantNameQuery: action.value });
+      return Object.assign({}, state, {
+        restaurantNameQuery: action.value });
+    case actions.SEARCH_FAILURE:
+      return Object.assign({}, state, {
+        searchErrorMessage: action.message,
+        loaderClass: 'deactivated',
+        resultsList: 'search-results-hidden' });
     case actions.LOCATION_SEARCH:
       return Object.assign({}, state, { locationQuery: action.value });
     case actions.RESULTS_TOTAL:
@@ -30,11 +37,12 @@ const queriesReducer = (state = initialState, action) => {
     case actions.LOADING:
       return Object.assign({}, state, {
         loaderClass: 'activated',
-        searchBox: 'search-box-hidden' });
+        resultsList: 'search-results-hidden',
+        searchErrorMessage: '' });
     case actions.DONE_LOADING:
       return Object.assign({}, state, {
         searchResults: action.value,
-        searchBox: 'search-box',
+        resultsList: 'search-results',
         loaderClass: 'deactivated' });
     default:
       return state;

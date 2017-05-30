@@ -36,6 +36,8 @@ app.get('/api/yelp/', function(req,res) {
   yelp.accessToken(clientId, clientSecret).then(response => {
     const client = yelp.client(response.jsonBody.access_token);
 
+    // .catch, if error, hit that instead
+
     client.search(searchRequest).then(response => {
       for (var i = 0; i < response.jsonBody.businesses.length; i++) {
         const result = response.jsonBody.businesses[i];
@@ -46,8 +48,14 @@ app.get('/api/yelp/', function(req,res) {
         data: output
       })
       console.log(output);
+    }).catch(err => {
+      console.log('SHOW ME THE ERROR', err);
+      res.sendStatus(400);
     });
   });
+
+
+
 });
 
 module.exports = app

@@ -9,7 +9,9 @@ const Api = {
     })
     .done((data) => {
       store.dispatch({ type: 'DONE_LOADING', value: data.data });
-    })
+    }).catch((xhr, error, responseText) => {
+      store.dispatch({ type: 'SEARCH_FAILURE', message: 'Location not available.' });
+    });
   },
 
   summonSavedRestarants() {

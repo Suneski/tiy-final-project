@@ -3,6 +3,18 @@
   margin: 0 auto;
 }
 
+.error-message {
+  text-align: center;
+}
+
+.search-results {
+  display: block;
+}
+
+.search-results-hidden {
+  display: none;
+}
+
 .searchResultItem {
   border: 1px solid #461613;
   border-radius: 10px;

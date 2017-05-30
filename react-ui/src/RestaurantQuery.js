@@ -79,6 +79,11 @@ class RestaurantQuery extends React.Component {
 
   render() {
 
+    let message;
+    if (this.state.queries.searchErrorMessage !== '') {
+      message = <div className="error-message">{this.state.queries.searchErrorMessage}</div>
+    }
+
     let names = this.state.queries.searchResults.map((x) => <SearchResultLi
       key={x.id}
       name={x.name}
@@ -105,7 +110,7 @@ class RestaurantQuery extends React.Component {
       <div className="app-container">
         <header>
 
-          <div className={this.state.queries.searchBox}>
+          <div className='search-box'>
             <div className="input-bars">
               <input
                 placeholder="restaurant/food"
@@ -122,6 +127,7 @@ class RestaurantQuery extends React.Component {
               className="search-button">
                 SEARCH
             </button>
+            {message}
             <div className="filters">
               <div className="filter"><span className="filter-name">Results:</span>
                 <select onChange={(evt) => this.limitTotal(evt)}>
@@ -152,17 +158,19 @@ class RestaurantQuery extends React.Component {
             <a href="http://www.yelp.com" target="_blank"><img src={yelpLogo} alt="powered by yelp" className="header-logo"/></a>
           </div>
 
-          <img
-            src={animeLoader}
-            alt="page loader"
-            className={this.state.queries.loaderClass} />
+
 
         </header>
 
         <div className="body-container">
 
+          <img
+            src={animeLoader}
+            alt="page loader"
+            className={this.state.queries.loaderClass} />
 
-          <ol className='resultsVisible'>
+
+          <ol className={this.state.queries.resultsList}>
             {names}
           </ol>
 
