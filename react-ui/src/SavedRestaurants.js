@@ -32,43 +32,51 @@ class SavedRestaurants extends React.Component {
   render() {
     let savedRestaurantsHeader;
 
-    let savedPlaces;
+    let savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi
+      key={x.id}
+      id={x._id}
+      name={x.name}
+      imageUrl={x.image_url}
+      url={x.url}
+      rating={x.rating}
+      price={x.price}
+      address1={x.address1}
+      address2={x.address2}
+      address3={x.address3}
+      city={x.city}
+      state={x.state}
+      zipCode={x.zip_code}
+      country={x.country}
+      removeFavorite={() => this.removeFavorite(x._id)}
+    />);
 
     let name = this.state.user.name;
     name = name.charAt(0).toUpperCase() + name.slice(1);
 
+    let savedRestNum = this.state.queries.savedRestaurants.length;
+
+    let welcome = <h1>Welcome back, {name}!</h1>;
+
     if (this.state.user.isLoggedIn === false) {
       savedRestaurantsHeader = <h1 className='logInViewSaves'>Log in to view saved restaurants</h1>;
     }
-    else if (this.state.queries.savedRestaurants.length === 0) {
+    else if (savedRestNum === 0) {
       savedRestaurantsHeader = <div>
-        <h1>Welcome back, {name}!</h1>
+        {welcome}
         <h1>You have no saved restaurants.</h1>
+      </div>
+    }
+    else if (savedRestNum === 1) {
+      savedRestaurantsHeader = <div>
+        {welcome}
+        <h1>You have {savedRestNum} saved restaurant.</h1>
       </div>
     }
     else {
       savedRestaurantsHeader = <div>
-        <h1>Welcome back, {name}!</h1>
-        <h1>Here are your saved restaurants.</h1>
+        {welcome}
+        <h1>You have {savedRestNum} saved restaurants.</h1>
       </div>
-
-      savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi
-        key={x.id}
-        id={x._id}
-        name={x.name}
-        imageUrl={x.image_url}
-        url={x.url}
-        rating={x.rating}
-        price={x.price}
-        address1={x.address1}
-        address2={x.address2}
-        address3={x.address3}
-        city={x.city}
-        state={x.state}
-        zipCode={x.zip_code}
-        country={x.country}
-        removeFavorite={() => this.removeFavorite(x._id)}
-      />);
     }
 
     return (
