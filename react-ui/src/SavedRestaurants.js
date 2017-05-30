@@ -99,13 +99,13 @@ class SavedRestaurants extends React.Component {
       savedRestaurantsHeader = <h1 className='logInViewSaves'>Log in to view saved restaurants</h1>;
     }
     else if (savedRestNum === 0) {
-      savedRestaurantsHeader = <div>
+      savedRestaurantsHeader = <div className='welcome'>
         {welcome}
         <h1>You have no saved restaurants.</h1>
       </div>
     }
     else if (savedRestNum === 1) {
-      savedRestaurantsHeader = <div>
+      savedRestaurantsHeader = <div className='welcome'>
         {welcome}
         <h1>You have {savedRestNum} saved restaurant.</h1>
       </div>
