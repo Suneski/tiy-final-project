@@ -120,7 +120,7 @@ class RestaurantQuery extends React.Component {
             <button
               onClick={() => this.summonTheData()}
               className="search-button">
-                <span className="search-button-text">SEARCH</span>
+                SEARCH
             </button>
             <div className="filters">
               <div className="filter"><span className="filter-name">Results:</span>

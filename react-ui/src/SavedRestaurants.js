@@ -1,7 +1,10 @@
 import React from 'react';
-import { store } from './reducers/Store.js';
+import { store, actions } from './reducers/Store.js';
 
-import SavedRestaurantsLi from './SavedRestaurantsLi.js'
+import SavedRestaurantsLi from './SavedRestaurantsLi.js';
+import RandomRestaurant from './RandomRestaurant.js';
+
+import './index.css';
 
 import Api from './Api.js';
 
@@ -29,8 +32,41 @@ class SavedRestaurants extends React.Component {
     Api.removeFavorite(id);
   }
 
+  randomizer() {
+    let savedRestaurants = this.state.queries.savedRestaurants;
+    let randomNum = Math.floor(Math.random() * this.state.queries.savedRestaurants.length);
+    let randomRestaurant = savedRestaurants[randomNum];
+
+
+
+    store.dispatch({ type: actions.SHOW_RANDOM, value: randomRestaurant });
+  }
+
+  backToSaved() {
+    store.dispatch({ type: actions.SHOW_SAVED });
+  }
+
   render() {
     let savedRestaurantsHeader;
+
+    let randSaved = this.state.randomSaved;
+    let randSavedRest = randSaved.randomRestaurant;
+    let randomRestaurantLi = <RandomRestaurant
+      key={randSavedRest.id}
+      id={randSavedRest._id}
+      name={randSavedRest.name}
+      imageUrl={randSavedRest.image_url}
+      url={randSavedRest.url}
+      rating={randSavedRest.rating}
+      price={randSavedRest.price}
+      address1={randSavedRest.address1}
+      address2={randSavedRest.address2}
+      address3={randSavedRest.address3}
+      city={randSavedRest.city}
+      state={randSavedRest.state}
+      zipCode={randSavedRest.zip_code}
+      country={randSavedRest.country}
+    />;
 
     let savedPlaces = this.state.queries.savedRestaurants.map((x) => <SavedRestaurantsLi
       key={x.id}
@@ -73,9 +109,26 @@ class SavedRestaurants extends React.Component {
       </div>
     }
     else {
-      savedRestaurantsHeader = <div>
+      savedRestaurantsHeader = <div className='welcome'>
         {welcome}
         <h1>You have {savedRestNum} saved restaurants.</h1>
+        <div className='saved-restaurant-buttons-zone'>
+          <div>
+            <button
+              onClick={() => this.randomizer()} className='saved-restaurant-buttons'>
+                RANDOM
+            </button>
+          </div>
+          <div className={randSaved.savedRandVisible}>
+            <button
+              onClick={() => this.backToSaved()} className='saved-restaurant-buttons'>
+                SHOW ALL
+            </button>
+          </div>
+
+
+        </div>
+
       </div>
     }
 
@@ -86,8 +139,11 @@ class SavedRestaurants extends React.Component {
         </div>
 
         <div className="body-container">
-          <ol>
+          <ol className={randSaved.savedRestVisible}>
             {savedPlaces}
+          </ol>
+          <ol className={randSaved.savedRandVisible}>
+            {randomRestaurantLi}
           </ol>
         </div>
 

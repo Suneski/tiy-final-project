@@ -10,7 +10,7 @@ const initialState = {
   searchResults: [],
   savedRestaurants: [],
   searchBox: 'search-box',
-  loaderClass: 'deactivated'
+  loaderClass: 'deactivated',
 };
 
 const queriesReducer = (state = initialState, action) => {
@@ -30,12 +30,12 @@ const queriesReducer = (state = initialState, action) => {
     case actions.LOADING:
       return Object.assign({}, state, {
         loaderClass: 'activated',
-        searchBox: 'search-box-hidden'} )
+        searchBox: 'search-box-hidden' });
     case actions.DONE_LOADING:
       return Object.assign({}, state, {
         searchResults: action.value,
         searchBox: 'search-box',
-        loaderClass: 'deactivated'} )
+        loaderClass: 'deactivated' });
     default:
       return state;
   }
