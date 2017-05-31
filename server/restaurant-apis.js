@@ -51,7 +51,7 @@ app.post('/api/restaurant', function(req, res) {
   restaurant.zip_code = req.body.zip_code;
   restaurant.country = req.body.country;
   restaurant.userId = req.user._id;
-  restaurant.notes = 'no notes saved';
+  restaurant.notes = 'Add a note!';
 
   restaurant.save((err, data) => {
     console.log('is it saving?!');

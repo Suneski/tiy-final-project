@@ -113,7 +113,7 @@ const Api = {
     });
   },
 
-  editNote(id, notes) {
+  submitNote(id, notes) {
     $.ajax({
       url: `/api/savedrestaurants/${id}`,
       method: 'POST',
