@@ -12,6 +12,7 @@ const initialState = {
   savedRestaurants: [],
   resultsList: 'search-results',
   loaderClass: 'deactivated',
+  notes: '',
 };
 
 // return Object.assign({}, initialState}
@@ -36,6 +37,7 @@ const queriesReducer = (state = initialState, action) => {
       return Object.assign({}, state, { sortPrice: action.value });
     case actions.SAVED_RESTAURANTS_CB:
       return Object.assign({}, state, { savedRestaurants: action.value });
+
     case actions.LOADING:
       return Object.assign({}, state, {
         loaderClass: 'activated',
@@ -46,6 +48,18 @@ const queriesReducer = (state = initialState, action) => {
         searchResults: action.value,
         resultsList: 'search-results',
         loaderClass: 'deactivated' });
+
+
+
+
+    case actions.SUBMIT_NOTE:
+      return Object.assign({}, state, {
+        notes: action.value });
+
+
+
+
+
     default:
       return state;
   }

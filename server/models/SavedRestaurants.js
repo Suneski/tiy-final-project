@@ -14,6 +14,7 @@ const schema = mongoose.Schema({
   state: String,
   zip_code: String,
   country: String,
+  notes: String,
   userId: mongoose.Schema.Types.ObjectId,
 })
 

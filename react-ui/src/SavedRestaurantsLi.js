@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { store, actions } from './reducers/Store.js';
 
 import './index.css';
 
@@ -16,7 +18,28 @@ import logo from './images/yelp/yelp-burst-positive.png'
 
 class SavedRestaurantsLi extends React.Component {
 
+  notesSubmit(evt) {
+    let noteUpdate = '';
+    if (evt.target.value.length > 0) {
+      noteUpdate = evt.target.value;
+    }
+    else {
+      noteUpdate = 'no saved notes';
+    }
+
+    store.dispatch({ type: actions.SUBMIT_NOTE, value: noteUpdate });
+  }
+
   render() {
+
+    let displayedNote = '';
+    if (this.props.notes === 'Add a note!') {
+      displayedNote = 'No saved notes'
+    }
+    else {
+      displayedNote = this.props.notes;
+    }
+
     let rating;
     if (this.props.rating === "0") {
       rating = zero;
@@ -54,7 +77,7 @@ class SavedRestaurantsLi extends React.Component {
     var googleMapsLink = `https://www.google.com/maps/dir//${location}`
 
     return(
-      <li className="searchResultItem">
+      <li className="savedResultItem">
 
         <div className="image-result">
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
@@ -82,9 +105,51 @@ class SavedRestaurantsLi extends React.Component {
             <p>Price: {this.props.price}</p>
             <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
+
           </div>
           <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
         </div>
+
+
+
+
+
+
+        <div className="notes-section">
+
+          <div>
+            <pre><p className="notes-section-text">
+              Notes: <br/>{displayedNote}
+            </p></pre>
+          </div>
+
+          <div>
+            <textarea
+              className="note-input"
+              maxLength="500"
+              defaultValue={this.props.notes}
+              placeholder="character limit 500"
+              onKeyUp={(evt) => this.notesSubmit(evt)}>
+
+            </textarea>
+
+            <button onClick={this.props.submitNote}>
+              submit
+            </button>
+          </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
       </li>
     )
   }
