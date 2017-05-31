@@ -91,7 +91,7 @@ class SavedRestaurantsLi extends React.Component {
             <p>Price: {this.props.price}</p>
             <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
-            <p>Notes: <br/>{this.props.notes}</p>
+            <p>Notes: <br/><pre>{this.props.notes}</pre></p>
           </div>
           <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
         </div>
