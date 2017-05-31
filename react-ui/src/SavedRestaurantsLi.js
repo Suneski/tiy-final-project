@@ -1,4 +1,5 @@
 import React from 'react';
+import { store, actions } from './reducers/Store.js';
 
 import './index.css';
 
@@ -16,7 +17,15 @@ import logo from './images/yelp/yelp-burst-positive.png'
 
 class SavedRestaurantsLi extends React.Component {
 
+  notesSubmit(evt) {
+    var text = evt.target.value.replace(/\r?\n/g, '<br/>');
+    console.log(text);
+    store.dispatch({ type: actions.NOTES_EDIT, value: evt.target.value });
+    store.dispatch({ type: actions.SUBMIT_NOTE, value: evt.target.value });
+  }
+
   render() {
+
     let rating;
     if (this.props.rating === "0") {
       rating = zero;
@@ -82,11 +91,23 @@ class SavedRestaurantsLi extends React.Component {
             <p>Price: {this.props.price}</p>
             <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
+            <p>Notes: <br/>{this.props.notes}</p>
           </div>
           <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
         </div>
 
-        <textarea></textarea><button onClick={this.props.editNote}>submit</button>
+
+
+        <textarea
+          maxLength="200"
+          placeholder="character limit 200"
+          onKeyUp={(evt) => this.notesSubmit(evt)}>
+        </textarea>
+
+        <button onClick={this.props.editNote}>
+          submit
+        </button>
+
       </li>
     )
   }

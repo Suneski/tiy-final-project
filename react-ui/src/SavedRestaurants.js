@@ -32,9 +32,8 @@ class SavedRestaurants extends React.Component {
     Api.removeFavorite(id);
   }
 
-  editNote(id, notes) {
-    Api.editNote(id, notes);
-    console.log(id, notes);
+  editNote(id) {
+    Api.editNote(id, this.state.queries.notes);
   }
 
   randomizer() {
@@ -90,8 +89,9 @@ class SavedRestaurants extends React.Component {
       state={x.state}
       zipCode={x.zip_code}
       country={x.country}
+      notes={x.notes}
       removeFavorite={() => this.removeFavorite(x._id)}
-      editNote={() => this.editNote(x._id, 'i have added a note')}
+      editNote={() => this.editNote(x._id, x.notes)}
     />);
 
     let name = this.state.user.name;

@@ -19,6 +19,7 @@ function formatRestaurant(restaurant) {
     state: restaurant.state,
     zip_code: restaurant.zip_code,
     country: restaurant.country,
+    notes: restaurant.notes,
   }
 }
 
