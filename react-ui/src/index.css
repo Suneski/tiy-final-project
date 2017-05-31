@@ -249,7 +249,8 @@ pre {
   margin-bottom: 10px; }
 
 .note-input {
-  width: 640px;
+  margin: 0 auto;
+  width: 99%;
   height: 75px;
   resize: none; }
 
