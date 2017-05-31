@@ -3,7 +3,7 @@ import { store } from './reducers/Store.js';
 
 const Api = {
 
-  summonTheData(url) {
+  summonTheData(url, resultsPerPage) {
     $.ajax({
       url: url
     })
@@ -12,6 +12,8 @@ const Api = {
         type: 'DONE_LOADING', value: data.data });
       store.dispatch({
         type: 'TOTAL_RESULTS', value: data.total });
+      store.dispatch({
+        type: 'TOTAL_PAGES', value: Math.ceil(data.total / resultsPerPage) });
     }).catch((xhr, error, responseText) => {
       store.dispatch({ type: 'SEARCH_FAILURE', message: 'Location not available.' });
     });

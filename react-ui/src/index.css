@@ -165,6 +165,12 @@ input[type="text"] {
   bottom: 0;
   right: 0; }
 
+.next-button-visible {
+  display: block; }
+
+.next-button-invisible {
+  display: none; }
+
 @media (max-width: 1100px) {
   .searchResultItem {
     margin: 1%;

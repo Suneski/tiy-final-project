@@ -32,7 +32,7 @@ class RestaurantQuery extends React.Component {
 
     let state = store.getState();
 
-    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}&offset=`
+    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}&offset=${state.queries.offset}`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
       alert('Add a restaurant and a location!');
@@ -45,9 +45,11 @@ class RestaurantQuery extends React.Component {
       alert('Add a location!');
     }
     else {
-      Api.summonTheData(url);
+      Api.summonTheData(url, state.queries.resultsPerPage);
       store.dispatch({ type: 'LOADING' });
     }
+
+
   }
 
   restaurantNameSubmit(evt) {
@@ -59,7 +61,8 @@ class RestaurantQuery extends React.Component {
   }
 
   limitTotal(evt) {
-    store.dispatch({ type: actions.RESULTS_TOTAL, value: evt.target.value });
+    let limitTotalInt = parseInt(evt.target.value, 10);
+    store.dispatch({ type: actions.RESULTS_TOTAL, value: limitTotalInt});
     this.summonTheData();
   }
 
@@ -75,6 +78,37 @@ class RestaurantQuery extends React.Component {
 
   handleRestaurantAddFilter(x) {
     Api.handleRestaurantAddFilter(x);
+  }
+
+  // previousPage() {
+  //   let offset = this.state.queries.offset + this.state.queries.resultsPerPage;
+  //   if (offset <= this.state.queries.totalResults) {
+  //     offset = this.state.queries.offset + this.state.queries.resultsPerPage;
+  //   }
+  //   else {
+  //     store.dispatch({ type: actions.NEXT_BUTTON_INVISIBLE });
+  //   }
+  //   store.dispatch({ type: actions.NEXT_PAGE, value: offset });
+  //   this.summonTheData();
+  // }
+
+  nextPage() {
+    let state = store.getState();
+    let offset = state.queries.offset + state.queries.resultsPerPage;
+    let page = state.queries.page;
+    let pageCount = state.queries.pageCount;
+
+    if (page < pageCount - 1) {
+      offset = state.queries.offset + state.queries.resultsPerPage;
+      store.dispatch({ type: actions.NEXT_PAGE, value: offset, value2: (page + 1) });
+    }
+    else {
+      offset = state.queries.offset + state.queries.resultsPerPage;
+      store.dispatch({ type: actions.NEXT_BUTTON_INVISIBLE, value: offset });
+    }
+
+    this.summonTheData();
+
   }
 
   render() {
@@ -164,6 +198,8 @@ class RestaurantQuery extends React.Component {
 
         <div className="body-container">
           <p>Total Results: {this.state.queries.totalResults}</p>
+          <button>PREVIOUS</button>
+          <button onClick={() => this.nextPage()} className={this.state.queries.nextButtonVisible}>NEXT</button>
 
           <img
             src={animeLoader}
