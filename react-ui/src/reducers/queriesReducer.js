@@ -14,6 +14,8 @@ const initialState = {
   loaderClass: 'deactivated',
 };
 
+// return Object.assign({}, initialState}
+
 const queriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.RESTAURANT_SEARCH:

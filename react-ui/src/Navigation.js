@@ -19,7 +19,7 @@ class Navigation extends React.Component {
         </ul>
         <ul className='loginArea'>
           <li className="loggedInAs">Logged in as {this.props.name}</li>
-          <li onClick={() => this.handleLogout()}><a className="navigationItems" href="">(Logout)</a></li>
+          <li onClick={() => this.handleLogout()}><a className="navigationItems" href="/">(Logout)</a></li>
         </ul>
       </nav>
     }
