@@ -165,6 +165,12 @@ input[type="text"] {
   bottom: 0;
   right: 0; }
 
+.previous-button-visible {
+  display: block; }
+
+.previous-button-invisible {
+  display: none; }
+
 .next-button-visible {
   display: block; }
 

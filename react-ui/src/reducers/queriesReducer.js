@@ -12,6 +12,7 @@ const initialState = {
   offset: 0,
   pageCount: 0,
   page: 1,
+  previousButtonVisible: 'previous-button-invisible',
   nextButtonVisible: 'next-button-visible',
   searchResults: [],
   savedRestaurants: [],
@@ -30,6 +31,24 @@ const queriesReducer = (state = initialState, action) => {
     case actions.TOTAL_PAGES:
       return Object.assign({}, state, {
         pageCount: action.value });
+
+
+
+    case actions.PREVIOUS_PAGE:
+      return Object.assign({}, state, {
+        offset: action.value,
+        page: action.value2 });
+    case actions.PREVIOUS_BUTTON_VISIBLE:
+      return Object.assign({}, state, {
+        previousButtonVisible: 'previous-button-visible' });
+    case actions.PREVIOUS_BUTTON_INVISIBLE:
+      return Object.assign({}, state, {
+        previousButtonVisible: 'previous-button-invisible' });
+
+
+
+
+
     case actions.NEXT_PAGE:
       return Object.assign({}, state, {
         offset: action.value,

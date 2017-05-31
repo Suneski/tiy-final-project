@@ -67,6 +67,14 @@ input[type="text"] {
   right: 0
 }
 
+.previous-button-visible {
+	display: block;
+}
+
+.previous-button-invisible {
+	display: none;
+}
+
 .next-button-visible {
 	display: block;
 }

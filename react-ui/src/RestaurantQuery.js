@@ -80,17 +80,35 @@ class RestaurantQuery extends React.Component {
     Api.handleRestaurantAddFilter(x);
   }
 
-  // previousPage() {
-  //   let offset = this.state.queries.offset + this.state.queries.resultsPerPage;
-  //   if (offset <= this.state.queries.totalResults) {
-  //     offset = this.state.queries.offset + this.state.queries.resultsPerPage;
-  //   }
-  //   else {
-  //     store.dispatch({ type: actions.NEXT_BUTTON_INVISIBLE });
-  //   }
-  //   store.dispatch({ type: actions.NEXT_PAGE, value: offset });
-  //   this.summonTheData();
-  // }
+  previousPage() {
+    let state = store.getState();
+    let offset = state.queries.offset + state.queries.resultsPerPage;
+    let page = state.queries.page;
+    console.log('starting page num', page);
+
+    if (page > 1) {
+      console.log('page', page);
+      offset = state.queries.offset - state.queries.resultsPerPage;
+      store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
+      store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, value2: (page - 1) });
+
+
+      this.summonTheData();
+      console.log('page', page);
+    }
+
+    else {
+      console.log('page', page);
+      store.dispatch({ type: actions.PREVIOUS_BUTTON_INVISIBLE });
+
+      this.summonTheData();
+
+
+
+    }
+
+
+  }
 
   nextPage() {
     let state = store.getState();
@@ -98,8 +116,13 @@ class RestaurantQuery extends React.Component {
     let page = state.queries.page;
     let pageCount = state.queries.pageCount;
 
+
+
+
     if (page < pageCount - 1) {
       offset = state.queries.offset + state.queries.resultsPerPage;
+
+      store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
       store.dispatch({ type: actions.NEXT_PAGE, value: offset, value2: (page + 1) });
     }
     else {
@@ -108,6 +131,8 @@ class RestaurantQuery extends React.Component {
     }
 
     this.summonTheData();
+
+    console.log('page', page);
 
   }
 
@@ -198,8 +223,18 @@ class RestaurantQuery extends React.Component {
 
         <div className="body-container">
           <p>Total Results: {this.state.queries.totalResults}</p>
-          <button>PREVIOUS</button>
-          <button onClick={() => this.nextPage()} className={this.state.queries.nextButtonVisible}>NEXT</button>
+
+          <button
+            onClick={() => this.previousPage()}
+            className={this.state.queries.previousButtonVisible}>
+              PREVIOUS
+          </button>
+
+          <button
+            onClick={() => this.nextPage()}
+            className={this.state.queries.nextButtonVisible}>
+              NEXT
+          </button>
 
           <img
             src={animeLoader}
@@ -210,6 +245,18 @@ class RestaurantQuery extends React.Component {
           <ol className={this.state.queries.resultsList}>
             {names}
           </ol>
+
+          <button
+            onClick={() => this.previousPage()}
+            className={this.state.queries.previousButtonVisible}>
+              PREVIOUS
+          </button>
+
+          <button
+            onClick={() => this.nextPage()}
+            className={this.state.queries.nextButtonVisible}>
+              NEXT
+          </button>
 
         </div>
       </div>
