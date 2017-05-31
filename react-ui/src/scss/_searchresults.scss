@@ -81,3 +81,10 @@
 .yelp-logo {
   height: 25px;
 }
+
+@media (max-width: 1100px) {
+  .searchResultItem {
+    margin: 1%;
+    width: 98%;
+  }
+}
