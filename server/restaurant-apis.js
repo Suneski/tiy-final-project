@@ -50,6 +50,7 @@ app.post('/api/restaurant', function(req, res) {
   restaurant.zip_code = req.body.zip_code;
   restaurant.country = req.body.country;
   restaurant.userId = req.user._id;
+  restaurant.notes = 'no notes saved';
 
   restaurant.save((err, data) => {
     console.log('is it saving?!');
@@ -64,8 +65,21 @@ app.delete('/api/savedrestaurants/:id', (req, res) => {
     }
   };
 
-  console.log(req.params.id, cb);
   Restaurant.findByIdAndRemove(req.params.id, cb);
+});
+
+app.post('/api/savedrestaurants/:id', (req, res) => {
+  let notes = req.body.notes;
+
+
+
+  Restaurant.findByIdAndUpdate(req.params.id, {
+  $set: {
+    notes: notes
+  }},
+  (err, data) => {
+    res.sendStatus(204);
+  });
 });
 
 module.exports = app

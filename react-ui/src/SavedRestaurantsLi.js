@@ -85,6 +85,8 @@ class SavedRestaurantsLi extends React.Component {
           </div>
           <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
         </div>
+
+        <textarea></textarea><button onClick={this.props.editNote}>submit</button>
       </li>
     )
   }
