@@ -12,11 +12,13 @@ app.get('/api/yelp/', function(req,res) {
   'use strict';
 
   var output = [];
+  var total;
   var term = `${req.query.restaurantSearch}`;
   var location = `${req.query.locationSearch}`;
   var limit = `${req.query.resultLimit}` || '20';
   var sort_by = `${req.query.sortBy}` || 'best_match';
   var price = `${req.query.price}` || '';
+  var offset = `${req.query.offset}`;
 
   const yelp = require('yelp-fusion');
 
@@ -31,6 +33,7 @@ app.get('/api/yelp/', function(req,res) {
     limit: limit,
     sort_by: sort_by,
     price: price,
+    offset: offset,
   };
 
   yelp.accessToken(clientId, clientSecret).then(response => {
@@ -39,15 +42,17 @@ app.get('/api/yelp/', function(req,res) {
     // .catch, if error, hit that instead
 
     client.search(searchRequest).then(response => {
+      total = response.jsonBody.total;
       for (var i = 0; i < response.jsonBody.businesses.length; i++) {
         const result = response.jsonBody.businesses[i];
         const prettyJson = JSON.stringify(result, null, 4);
         output.push(result);
       }
       res.send({
-        data: output
+        data: output,
+        total: total
       })
-      console.log(output);
+      console.log("total", total, "data", output);
     }).catch(err => {
       console.log('SHOW ME THE ERROR', err);
       res.sendStatus(400);

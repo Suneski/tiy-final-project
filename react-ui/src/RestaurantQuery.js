@@ -32,7 +32,7 @@ class RestaurantQuery extends React.Component {
 
     let state = store.getState();
 
-    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}`
+    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}&offset=`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
       alert('Add a restaurant and a location!');
@@ -163,6 +163,7 @@ class RestaurantQuery extends React.Component {
         </header>
 
         <div className="body-container">
+          <p>Total Results: {this.state.queries.totalResults}</p>
 
           <img
             src={animeLoader}

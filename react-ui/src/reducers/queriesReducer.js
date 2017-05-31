@@ -8,6 +8,7 @@ const initialState = {
   sortResults: '',
   sortPrice: '',
   inputValue: '',
+  totalResults: '',
   searchResults: [],
   savedRestaurants: [],
   resultsList: 'search-results',
@@ -19,6 +20,9 @@ const queriesReducer = (state = initialState, action) => {
     case actions.RESTAURANT_SEARCH:
       return Object.assign({}, state, {
         restaurantNameQuery: action.value });
+    case actions.TOTAL_RESULTS:
+      return Object.assign({}, state, {
+        totalResults: action.value });
     case actions.SEARCH_FAILURE:
       return Object.assign({}, state, {
         searchErrorMessage: action.message,

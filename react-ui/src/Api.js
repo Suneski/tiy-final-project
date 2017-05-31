@@ -7,8 +7,11 @@ const Api = {
     $.ajax({
       url: url
     })
-    .done((data) => {
-      store.dispatch({ type: 'DONE_LOADING', value: data.data });
+    .done((data, total) => {
+      store.dispatch({
+        type: 'DONE_LOADING', value: data.data });
+      store.dispatch({
+        type: 'TOTAL_RESULTS', value: data.total });
     }).catch((xhr, error, responseText) => {
       store.dispatch({ type: 'SEARCH_FAILURE', message: 'Location not available.' });
     });
