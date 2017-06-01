@@ -24,7 +24,7 @@ class SavedRestaurantsLi extends React.Component {
       noteUpdate = evt.target.value;
     }
     else {
-      noteUpdate = 'no saved notes';
+      noteUpdate = 'No saved notes';
     }
 
     store.dispatch({ type: actions.SUBMIT_NOTE, value: noteUpdate });
@@ -127,7 +127,6 @@ class SavedRestaurantsLi extends React.Component {
             <textarea
               className="note-input"
               maxLength="500"
-              defaultValue={this.props.notes}
               placeholder="character limit 500"
               onKeyUp={(evt) => this.notesSubmit(evt)}>
 
