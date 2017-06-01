@@ -44,7 +44,7 @@ class RestaurantQuery extends React.Component {
     if (this.state.queries.restaurantNameQuery !== '' && this.state.queries.locationQuery === '') {
       alert('Add a location!');
     }
-    else {
+    else if (this.state.queries.restaurantNameQuery !== '' && this.state.queries.locationQuery !== '')  {
       Api.summonTheData(url);
       store.dispatch({ type: 'LOADING' });
     }
