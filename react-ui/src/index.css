@@ -58,13 +58,14 @@ body {
   clear: both; }
 
 .activated {
+  position: fixed;
   display: block;
-  top: 45px;
-  left: 35%;
+  top: 150px;
+  left: 25%;
   border-radius: 10px;
   border: 10px solid white;
   margin: 0 auto;
-  width: 500px;
+  width: 800px;
   clear: both; }
 
 .deactivated {
