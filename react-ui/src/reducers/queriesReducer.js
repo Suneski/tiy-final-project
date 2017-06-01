@@ -13,6 +13,7 @@ const initialState = {
   resultsList: 'search-results',
   loaderClass: 'deactivated',
   notes: '',
+  textAreaDefault: ''
 };
 
 // return Object.assign({}, initialState}
@@ -54,7 +55,8 @@ const queriesReducer = (state = initialState, action) => {
 
     case actions.SUBMIT_NOTE:
       return Object.assign({}, state, {
-        notes: action.value });
+        notes: action.value ,
+        textAreaDefault: '' });
 
 
 

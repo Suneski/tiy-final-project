@@ -90,6 +90,7 @@ class SavedRestaurants extends React.Component {
       zipCode={x.zip_code}
       country={x.country}
       notes={x.notes}
+      textAreaDefault={this.state.queries.textAreaDefault}
       removeFavorite={() => this.removeFavorite(x._id)}
       submitNote={() => this.submitNote(x._id, x.notes)}
     />);

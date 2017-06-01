@@ -28,6 +28,7 @@ class SavedRestaurantsLi extends React.Component {
     }
 
     store.dispatch({ type: actions.SUBMIT_NOTE, value: noteUpdate });
+
   }
 
   render() {
@@ -127,6 +128,7 @@ class SavedRestaurantsLi extends React.Component {
             <textarea
               className="note-input"
               maxLength="500"
+              defaultValue={this.props.textAreaDefault}
               placeholder="character limit 500"
               onKeyUp={(evt) => this.notesSubmit(evt)}>
 
