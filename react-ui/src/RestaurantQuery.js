@@ -85,35 +85,21 @@ class RestaurantQuery extends React.Component {
     Api.handleRestaurantAddFilter(x);
   }
 
-  // previousPage() {
-  //   let state = store.getState();
-  //   let offset = state.queries.offset + state.queries.resultsPerPage;
-  //   let page = state.queries.page;
-  //   console.log('starting page num', page);
-  //
-  //   if (page > 1) {
-  //     console.log('page', page);
-  //     offset = state.queries.offset - state.queries.resultsPerPage;
-  //     store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
-  //     store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, value2: (page - 1) });
-  //
-  //
-  //     this.summonTheData();
-  //     console.log('page', page);
-  //   }
-  //
-  //   else {
-  //     console.log('page', page);
-  //     store.dispatch({ type: actions.PREVIOUS_BUTTON_INVISIBLE });
-  //
-  //     this.summonTheData();
-  //
-  //
-  //
-  //   }
-  //
-  //
-  // }
+  previousPage() {
+    let state = store.getState();
+    let offset = state.queries.offset + state.queries.resultsPerPage;
+    let page = state.queries.page;
+    let pageCount = state.queries.pageCount;
+
+    if (page > 1) {
+      console.log('page', page);
+      offset = state.queries.offset - state.queries.resultsPerPage;
+      store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
+      store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, value2: (page - 1) });
+      this.summonTheData();
+      console.log('page', page);
+    }
+  }
 
   nextPage() {
     let state = store.getState();
@@ -121,24 +107,14 @@ class RestaurantQuery extends React.Component {
     let page = state.queries.page;
     let pageCount = state.queries.pageCount;
 
-
-
-
     if (page < pageCount - 1) {
-      offset = state.queries.offset + state.queries.resultsPerPage;
-
       store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
       store.dispatch({ type: actions.NEXT_PAGE, value: offset, value2: (page + 1) });
     }
     else {
-      offset = state.queries.offset + state.queries.resultsPerPage;
       store.dispatch({ type: actions.NEXT_BUTTON_INVISIBLE, value: offset });
     }
-
     this.summonTheData();
-
-    console.log('page', page);
-
   }
 
   render() {
