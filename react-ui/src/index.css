@@ -110,7 +110,7 @@ header {
   background-image: url("./images/omni-restaurant.jpg");
   background-size: cover;
   background-position: center;
-  height: 410px; }
+  height: 450px; }
 
 .search-box {
   margin: 0 auto;
@@ -119,7 +119,7 @@ header {
   background-color: white;
   opacity: .97;
   border-radius: 5px;
-  top: 100px;
+  top: 120px;
   position: relative;
   overflow: auto; }
 
