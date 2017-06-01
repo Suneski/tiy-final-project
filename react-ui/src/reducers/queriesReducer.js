@@ -16,7 +16,7 @@ const initialState = {
   textAreaDefault: ''
 };
 
-// return Object.assign({}, initialState}
+// return Object.assign({}, initialState);
 
 const queriesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -38,6 +38,10 @@ const queriesReducer = (state = initialState, action) => {
       return Object.assign({}, state, { sortPrice: action.value });
     case actions.SAVED_RESTAURANTS_CB:
       return Object.assign({}, state, { savedRestaurants: action.value });
+
+
+    case actions.VERIFY_LOGOUT:
+      return Object.assign({}, initialState);
 
     case actions.LOADING:
       return Object.assign({}, state, {

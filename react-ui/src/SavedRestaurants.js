@@ -25,7 +25,12 @@ class SavedRestaurants extends React.Component {
   }
 
   summonSavedRestarants() {
-    Api.summonSavedRestarants();
+    if (this.state.user.isLoggedIn === true) {
+      Api.summonSavedRestarants();
+    }
+    else {
+      store.dispatch({ type: actions.VERIFY_LOGOUT });
+    }
   }
 
   removeFavorite(id) {
@@ -52,6 +57,8 @@ class SavedRestaurants extends React.Component {
   }
 
   render() {
+
+
     let savedRestaurantsHeader;
 
     let randSaved = this.state.randomSaved;

@@ -21,6 +21,7 @@ const actions = {
   SHOW_SAVED: 'SHOW_SAVED',
   SUBMIT_NOTE: 'SUBMIT_NOTE',
   EDIT_NOTE: 'EDIT_NOTE',
+  VERIFY_LOGOUT: 'VERIFY_LOGOUT',
 }
 
 module.exports = actions;
