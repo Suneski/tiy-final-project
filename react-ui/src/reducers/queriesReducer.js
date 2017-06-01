@@ -31,6 +31,11 @@ const queriesReducer = (state = initialState, action) => {
     case actions.TOTAL_PAGES:
       return Object.assign({}, state, {
         pageCount: action.value });
+    case actions.RESET_PAGE:
+      return Object.assign({}, state, {
+        offset: 0,
+        pageCount: 0,
+        page: 1 });
 
 
 

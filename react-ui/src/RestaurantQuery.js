@@ -28,6 +28,11 @@ class RestaurantQuery extends React.Component {
     this.unsub();
   }
 
+  hitSearch() {
+    store.dispatch({ type: actions.RESET_PAGE });
+    this.summonTheData();
+  }
+
   summonTheData() {
 
     let state = store.getState();
@@ -80,35 +85,35 @@ class RestaurantQuery extends React.Component {
     Api.handleRestaurantAddFilter(x);
   }
 
-  previousPage() {
-    let state = store.getState();
-    let offset = state.queries.offset + state.queries.resultsPerPage;
-    let page = state.queries.page;
-    console.log('starting page num', page);
-
-    if (page > 1) {
-      console.log('page', page);
-      offset = state.queries.offset - state.queries.resultsPerPage;
-      store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
-      store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, value2: (page - 1) });
-
-
-      this.summonTheData();
-      console.log('page', page);
-    }
-
-    else {
-      console.log('page', page);
-      store.dispatch({ type: actions.PREVIOUS_BUTTON_INVISIBLE });
-
-      this.summonTheData();
-
-
-
-    }
-
-
-  }
+  // previousPage() {
+  //   let state = store.getState();
+  //   let offset = state.queries.offset + state.queries.resultsPerPage;
+  //   let page = state.queries.page;
+  //   console.log('starting page num', page);
+  //
+  //   if (page > 1) {
+  //     console.log('page', page);
+  //     offset = state.queries.offset - state.queries.resultsPerPage;
+  //     store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
+  //     store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, value2: (page - 1) });
+  //
+  //
+  //     this.summonTheData();
+  //     console.log('page', page);
+  //   }
+  //
+  //   else {
+  //     console.log('page', page);
+  //     store.dispatch({ type: actions.PREVIOUS_BUTTON_INVISIBLE });
+  //
+  //     this.summonTheData();
+  //
+  //
+  //
+  //   }
+  //
+  //
+  // }
 
   nextPage() {
     let state = store.getState();
@@ -182,7 +187,7 @@ class RestaurantQuery extends React.Component {
                 onKeyUp={(evt) => this.locationSubmit(evt)} />
             </div>
             <button
-              onClick={() => this.summonTheData()}
+              onClick={() => this.hitSearch()}
               className="search-button">
                 SEARCH
             </button>
