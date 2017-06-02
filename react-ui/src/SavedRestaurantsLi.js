@@ -104,7 +104,9 @@ class SavedRestaurantsLi extends React.Component {
                 </a>
               </p>
             <p>Price: {this.props.price}</p>
-            <p>{this.props.address1} {this.props.address2} {this.props.address3}</p>
+            <p>{this.props.address1}</p>
+            <p>{this.props.address2}</p>
+            <p>{this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
 
           </div>
