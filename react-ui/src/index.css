@@ -322,7 +322,10 @@ pre {
   height: 25px; }
 
 .yelp-logo {
-  height: 25px; }
+  height: 35px; }
+
+.star-rating {
+  margin: 5px 0; }
 
 @media (max-width: 1100px) {
   .searchResultItem {
