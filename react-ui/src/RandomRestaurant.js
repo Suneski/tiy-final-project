@@ -54,17 +54,17 @@ class RandomRestaurant extends React.Component {
     return(
       <div className="randomResult" id="random">
         <div className="image-result">
-          <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
+          <a href={this.props.url} target="_blank"><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
         <div className="restaurantDetails">
           <div className="textResults">
-            <a href={this.props.url}>{this.props.name}</a>
+            <a href={this.props.url} target="_blank">{this.props.name}</a>
               <p>
                 <img
                   src={rating}
                   alt="star rating"
                   className="star-rating"/>
-                <a href={this.props.url}>
+                <a href={this.props.url} target="_blank">
                   <img
                     src={logo}
                     alt="yelp logo"

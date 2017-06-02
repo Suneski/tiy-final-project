@@ -81,7 +81,7 @@ class SavedRestaurantsLi extends React.Component {
       <li className="savedResultItem">
 
         <div className="image-result">
-          <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
+          <a href={this.props.url} target="_blank"><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
         <div className="restaurantDetails">
           <div
@@ -89,13 +89,13 @@ class SavedRestaurantsLi extends React.Component {
             onClick={this.props.removeFavorite}>
           </div>
           <div className="textResults">
-            <a href={this.props.url}>{this.props.name}</a>
+            <a href={this.props.url} target="_blank">{this.props.name}</a>
               <p>
                 <img
                   src={rating}
                   alt="star rating"
                   className="star-rating"/>
-                <a href={this.props.url}>
+                <a href={this.props.url} target="_blank">
                   <img
                     src={logo}
                     alt="yelp logo"
