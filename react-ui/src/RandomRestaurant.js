@@ -52,7 +52,7 @@ class RandomRestaurant extends React.Component {
     let googleMapsLink = `https://www.google.com/maps/dir//${this.props.location}`
 
     return(
-      <div className="searchResultItem">
+      <div className="randomResult" id="random">
         <div className="image-result">
           <a href={this.props.url}><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>

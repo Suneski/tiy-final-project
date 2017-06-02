@@ -10,7 +10,7 @@ import { store, actions } from './reducers/Store.js';
 import './index.css';
 
 // import images
-import animeLoader from './images/animeloader.gif';
+import loader from './images/ajax_loader.gif';
 import yelpLogo from './images/yelp/yelp.png';
 
 class RestaurantQuery extends React.Component {
@@ -165,7 +165,7 @@ class RestaurantQuery extends React.Component {
         <div className="body-container">
 
           <img
-            src={animeLoader}
+            src={loader}
             alt="page loader"
             className={this.state.queries.loaderClass} />
 

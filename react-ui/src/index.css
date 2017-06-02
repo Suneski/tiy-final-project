@@ -58,14 +58,10 @@ body {
   clear: both; }
 
 .activated {
-  position: fixed;
   display: block;
-  top: 150px;
-  left: 25%;
   border-radius: 10px;
-  border: 10px solid white;
-  margin: 0 auto;
-  width: 800px;
+  margin: 20px auto;
+  width: 400px;
   clear: both; }
 
 .deactivated {
@@ -166,15 +162,20 @@ input[type="text"] {
   bottom: 0;
   right: 0; }
 
-.savedResultItem {
+.savedResultItem, .randomResult {
   border: 1px solid #461613;
   border-radius: 10px;
-  margin: 1%;
   width: 47%;
   padding: 5px;
   overflow: auto;
-  float: left;
   background-color: rgba(255, 255, 255, 0.5); }
+
+.savedResultItem {
+  float: left;
+  margin: 1%; }
+
+.randomResult {
+  margin: 1% auto; }
 
 .removeButton {
   background-image: url("./images/remove-button.png");
