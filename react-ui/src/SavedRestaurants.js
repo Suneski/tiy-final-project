@@ -107,7 +107,7 @@ class SavedRestaurants extends React.Component {
 
     let savedRestNum = this.state.queries.savedRestaurants.length;
 
-    let welcome = <h1>Welcome back, {name}!</h1>;
+    let welcome = <h1>Welcome, {name}!</h1>;
 
     if (this.state.user.isLoggedIn === false) {
       savedRestaurantsHeader = <h1 className='logInViewSaves'>Log in to view saved restaurants</h1>;
