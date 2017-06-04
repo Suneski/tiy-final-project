@@ -110,7 +110,6 @@ class RestaurantQuery extends React.Component {
     // let state = store.getState();
     let offset = this.state.queries.offset - this.state.queries.resultsPerPage;
     let page = this.state.queries.page;
-    let pageCount = this.state.queries.pageCount;
 
     console.log(offset);
 
@@ -123,7 +122,6 @@ class RestaurantQuery extends React.Component {
     // let state = store.getState();
     let offset = this.state.queries.offset + this.state.queries.resultsPerPage;
     let page = this.state.queries.page;
-    let pageCount = this.state.queries.pageCount;
 
     console.log(page);
 
