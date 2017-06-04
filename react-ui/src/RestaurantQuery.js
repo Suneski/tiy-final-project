@@ -28,11 +28,29 @@ class RestaurantQuery extends React.Component {
     this.unsub();
   }
 
+  hitSearch() {
+    store.dispatch({ type: actions.RESET_PAGE });
+    this.summonTheData();
+  }
+
   summonTheData() {
 
     let state = store.getState();
 
-    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}`
+    let pageCount = state.queries.pageCount;
+    let page = state.queries.page;
+
+    console.log('pageCount', pageCount, this.state.queries.pageCount);
+    console.log('page', page, this.state.queries.page);
+
+
+
+
+
+
+
+
+    const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}&offset=${state.queries.offset}`
 
     if (this.state.queries.restaurantNameQuery === '' && this.state.queries.locationQuery === '') {
       alert('Add a restaurant and a location!');
@@ -44,10 +62,20 @@ class RestaurantQuery extends React.Component {
     if (this.state.queries.restaurantNameQuery !== '' && this.state.queries.locationQuery === '') {
       alert('Add a location!');
     }
-    else if (this.state.queries.restaurantNameQuery !== '' && this.state.queries.locationQuery !== '')  {
-      Api.summonTheData(url);
+    else {
+      Api.summonTheData(url, state.queries.resultsPerPage, state.queries.page);
       store.dispatch({ type: 'LOADING' });
     }
+
+
+
+
+
+
+
+
+
+
   }
 
   restaurantNameSubmit(evt) {
@@ -59,22 +87,49 @@ class RestaurantQuery extends React.Component {
   }
 
   limitTotal(evt) {
-    store.dispatch({ type: actions.RESULTS_TOTAL, value: evt.target.value });
+    let limitTotalInt = parseInt(evt.target.value, 10);
+    store.dispatch({ type: actions.RESULTS_TOTAL, value: limitTotalInt, page: 1 });
     this.summonTheData();
   }
 
   sortResults(evt) {
-    store.dispatch({ type: actions.SORT_RESULTS, value: evt.target.value });
+    store.dispatch({ type: actions.SORT_RESULTS, value: evt.target.value, page: 1 });
     this.summonTheData();
   }
 
   sortPrice(evt) {
-    store.dispatch({ type: actions.SORT_PRICE, value: evt.target.value });
+    store.dispatch({ type: actions.SORT_PRICE, value: evt.target.value, page: 1 });
     this.summonTheData();
   }
 
   handleRestaurantAddFilter(x) {
     Api.handleRestaurantAddFilter(x);
+  }
+
+  previousPage() {
+    // let state = store.getState();
+    let offset = this.state.queries.offset - this.state.queries.resultsPerPage;
+    let page = this.state.queries.page;
+    let pageCount = this.state.queries.pageCount;
+
+    console.log(offset);
+
+    store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, pageSubtract: page - 1 });
+
+    this.summonTheData();
+  }
+
+  nextPage() {
+    // let state = store.getState();
+    let offset = this.state.queries.offset + this.state.queries.resultsPerPage;
+    let page = this.state.queries.page;
+    let pageCount = this.state.queries.pageCount;
+
+    console.log(page);
+
+    store.dispatch({ type: actions.NEXT_PAGE, value: offset, pageAdd: page + 1 });
+
+    this.summonTheData();
   }
 
   render() {
@@ -123,7 +178,7 @@ class RestaurantQuery extends React.Component {
                 onKeyUp={(evt) => this.locationSubmit(evt)} />
             </div>
             <button
-              onClick={() => this.summonTheData()}
+              onClick={() => this.hitSearch()}
               className="search-button">
                 SEARCH
             </button>
@@ -163,6 +218,22 @@ class RestaurantQuery extends React.Component {
         </header>
 
         <div className="body-container">
+          <div className={this.state.queries.pageView}>
+            <p>Total Results: {this.state.queries.totalResults}</p>
+            <p>Page {this.state.queries.page} of {this.state.queries.pageCount}</p>
+
+            <button
+              onClick={() => this.nextPage()}
+              className={this.state.queries.nextButtonVisible}>
+                NEXT
+            </button>
+
+            <button
+              onClick={() => this.previousPage()}
+              className={this.state.queries.previousButtonVisible}>
+                PREVIOUS
+            </button>
+          </div>
 
           <img
             src={loader}
@@ -173,6 +244,7 @@ class RestaurantQuery extends React.Component {
           <ol className={this.state.queries.resultsList}>
             {names}
           </ol>
+
 
         </div>
       </div>
