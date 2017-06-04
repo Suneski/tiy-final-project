@@ -37,18 +37,7 @@ class RestaurantQuery extends React.Component {
 
     let state = store.getState();
 
-    let pageCount = state.queries.pageCount;
-    let page = state.queries.page;
-
-    console.log('pageCount', pageCount, this.state.queries.pageCount);
-    console.log('page', page, this.state.queries.page);
-
-
-
-
-
-
-
+    store.dispatch({ type: actions.HIDE_PAGE_VIEW });
 
     const url = `/api/yelp?restaurantSearch=${state.queries.restaurantNameQuery}&locationSearch=${state.queries.locationQuery}&resultLimit=${state.queries.resultsPerPage}&sortBy=${state.queries.sortResults}&price=${state.queries.sortPrice}&offset=${state.queries.offset}`
 
@@ -64,7 +53,7 @@ class RestaurantQuery extends React.Component {
     }
     else {
       Api.summonTheData(url, state.queries.resultsPerPage, state.queries.page);
-      store.dispatch({ type: 'LOADING' });
+      store.dispatch({ type: actions.LOADING });
     }
 
 
@@ -111,8 +100,6 @@ class RestaurantQuery extends React.Component {
     let offset = this.state.queries.offset - this.state.queries.resultsPerPage;
     let page = this.state.queries.page;
 
-    console.log(offset);
-
     store.dispatch({ type: actions.PREVIOUS_PAGE, value: offset, pageSubtract: page - 1 });
 
     this.summonTheData();
@@ -122,8 +109,6 @@ class RestaurantQuery extends React.Component {
     // let state = store.getState();
     let offset = this.state.queries.offset + this.state.queries.resultsPerPage;
     let page = this.state.queries.page;
-
-    console.log(page);
 
     store.dispatch({ type: actions.NEXT_PAGE, value: offset, pageAdd: page + 1 });
 
@@ -217,19 +202,21 @@ class RestaurantQuery extends React.Component {
 
         <div className="body-container">
           <div className={this.state.queries.pageView}>
-            <p>Total Results: {this.state.queries.totalResults}</p>
-            <p>Page {this.state.queries.page} of {this.state.queries.pageCount}</p>
+            <p className="page-view-item">Total Results: {this.state.queries.totalResults}</p>
+            <p className="page-view-item">Page {this.state.queries.page} of {this.state.queries.pageCount}</p>
 
-            <button
-              onClick={() => this.nextPage()}
-              className={this.state.queries.nextButtonVisible}>
-                NEXT
-            </button>
 
             <button
               onClick={() => this.previousPage()}
               className={this.state.queries.previousButtonVisible}>
                 PREVIOUS
+            </button>
+
+
+            <button
+              onClick={() => this.nextPage()}
+              className={this.state.queries.nextButtonVisible}>
+                NEXT
             </button>
           </div>
 

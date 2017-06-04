@@ -33,6 +33,9 @@ const queriesReducer = (state = initialState, action) => {
     case actions.SHOW_PAGE_VIEW:
       return Object.assign({}, state, {
         pageView: 'page-view-visible' });
+    case actions.HIDE_PAGE_VIEW:
+      return Object.assign({}, state, {
+        pageView: 'page-view-invisible' });
     case actions.TOTAL_RESULTS:
       return Object.assign({}, state, {
         totalResults: action.value });

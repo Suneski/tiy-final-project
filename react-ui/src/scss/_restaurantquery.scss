@@ -67,6 +67,15 @@ input[type="text"] {
   right: 0
 }
 
+
+
+.page-view-item, .previous-button-visible, .next-button-visible {
+	float: left;
+	margin-right: 10px;
+}
+
+
+
 .previous-button-visible {
 	display: block;
 }
@@ -87,13 +96,10 @@ input[type="text"] {
 	display: block;
 }
 
+
 .page-view-invisible {
 	display: none;
 }
-
-
-
-
 
 
 

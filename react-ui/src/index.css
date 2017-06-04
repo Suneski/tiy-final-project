@@ -162,6 +162,10 @@ input[type="text"] {
   bottom: 0;
   right: 0; }
 
+.page-view-item, .previous-button-visible, .next-button-visible {
+  float: left;
+  margin-right: 10px; }
+
 .previous-button-visible {
   display: block; }
 
@@ -287,7 +291,8 @@ pre {
   text-align: center; }
 
 .search-results {
-  display: block; }
+  display: block;
+  clear: both; }
 
 .search-results-hidden {
   display: none; }
