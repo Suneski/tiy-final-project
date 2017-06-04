@@ -1,19 +1,48 @@
 import $ from 'jquery';
-import { store } from './reducers/Store.js';
+import { store, actions } from './reducers/Store.js';
 
 const Api = {
 
-  summonTheData(url, resultsPerPage) {
+  summonTheData(url, resultsPerPage, page) {
     $.ajax({
       url: url
     })
     .done((data, total) => {
+
+      let pageCount = Math.ceil(data.total / resultsPerPage)
+
       store.dispatch({
-        type: 'DONE_LOADING', value: data.data });
+        type: actions.DONE_LOADING, value: data.data });
       store.dispatch({
-        type: 'TOTAL_RESULTS', value: data.total });
+        type: actions.TOTAL_RESULTS, value: data.total });
       store.dispatch({
-        type: 'TOTAL_PAGES', value: Math.ceil(data.total / resultsPerPage) });
+        type: actions.TOTAL_PAGES, value: pageCount });
+      store.dispatch({ type: actions.SHOW_PAGE_VIEW });
+
+      if (pageCount === 1) {
+        store.dispatch({ type: actions.PREVIOUS_BUTTON_INVISIBLE });
+        store.dispatch({ type: actions.NEXT_BUTTON_INVISIBLE });
+      }
+      else {
+        store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
+        store.dispatch({ type: actions.NEXT_BUTTON_VISIBLE });
+      }
+
+      if (page < pageCount) {
+        store.dispatch({ type: actions.NEXT_BUTTON_VISIBLE });
+      }
+      if (page === pageCount) {
+        store.dispatch({ type: actions.NEXT_BUTTON_INVISIBLE });
+      }
+
+      if (page === 1) {
+        store.dispatch({ type: actions.PREVIOUS_BUTTON_INVISIBLE });
+      }
+      else if (page !== 1) {
+        store.dispatch({ type: actions.PREVIOUS_BUTTON_VISIBLE });
+      }
+
+
     }).catch((xhr, error, responseText) => {
       store.dispatch({ type: 'SEARCH_FAILURE', message: 'Location not available.' });
     });

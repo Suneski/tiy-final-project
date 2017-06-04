@@ -12,6 +12,7 @@ const initialState = {
   offset: 0,
   pageCount: 0,
   page: 1,
+  pageView: 'page-view-invisible',
   previousButtonVisible: 'previous-button-invisible',
   nextButtonVisible: 'next-button-visible',
   searchResults: [],
@@ -25,6 +26,9 @@ const queriesReducer = (state = initialState, action) => {
     case actions.RESTAURANT_SEARCH:
       return Object.assign({}, state, {
         restaurantNameQuery: action.value });
+    case actions.SHOW_PAGE_VIEW:
+      return Object.assign({}, state, {
+        pageView: 'page-view-visible' });
     case actions.TOTAL_RESULTS:
       return Object.assign({}, state, {
         totalResults: action.value });
@@ -34,7 +38,7 @@ const queriesReducer = (state = initialState, action) => {
     case actions.RESET_PAGE:
       return Object.assign({}, state, {
         offset: 0,
-        pageCount: 0,
+        pageCount: 1,
         page: 1 });
 
 
@@ -42,7 +46,7 @@ const queriesReducer = (state = initialState, action) => {
     case actions.PREVIOUS_PAGE:
       return Object.assign({}, state, {
         offset: action.value,
-        page: action.value2 });
+        page: action.pageSubtract });
     case actions.PREVIOUS_BUTTON_VISIBLE:
       return Object.assign({}, state, {
         previousButtonVisible: 'previous-button-visible' });
@@ -57,14 +61,21 @@ const queriesReducer = (state = initialState, action) => {
     case actions.NEXT_PAGE:
       return Object.assign({}, state, {
         offset: action.value,
-        page: action.value2 });
+        page: action.pageAdd });
+
+
     case actions.NEXT_BUTTON_VISIBLE:
       return Object.assign({}, state, {
         nextButtonVisible: 'next-button-visible' });
     case actions.NEXT_BUTTON_INVISIBLE:
       return Object.assign({}, state, {
-        offset: action.value,
         nextButtonVisible: 'next-button-invisible' });
+
+
+
+
+
+
     case actions.SEARCH_FAILURE:
       return Object.assign({}, state, {
         searchErrorMessage: action.message,
@@ -72,18 +83,29 @@ const queriesReducer = (state = initialState, action) => {
         resultsList: 'search-results-hidden' });
     case actions.LOCATION_SEARCH:
       return Object.assign({}, state, { locationQuery: action.value });
+
+
+
+
     case actions.RESULTS_TOTAL:
       return Object.assign({}, state, {
         resultsPerPage: action.value,
+        page: action.page,
         offset: 0 });
     case actions.SORT_RESULTS:
       return Object.assign({}, state, {
         sortResults: action.value,
+        page: action.page,
         offset: 0 });
     case actions.SORT_PRICE:
       return Object.assign({}, state, {
         sortPrice: action.value,
+        page: action.page,
         offset: 0 });
+
+
+
+
     case actions.SAVED_RESTAURANTS_CB:
       return Object.assign({}, state, { savedRestaurants: action.value });
     case actions.LOADING:

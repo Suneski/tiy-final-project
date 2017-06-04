@@ -177,6 +177,12 @@ input[type="text"] {
 .next-button-invisible {
   display: none; }
 
+.page-view-visible {
+  display: block; }
+
+.page-view-invisible {
+  display: none; }
+
 @media (max-width: 1100px) {
   .searchResultItem {
     margin: 1%;
