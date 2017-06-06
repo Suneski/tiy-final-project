@@ -2,6 +2,7 @@
 
 nav {
 	height: 30px;
+	font-size: 20px;
 	background-color: rgba(0, 0, 0, 0.6);
 	li {
 		float: left;
@@ -14,7 +15,6 @@ nav {
 	text-decoration: none;
 	color: white;
 	font-family: 'Roboto Slab', serif;
-	font-size: 20px;
 	text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
@@ -26,7 +26,6 @@ nav {
 	text-decoration: none;
 	color: white;
 	font-family: 'Roboto Slab', serif;
-	font-size: 20px;
 	text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
@@ -46,4 +45,15 @@ nav {
 	margin: 10px auto;
 	display: block;
 	width: 1000px;
+}
+
+@media (max-width: 630px) {
+	nav {
+		font-size: 15px;
+		li {
+			float: left;
+			margin: 0 5px;
+			padding-top: 6px;
+		}
+	}
 }

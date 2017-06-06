@@ -74,6 +74,7 @@ body {
 
 nav {
   height: 30px;
+  font-size: 20px;
   background-color: rgba(0, 0, 0, 0.6); }
   nav li {
     float: left;
@@ -84,14 +85,12 @@ nav {
   text-decoration: none;
   color: white;
   font-family: 'Roboto Slab', serif;
-  font-size: 20px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
 
 .loggedInAs {
   text-decoration: none;
   color: white;
   font-family: 'Roboto Slab', serif;
-  font-size: 20px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
 
 .navigationItems:hover {
@@ -104,6 +103,14 @@ nav {
   margin: 10px auto;
   display: block;
   width: 1000px; }
+
+@media (max-width: 630px) {
+  nav {
+    font-size: 15px; }
+    nav li {
+      float: left;
+      margin: 0 5px;
+      padding-top: 6px; } }
 
 #page-nav {
   background-color: #300A08;
@@ -120,7 +127,11 @@ nav {
 
 .page-view-item, .previous-button-visible, .next-button-visible {
   float: left;
-  margin-right: 10px; }
+  margin-right: 10px;
+  padding-top: 2px; }
+
+.previous-button-visible, .next-button-visible {
+  margin-top: 1px; }
 
 .previous-button-visible {
   display: block; }
