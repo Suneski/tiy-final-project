@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
-@import url("https://fonts.googleapis.com/css?family=Just+Another+Hand");
+@import url("https://fonts.googleapis.com/css?family=Calligraffitti");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -202,7 +202,7 @@ input[type="text"] {
   float: left;
   margin: 1%;
   background-image: url("images/crumpled-paper.jpg");
-  font-family: 'Just Another Hand', cursive;
+  background-size: contain;
   opacity: .8; }
 
 .randomResult {
@@ -283,6 +283,8 @@ pre {
   width: 98%;
   height: 100px;
   margin-bottom: 10px;
+  font-family: 'Calligraffitti', cursive;
+  line-height: 1.2;
   font-size: 20px;
   padding: 1%; }
 

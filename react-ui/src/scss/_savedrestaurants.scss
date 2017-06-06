@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti');
 
 .savedResultItem, .randomResult {
   border: 1px solid #461613;
@@ -13,7 +13,7 @@
   float: left;
   margin: 1%;
   background-image: url("images/crumpled-paper.jpg");
-  font-family: 'Just Another Hand', cursive;
+  background-size: contain;
   opacity: .8;
 }
 
@@ -125,6 +125,8 @@ pre {
   width: 98%;
   height: 100px;
   margin-bottom: 10px;
+  font-family: 'Calligraffitti', cursive;
+  line-height: 1.2;
   // background-color: white;
   font-size: 20px;
   padding: 1%;
