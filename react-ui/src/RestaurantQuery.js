@@ -206,7 +206,14 @@ class RestaurantQuery extends React.Component {
 
           <span><p className="page-view-item" id='page-count'>Page {this.state.queries.page} of {this.state.queries.pageCount}</p></span>
 
-          <div id='page-buttons'>
+
+
+        </div>
+
+
+        <div className="body-container">
+
+          <div className={this.state.queries.pageView}>
             <button
               onClick={() => this.previousPage()}
               className={this.state.queries.previousButtonVisible}>
@@ -220,13 +227,7 @@ class RestaurantQuery extends React.Component {
                 NEXT
             </button>
           </div>
-
-        </div>
-
-
-        <div className="body-container">
-
-
+          
           <img
             src={loader}
             alt="page loader"

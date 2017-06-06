@@ -2,6 +2,7 @@
   background-color: #300A08;
   height: 20px;
   padding: 0 10px;
+  margin: 0 auto;
   color: white;
   text-align: center;
 }
@@ -12,6 +13,8 @@
 
 #page-buttons {
   text-align: center;
+  width: 150px;
+  display: inline-block;
 }
 
 
@@ -23,19 +26,23 @@
 }
 
 .previous-button-visible, .next-button-visible {
-  margin-top: 1px;
+  display: block;
+  padding: 10px 20px;
+  background-color: #C63D36;
+  color: white;
+  border-radius: 10px;
+  margin-top: 15px;
+  border-color: #C63D36;
+  opacity: .9;
+  font-size: 20px;
 }
 
-.previous-button-visible {
-	display: block;
+.next-button-visible {
+  float: right;
 }
 
 .previous-button-invisible {
 	display: none;
-}
-
-.next-button-visible {
-	display: block;
 }
 
 .next-button-invisible {
@@ -49,4 +56,17 @@
 
 .page-view-invisible {
 	display: none;
+}
+
+
+@media (max-width: 530px) {
+  .page-view-item, .previous-button-visible, .next-button-visible {
+  	margin: 0 2px;
+  }
+  #page-buttons {
+    width: 130px;
+  }
+  #page-nav {
+    text-align: justify;
+  }
 }
