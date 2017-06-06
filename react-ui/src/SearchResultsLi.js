@@ -70,22 +70,28 @@ class SearchResultLi extends React.Component {
             onClick={this.props.removeCheckMark}>
           </div>
           <div className="textResults">
-            <a href={this.props.url} target="_blank">{this.props.name}</a>
+            <a href={this.props.url} target="_blank" className="restaurant-name">{this.props.name}</a>
             <p>
               <img src={rating} alt="star rating" className="star-rating"/> <a href={this.props.url} target="_blank">
                 <img src={logo} alt="yelp logo" className="yelp-logo"/>
               </a>
             </p>
             <p>(based on {this.props.reviewCount} reviews)</p>
-            <p>Price: {this.props.price}</p>
+            <br />
             <p>{this.props.address1}</p>
             <p>{this.props.address2}</p>
             <p>{this.props.address3}</p>
             <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
+            <br />
+            <p>Price: {this.props.price}</p>
+
+
 
           </div>
 
           <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
+
+
         </div>
       </li>
     )

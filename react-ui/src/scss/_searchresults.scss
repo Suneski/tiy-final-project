@@ -20,7 +20,7 @@
   border: 1px solid #461613;
   border-radius: 10px;
   margin: 1%;
-  width: 45%;
+  width: 46%;
   padding: 5px;
   overflow: auto;
   float: left;
@@ -35,8 +35,9 @@
 .image-result {
   img {
     float: left;
-  	height: 180px;
-    width: 180px;
+    margin-top: 5px;
+  	height: 200px;
+    width: 200px;
     display: inline;
     border-radius: 5%;
     border: 1px solid grey;
@@ -44,9 +45,10 @@
 }
 
 .restaurantDetails {
-  margin-left: 190px;
+  margin-top: 7px;
+  margin-left: 210px;
   overflow: auto;
-  height: 180px;
+  height: 205px;
 }
 
 .noAddButton {
@@ -72,26 +74,84 @@
 }
 
 .textResults {
-  height: 150px;
+  height: 180px;
 }
 
 .star-rating {
   height: 25px;
+  margin: 1px 0;
 }
 
 .yelp-logo {
-  height: 35px;
+  height: 30px;
 }
 
-.star-rating {
-  margin: 5px 0;
+.restaurant-name {
+  font-weight: bold;
 }
 
 
 
-@media (max-width: 1100px) {
+@media (max-width: 1350px) {
+  .body-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1120px) {
   .searchResultItem {
-    margin: 1%;
-    width: 98%;
+    margin: 5px auto;
+    float: none;
+    width: 600px;
+  }
+}
+
+@media (max-width: 650px) {
+  .searchResultItem {
+    width: 95%;
+  }
+}
+
+
+
+
+@media (max-width: 530px) {
+  .image-result {
+    img {
+      margin: 12px 0;
+    	height: 150px;
+      width: 150px;
+    }
+  }
+
+  .restaurantDetails {
+    margin-left: 160px;
+    height: 170px;
+    font-size: 13px;
+  }
+
+  .addButton {
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .addButton:hover {
+    width: 20px;
+    height: 20px;
+  }
+
+  .textResults {
+    height: 150px;
+  }
+
+  .star-rating {
+    height: 15px;
+  }
+
+  .yelp-logo {
+    height: 20px;
   }
 }

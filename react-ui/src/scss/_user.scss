@@ -2,7 +2,7 @@
   margin: 0 auto;
   width: 600px;
   background-color: white;
-  margin-top: 40px;
+  margin-top: 250px;
   border-radius: 5px;
   text-align: center;
   padding: 50px;
@@ -20,10 +20,19 @@
 .sign-up-title, .login-title {
   font-size: 50px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .error-message {
   color: red;
   font-size: 30px;
   margin-top: 20px;
+}
+
+@media (max-width: 750px) {
+  .sign-up, .login {
+    margin-top: 40px;
+    width: 80%;
+    padding: 10px;
+  }
 }

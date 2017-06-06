@@ -41,6 +41,7 @@ class App extends Component {
                 path="/signup"
                 render={(props) => <SignUp {...this.state} history={props.history} /> } />
               <Route component={NotFound} />
+
             </Switch>
           </div>
         </div>

@@ -15,7 +15,7 @@ header {
   background-color: white;
   opacity: .97;
   border-radius: 5px;
-  top: 100px;
+  top: 85px;
   position: relative;
   overflow: auto;
 }
@@ -80,7 +80,7 @@ input[type="text"] {
 
 
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
 	.searchResultItem {
 		margin: 1%;
 		width: 98%;
