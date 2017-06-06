@@ -149,6 +149,7 @@ class RestaurantQuery extends React.Component {
         <header>
 
           <div className='search-box'>
+            <h1>Yodel</h1>
             <div className="input-bars">
               <input
                 placeholder="restaurant/food"
@@ -201,8 +202,9 @@ class RestaurantQuery extends React.Component {
         </header>
 
         <div className={this.state.queries.pageView} id='page-nav'>
-          <p className="page-view-item">Total Results: {this.state.queries.totalResults}</p>
-          <p className="page-view-item">Page {this.state.queries.page} of {this.state.queries.pageCount}</p>
+          <span><p className="page-view-item">Total Results: {this.state.queries.totalResults}</p></span>
+
+          <span><p className="page-view-item" id='page-count'>Page {this.state.queries.page} of {this.state.queries.pageCount}</p></span>
 
           <div id='page-buttons'>
             <button

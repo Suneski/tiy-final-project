@@ -1,0 +1,49 @@
+#page-nav {
+  background-color: #300A08;
+  height: 20px;
+  padding: 0 10px;
+  color: white;
+  text-align: center;
+}
+
+#page-count {
+  float: right;
+}
+
+#page-buttons {
+  text-align: center;
+}
+
+
+
+.page-view-item, .previous-button-visible, .next-button-visible {
+	float: left;
+	margin-right: 10px;
+}
+
+
+
+.previous-button-visible {
+	display: block;
+}
+
+.previous-button-invisible {
+	display: none;
+}
+
+.next-button-visible {
+	display: block;
+}
+
+.next-button-invisible {
+	display: none;
+}
+
+.page-view-visible {
+	display: block;
+}
+
+
+.page-view-invisible {
+	display: none;
+}

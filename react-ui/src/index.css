@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+@import url("https://fonts.googleapis.com/css?family=Merienda+One");
 @import url("https://fonts.googleapis.com/css?family=Calligraffitti");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -104,6 +105,41 @@ nav {
   display: block;
   width: 1000px; }
 
+#page-nav {
+  background-color: #300A08;
+  height: 20px;
+  padding: 0 10px;
+  color: white;
+  text-align: center; }
+
+#page-count {
+  float: right; }
+
+#page-buttons {
+  text-align: center; }
+
+.page-view-item, .previous-button-visible, .next-button-visible {
+  float: left;
+  margin-right: 10px; }
+
+.previous-button-visible {
+  display: block; }
+
+.previous-button-invisible {
+  display: none; }
+
+.next-button-visible {
+  display: block; }
+
+.next-button-invisible {
+  display: none; }
+
+.page-view-visible {
+  display: block; }
+
+.page-view-invisible {
+  display: none; }
+
 header {
   background-image: url("./images/omni-restaurant.jpg");
   background-size: cover;
@@ -117,17 +153,23 @@ header {
   background-color: white;
   opacity: .97;
   border-radius: 5px;
-  top: 120px;
+  top: 100px;
   position: relative;
   overflow: auto; }
 
+.search-box h1 {
+  font-family: 'Merienda One', cursive;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px; }
+
 .input-bars {
-  width: 670px;
+  width: 100%;
   margin: 0 auto;
   /*outline: 1px solid orange;*/ }
 
-.restaurant-input {
-  margin-right: 30px; }
+.input-bars input {
+  margin: 0 2%; }
 
 input[type="text"] {
   font-size: 30px; }
@@ -163,32 +205,27 @@ input[type="text"] {
   bottom: 0;
   right: 0; }
 
-.page-view-item, .previous-button-visible, .next-button-visible {
-  float: left;
-  margin-right: 10px; }
-
-.previous-button-visible {
-  display: block; }
-
-.previous-button-invisible {
-  display: none; }
-
-.next-button-visible {
-  display: block; }
-
-.next-button-invisible {
-  display: none; }
-
-.page-view-visible {
-  display: block; }
-
-.page-view-invisible {
-  display: none; }
-
-@media (max-width: 1100px) {
+@media (max-width: 850px) {
   .searchResultItem {
     margin: 1%;
-    width: 98%; } }
+    width: 98%; }
+  .search-box {
+    width: 80%;
+    top: 40px; }
+  .input-bars input {
+    width: 100%;
+    margin: 0; }
+  .filters {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    padding-top: 20px; }
+  .filter {
+    float: none;
+    text-align: center;
+    margin: 0 auto 10px auto; }
+  .filter-name {
+    margin: 0; } }
 
 .savedResultItem, .randomResult {
   border: 1px solid #461613;
@@ -365,15 +402,6 @@ pre {
 
 .star-rating {
   margin: 5px 0; }
-
-#page-nav {
-  background-color: #300A08;
-  height: 20px;
-  padding: 0 10px;
-  color: white; }
-
-#page-buttons {
-  float: right; }
 
 @media (max-width: 1100px) {
   .searchResultItem {

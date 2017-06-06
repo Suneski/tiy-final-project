@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda+One');
+
 header {
 	background-image: url("./images/omni-restaurant.jpg");
 	background-size: cover;
@@ -8,23 +10,31 @@ header {
 .search-box {
   margin: 0 auto;
   padding: 30px;
-  width: 700px;
+  // width: 42%;
+	width: 700px;
   background-color: white;
   opacity: .97;
   border-radius: 5px;
-  top: 120px;
+  top: 100px;
   position: relative;
   overflow: auto;
 }
 
+.search-box h1 {
+	font-family: 'Merienda One', cursive;
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+
 .input-bars {
-  width: 670px;
+  width: 100%;
   margin: 0 auto;
   /*outline: 1px solid orange;*/
 }
 
-.restaurant-input {
-  margin-right: 30px;
+.input-bars input {
+	margin: 0 2%;
 }
 
 input[type="text"] {
@@ -68,59 +78,35 @@ input[type="text"] {
 }
 
 
+// @media (max-width: 1100px) {
+//
+// }
 
-.page-view-item, .previous-button-visible, .next-button-visible {
-	float: left;
-	margin-right: 10px;
-}
-
-
-
-.previous-button-visible {
-	display: block;
-}
-
-.previous-button-invisible {
-	display: none;
-}
-
-.next-button-visible {
-	display: block;
-}
-
-.next-button-invisible {
-	display: none;
-}
-
-.page-view-visible {
-	display: block;
-}
-
-
-.page-view-invisible {
-	display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1100px) {
-  .searchResultItem {
-    margin: 1%;
-    width: 98%;
-  }
+@media (max-width: 850px) {
+	.searchResultItem {
+		margin: 1%;
+		width: 98%;
+	}
+	.search-box {
+		width: 80%;
+		top: 40px;
+	}
+	.input-bars input {
+		width: 100%;
+		margin: 0;
+	}
+	.filters {
+	  margin: 0 auto;
+	  display: block;
+	  width: 100%;
+	  padding-top: 20px;
+	}
+ .filter {
+	 float: none;
+	 text-align: center;
+	 margin: 0 auto 10px auto;
+ }
+ .filter-name {
+	 margin: 0;
+ }
 }
