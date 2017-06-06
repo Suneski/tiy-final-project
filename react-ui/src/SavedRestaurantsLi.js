@@ -122,7 +122,7 @@ class SavedRestaurantsLi extends React.Component {
 
           <div>
             <pre><p className="notes-section-text">
-              Notes: <br/>{displayedNote}
+              <span className="notes-title">Notes:</span> <br/>{displayedNote}
             </p></pre>
           </div>
 

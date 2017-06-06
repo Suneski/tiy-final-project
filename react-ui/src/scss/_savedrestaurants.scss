@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
+
 .savedResultItem, .randomResult {
   border: 1px solid #461613;
   border-radius: 10px;
@@ -10,6 +12,9 @@
 .savedResultItem {
   float: left;
   margin: 1%;
+  background-image: url("images/crumpled-paper.jpg");
+  font-family: 'Just Another Hand', cursive;
+  opacity: .8;
 }
 
 .randomResult {
@@ -108,14 +113,21 @@
   margin-top: 10px;
 }
 
+.notes-title {
+  font-size: 25px;
+}
+
 pre {
   white-space: pre-wrap;
 }
 
 .notes-section-text {
-  width: 100%;
+  width: 98%;
   height: 100px;
   margin-bottom: 10px;
+  // background-color: white;
+  font-size: 20px;
+  padding: 1%;
 }
 
 .note-input {
