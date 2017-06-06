@@ -343,7 +343,7 @@ pre {
   resize: none; }
 
 .body-container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto; }
 
 .error-message {
@@ -360,7 +360,7 @@ pre {
   border: 1px solid #461613;
   border-radius: 10px;
   margin: 1%;
-  width: 46%;
+  width: 47%;
   padding: 5px;
   overflow: auto;
   float: left;
@@ -422,13 +422,13 @@ pre {
     width: 95%;
     margin: 0 auto; } }
 
-@media (max-width: 1120px) {
+@media (max-width: 1260px) {
   .searchResultItem {
     margin: 5px auto;
     float: none;
     width: 600px; } }
 
-@media (max-width: 650px) {
+@media (max-width: 640px) {
   .searchResultItem {
     width: 95%; } }
 
