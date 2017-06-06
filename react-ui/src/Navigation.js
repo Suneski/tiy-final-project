@@ -18,7 +18,8 @@ class Navigation extends React.Component {
           <li><NavLink to="/savedrestaurants" className="navigationItems">Saved Restaurants</NavLink></li>
         </ul>
         <ul className='loginArea'>
-          <li className="loggedInAs">Logged in as {this.props.name}</li>
+          <li className="loggedInAsWide">Logged in as {this.props.name}</li>
+          <li className="loggedInAsNarrow">{this.props.name}</li>
           <li onClick={() => this.handleLogout()}><a className="navigationItems" href="/">(Logout)</a></li>
         </ul>
       </nav>

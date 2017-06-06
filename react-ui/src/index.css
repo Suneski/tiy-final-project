@@ -87,11 +87,14 @@ nav {
   font-family: 'Roboto Slab', serif;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
 
-.loggedInAs {
+.loggedInAsWide {
   text-decoration: none;
   color: white;
   font-family: 'Roboto Slab', serif;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+
+.loggedInAsNarrow {
+  display: none; }
 
 .navigationItems:hover {
   border-bottom: 2px solid white; }
@@ -104,13 +107,23 @@ nav {
   display: block;
   width: 1000px; }
 
-@media (max-width: 630px) {
+@media (max-width: 700px) {
   nav {
     font-size: 15px; }
     nav li {
       float: left;
       margin: 0 5px;
       padding-top: 6px; } }
+
+@media (max-width: 500px) {
+  .loggedInAsWide {
+    display: none; }
+  .loggedInAsNarrow {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto Slab', serif;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; } }
 
 #page-nav {
   background-color: #300A08;
@@ -445,7 +458,7 @@ pre {
     width: 20px;
     height: 20px;
     margin-top: 0;
-    margin-right: 0; }
+    margin-right: 5px; }
   .addButton:hover {
     width: 20px;
     height: 20px; }
