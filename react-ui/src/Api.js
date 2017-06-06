@@ -44,7 +44,7 @@ const Api = {
 
 
     }).catch((xhr, error, responseText) => {
-      store.dispatch({ type: 'SEARCH_FAILURE', message: 'Location not available.' });
+      store.dispatch({ type: actions.SEARCH_FAILURE, message: 'Location not available.' });
     });
   },
 
@@ -53,7 +53,7 @@ const Api = {
       url: '/api/savedrestaurants'
     })
     .done((data) => {
-      store.dispatch({ type: 'SAVED_RESTAURANTS_CB', value: data.restaurants });
+      store.dispatch({ type: actions.SAVED_RESTAURANTS_CB, value: data.restaurants });
     });
   },
 
@@ -119,11 +119,11 @@ const Api = {
       }
     })
     .done((data) => {
-      store.dispatch({ type: 'LOGIN' });
+      store.dispatch({ type: actions.LOGIN });
       history.push('/savedrestaurants');
     })
     .fail((xhr) => {
-      store.dispatch({ type: 'LOGIN_FAILURE', message: 'Unrecognized username or password.' });
+      store.dispatch({ type: actions.LOGIN_FAILURE, message: 'Unrecognized username or password.' });
     });
   },
 
@@ -133,7 +133,7 @@ const Api = {
       method: 'POST'
     })
     .done(() => {
-      store.dispatch({ type: 'LOGOUT' });
+      store.dispatch({ type: actions.LOGOUT });
     });
   },
 
@@ -170,11 +170,11 @@ const Api = {
       }
     })
     .done((data) => {
-      store.dispatch({ type: 'SIGNUP' });
+      store.dispatch({ type: actions.SIGNUP });
       history.push('/savedrestaurants');
     })
     .fail((xhr, error, responseText) => {
-      store.dispatch({ type: 'SIGNUP_FAILURE', message: xhr.responseText });
+      store.dispatch({ type: actions.SIGNUP_FAILURE, message: xhr.responseText });
     });
   }
 

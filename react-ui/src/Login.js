@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from './Api.js';
 import './index.css';
-import { store } from './reducers/Store.js';
+import { store, actions } from './reducers/Store.js';
 
 
 class Login extends Component {
@@ -20,11 +20,11 @@ class Login extends Component {
   }
 
   handleUsernameChange(evt) {
-    store.dispatch({ type: 'LOGIN_USERNAME_CHANGE', value: evt.target.value })
+    store.dispatch({ type: actions.LOGIN_USERNAME_CHANGE, value: evt.target.value })
   }
 
   handlePasswordChange(evt) {
-    store.dispatch({ type: 'LOGIN_PASSWORD_CHANGE', value: evt.target.value });
+    store.dispatch({ type: actions.LOGIN_PASSWORD_CHANGE, value: evt.target.value });
   }
 
   handleLoginClick() {

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import Api from './Api';
-import { store } from './reducers/Store.js';
+import { store, actions } from './reducers/Store.js';
 import './index.css';
 
 class SignUp extends Component {
 
   handleUsernameChange(evt) {
     // console.log(evt.target.value);
-    store.dispatch({ type: 'SIGNUP_USERNAME_CHANGE', value: evt.target.value });
+    store.dispatch({ type: actions.SIGNUP_USERNAME_CHANGE, value: evt.target.value });
   }
 
   handlePasswordChange(evt) {
     // console.log("this is what SHOULD be sent", evt.target.value);
-    store.dispatch({ type: 'SIGNUP_PASSWORD_CHANGE', value: evt.target.value });
+    store.dispatch({ type: actions.SIGNUP_PASSWORD_CHANGE, value: evt.target.value });
     // console.log(this.props)
   }
 
