@@ -154,7 +154,6 @@ class RestaurantQuery extends React.Component {
               <input
                 placeholder="restaurant/food"
                 type="text"
-                className="restaurant-input"
                 onKeyUp={(evt) => this.restaurantNameSubmit(evt)} />
               <input
                 placeholder="location"
