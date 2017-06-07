@@ -284,14 +284,19 @@ input[type="text"] {
   overflow: auto;
   height: 205px; }
 
-.savedResultItem {
-  height: 450px;
+.savedResultItem, #random {
   font-family: 'Coming Soon', cursive;
-  float: left;
   margin: 1%;
   background-image: url("images/crumpled-paper.jpg");
   background-size: contain;
   opacity: .8; }
+
+.savedResultItem {
+  height: 450px;
+  float: left; }
+
+#random {
+  margin: 10px 26.5%; }
 
 .randomResult {
   margin: 1% auto; }
@@ -393,10 +398,15 @@ pre {
 @media (max-width: 1260px) {
   .savedResultItem {
     float: none;
-    margin: 1% auto;
-    width: 70%; } }
+    margin: 1% auto; }
+  #random {
+    margin: 10px auto; } }
 
-@media (max-width: 800px) {
+@media (max-width: 1060px) {
+  .savedResultItem {
+    width: 55%; } }
+
+@media (max-width: 880px) {
   .savedResultItem {
     width: 70%; } }
 
@@ -406,6 +416,10 @@ pre {
   .savedRestaurantDetails {
     margin-left: 210px; } }
 
+@media (max-width: 675px) {
+  .welcome {
+    padding-top: 100px; } }
+
 @media (max-width: 600px) {
   .removeButton {
     width: 20px;
@@ -414,9 +428,7 @@ pre {
     margin-right: 5px; }
   .removeButton:hover {
     width: 20px;
-    height: 20px; }
-  .welcome {
-    padding-top: 100px; } }
+    height: 20px; } }
 
 @media (max-width: 530px) {
   .savedResultItem {
