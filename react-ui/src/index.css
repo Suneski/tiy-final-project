@@ -4,7 +4,7 @@
 */
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
 @import url("https://fonts.googleapis.com/css?family=Merienda+One");
-@import url("https://fonts.googleapis.com/css?family=Calligraffitti");
+@import url("https://fonts.googleapis.com/css?family=Coming+Soon");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -278,7 +278,15 @@ input[type="text"] {
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.5); }
 
+.savedRestaurantDetails {
+  margin-top: 7px;
+  margin-left: 210px;
+  overflow: auto;
+  height: 205px; }
+
 .savedResultItem {
+  height: 450px;
+  font-family: 'Coming Soon', cursive;
   float: left;
   margin: 1%;
   background-image: url("images/crumpled-paper.jpg");
@@ -351,7 +359,8 @@ input[type="text"] {
 .notes-section {
   width: 100%;
   clear: both;
-  margin-top: 10px; }
+  margin-top: 10px;
+  margin-bottom: 60px; }
 
 .notes-title {
   font-size: 25px; }
@@ -361,18 +370,70 @@ pre {
 
 .notes-section-text {
   width: 98%;
-  height: 100px;
+  min-height: 110px;
   margin-bottom: 10px;
-  font-family: 'Calligraffitti', cursive;
-  line-height: 1.2;
+  line-height: 1.4;
   font-size: 20px;
   padding: 1%; }
 
 .note-input {
+  margin-right: 1%;
   margin: 0 auto;
-  width: 99%;
-  height: 75px;
+  width: 98%;
+  height: 20px;
   resize: none; }
+
+.saved-restaurant-title {
+  font-size: 20px;
+  margin-top: 5px; }
+
+.saved-details {
+  font-size: 18px; }
+
+@media (max-width: 1260px) {
+  .savedResultItem {
+    float: none;
+    margin: 1% auto;
+    width: 70%; } }
+
+@media (max-width: 800px) {
+  .savedResultItem {
+    width: 70%; } }
+
+@media (max-width: 700px) {
+  .savedResultItem {
+    width: 80%; }
+  .savedRestaurantDetails {
+    margin-left: 210px; } }
+
+@media (max-width: 600px) {
+  .removeButton {
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    margin-right: 5px; }
+  .removeButton:hover {
+    width: 20px;
+    height: 20px; } }
+
+@media (max-width: 530px) {
+  .savedResultItem {
+    height: 400px;
+    font-size: 13px; }
+  .star-rating {
+    height: 15px; }
+  .yelp-logo {
+    height: 20px; }
+  .saved-restaurant-title {
+    font-size: 15px;
+    margin-top: 5px; }
+  .savedRestaurantDetails {
+    margin-left: 160px;
+    height: 170px; }
+  .saved-details {
+    font-size: 12px; }
+  .notes-section {
+    margin-top: 0px; } }
 
 .body-container {
   width: 90%;
@@ -517,4 +578,7 @@ pre {
   .sign-up, .login {
     margin-top: 40px;
     width: 80%;
-    padding: 10px; } }
+    padding: 10px; }
+    .sign-up input, .login input {
+      width: 80%;
+      margin: 0 auto; } }

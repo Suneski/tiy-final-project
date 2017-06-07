@@ -83,13 +83,14 @@ class SavedRestaurantsLi extends React.Component {
         <div className="image-result">
           <a href={this.props.url} target="_blank"><img src={this.props.imageUrl} alt={this.props.name}/></a>
         </div>
-        <div className="restaurantDetails">
-          <div
-            className="removeButton"
-            onClick={this.props.removeFavorite}>
-          </div>
+        <div className="savedRestaurantDetails">
+
           <div className="textResults">
-            <a href={this.props.url} target="_blank">{this.props.name}</a>
+            <div
+              className="removeButton"
+              onClick={this.props.removeFavorite}>
+            </div>
+            <a href={this.props.url} target="_blank" className='saved-restaurant-title'>{this.props.name}</a>
               <p>
                 <img
                   src={rating}
@@ -103,11 +104,12 @@ class SavedRestaurantsLi extends React.Component {
                   />
                 </a>
               </p>
-            <p>Price: {this.props.price}</p>
-            <p>{this.props.address1}</p>
-            <p>{this.props.address2}</p>
-            <p>{this.props.address3}</p>
-            <p>{this.props.city}, {this.props.state} {this.props.zipCode}</p>
+            <p className="saved-details">{this.props.address1}</p>
+            <p className="saved-details">{this.props.address2}</p>
+            <p className="saved-details">{this.props.address3}</p>
+            <p className="saved-details">{this.props.city}, {this.props.state} {this.props.zipCode}</p>
+            <br />
+            <p className="saved-details">Price: {this.props.price}</p>
 
           </div>
           <p className="directions"><a href={googleMapsLink} target="_blank">Get Directions</a></p>
@@ -126,29 +128,22 @@ class SavedRestaurantsLi extends React.Component {
             </p></pre>
           </div>
 
-          <div>
-            <textarea
-              className="note-input"
-              maxLength="500"
-              defaultValue={this.props.textAreaDefault}
-              placeholder="character limit 500"
-              onKeyUp={(evt) => this.notesSubmit(evt)}>
+        </div>
 
-            </textarea>
+        <div className="note-zone">
+          <input
+            className="note-input"
+            maxLength="200"
+            defaultValue={this.props.textAreaDefault}
+            placeholder="character limit 200"
+            onKeyUp={(evt) => this.notesSubmit(evt)} />
 
-            <button onClick={this.props.submitNote}>
-              submit
-            </button>
-          </div>
-
-
-
-
-
-
-
-
-
+          <button onClick={this.props.clearNote}>
+            clear note
+          </button>
+          <button onClick={this.props.submitNote}>
+            submit
+          </button>
         </div>
 
 

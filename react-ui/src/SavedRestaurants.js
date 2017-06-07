@@ -38,7 +38,18 @@ class SavedRestaurants extends React.Component {
   }
 
   submitNote(id) {
-    Api.submitNote(id, this.state.queries.notes);
+    let note = ''
+    if (this.state.queries.notes !== '') {
+      note = this.state.queries.notes;
+    }
+    else {
+      note = '(No saved note)'
+    }
+    Api.submitNote(id, note);
+  }
+
+  clearNote(id) {
+    Api.submitNote(id, '(No saved note)');
   }
 
   randomizer() {
@@ -100,6 +111,7 @@ class SavedRestaurants extends React.Component {
       textAreaDefault={this.state.queries.textAreaDefault}
       removeFavorite={() => this.removeFavorite(x._id)}
       submitNote={() => this.submitNote(x._id, x.notes)}
+      clearNote={() => this.clearNote(x._id, '(No saved note)')}
     />);
 
     let name = this.state.user.name;
