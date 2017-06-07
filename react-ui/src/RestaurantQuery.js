@@ -10,7 +10,7 @@ import { store, actions } from './reducers/Store.js';
 import './index.css';
 
 // import images
-import loader from './images/ajax_loader.gif';
+import loader from './images/loader.gif';
 import yelpLogo from './images/yelp/yelp.png';
 
 class RestaurantQuery extends React.Component {
@@ -227,7 +227,7 @@ class RestaurantQuery extends React.Component {
                 NEXT
             </button>
           </div>
-          
+
           <img
             src={loader}
             alt="page loader"

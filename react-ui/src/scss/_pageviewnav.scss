@@ -25,6 +25,14 @@
   padding-top: 2px;
 }
 
+.page-view-item {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 .previous-button-visible, .next-button-visible {
   display: block;
   padding: 10px 20px;
