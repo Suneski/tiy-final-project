@@ -273,8 +273,7 @@ input[type="text"] {
 
 @media (max-width: 640px) {
   #loader {
-    width: 90%;
-    text-align: center; } }
+    width: 50%; } }
 
 .savedResultItem, .randomResult {
   border: 1px solid #461613;
