@@ -230,7 +230,8 @@ class RestaurantQuery extends React.Component {
           <img
             src={loader}
             alt="page loader"
-            className={this.state.queries.loaderClass} />
+            className={this.state.queries.loaderClass}
+            id="loader" />
 
 
           <ol className={this.state.queries.resultsList}>

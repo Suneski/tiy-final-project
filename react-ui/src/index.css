@@ -271,6 +271,11 @@ input[type="text"] {
   .filter-name {
     margin: 0; } }
 
+@media (max-width: 640px) {
+  #loader {
+    width: 90%;
+    text-align: center; } }
+
 .savedResultItem, .randomResult {
   border: 1px solid #461613;
   border-radius: 10px;
